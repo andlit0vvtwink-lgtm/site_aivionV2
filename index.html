@@ -26,14 +26,22 @@
     }
 
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
+    html {
+      scroll-behavior:smooth;
+      width:100%; max-width:100%;
+      overflow-x:hidden; overflow-x:clip;
+    }
 
     body {
       background: var(--bg);
       color: var(--text);
       font-family: "Montserrat", "Space Grotesk", sans-serif;
-      overflow-x: hidden;
+      width:100%; max-width:100%; min-width:0;
+      overflow-x:hidden; overflow-x:clip;
+      overscroll-behavior-x:none;
+      -webkit-overflow-scrolling:touch;
     }
+    body > * { max-width:100%; }
 
     /* Grain overlay */
     body::after {
@@ -45,6 +53,7 @@
     /* ═══ HEADER ═══════════════════════════════════════════ */
     header {
       position:fixed; top:0; left:0; right:0; z-index:100;
+      width:100%; max-width:100%;
       height:var(--header-h);
       display:flex; align-items:center; justify-content:space-between;
       padding:0 clamp(20px,5vw,64px);
@@ -155,6 +164,8 @@
       height: 100vh !important;
       position: fixed !important;
       width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
     }
     /* ═══ OPENING SCREEN ════════════════════════════════════ */
     .opening-screen {
@@ -179,6 +190,7 @@
     .orbs {
       position:absolute; inset:0;
       pointer-events:none; z-index:2;
+      overflow:hidden; contain:paint;
     }
     .orb {
       position:absolute; border-radius:50%;
@@ -302,7 +314,7 @@
       position:absolute; inset:0; height:100svh;
       display:grid; place-items:center;
       padding:32px clamp(20px,6vw,80px) 52px;
-      opacity:0; will-change:opacity,transform,filter;
+      opacity:0; will-change:opacity,transform;
     }
     .hero-copy {
       width:min(100%,1140px); text-align:center;
@@ -314,12 +326,12 @@
     /* ═══ AMBIENT BG LAYER ══════════════════════════════════ */
     #ambientBg {
       position:fixed; inset:0; z-index:-1; pointer-events:none;
+      width:100%; max-width:100%; overflow:hidden; contain:paint;
       background:
         radial-gradient(ellipse 80vw 60vh at 10% 35%, rgba(232,146,10,0.055) 0%, transparent 60%),
         radial-gradient(ellipse 60vw 70vh at 92% 65%, rgba(180,80,5,0.04) 0%, transparent 55%),
         radial-gradient(ellipse 100vw 40vh at 50% 5%,  rgba(232,146,10,0.03) 0%, transparent 50%),
         radial-gradient(ellipse 70vw 50vh at 70% 90%,  rgba(232,120,10,0.045) 0%, transparent 55%);
-      animation: ambientShift 22s ease-in-out infinite alternate;
     }
     @keyframes ambientShift {
       0%   { opacity:.85; transform:scale(1) translate(0,0); }
@@ -482,7 +494,15 @@
     .services-grid {
       display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
     }
-    .service-card { display:flex; flex-direction:column; gap:18px; }
+    .service-card {
+      display:flex; flex-direction:column; gap:18px;
+      opacity:0; transform:translate3d(0,28px,0);
+      transition:opacity .48s cubic-bezier(0.22,1,0.36,1),
+                 transform .48s cubic-bezier(0.22,1,0.36,1),
+                 border-color .35s var(--ease), background .35s var(--ease),
+                 box-shadow .35s var(--ease);
+    }
+    .service-card.is-visible { opacity:1; transform:translate3d(0,0,0); }
     .service-list {
       list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:4px;
     }
@@ -512,13 +532,18 @@
       display:grid; grid-template-columns:56px 48px 1fr; gap:0 24px;
       align-items:start; padding:30px 18px 30px 0;
       border-bottom:1px solid rgba(255,255,255,0.05);
-      will-change:transform,opacity,filter;
+      opacity:0; transform:translate3d(0,28px,0);
+      will-change:transform,opacity;
       border-radius:16px;
       position:relative; z-index:1;
       transform-origin:50% 0%;
-      transition:background .35s var(--ease), padding .25s var(--ease), box-shadow .35s var(--ease);
+      transition:opacity .48s cubic-bezier(0.22,1,0.36,1),
+                 transform .48s cubic-bezier(0.22,1,0.36,1),
+                 background .35s var(--ease), padding .25s var(--ease),
+                 box-shadow .35s var(--ease);
       cursor:default;
     }
+    .process-step.is-visible { opacity:1; transform:translate3d(0,0,0); }
     .process-step::after {
       content:""; position:absolute; inset:0; border-radius:inherit;
       background:
@@ -776,6 +801,31 @@
       .hero-stats, .promise-grid, .services-grid { grid-template-columns:1fr; }
       .field-grid { grid-template-columns:1fr; }
     }
+    @media (max-width:767px) {
+      #introCanvas,
+      .dot-grid-canvas {
+        display:none !important;
+      }
+
+      .glass-card {
+        backdrop-filter:none;
+        box-shadow:0 18px 46px rgba(0,0,0,0.38);
+      }
+
+      .portfolio-stack {
+        display:grid;
+        gap:16px;
+      }
+
+      .portfolio-card {
+        position:relative !important;
+        top:auto !important;
+        transform:none !important;
+        filter:none !important;
+        opacity:1 !important;
+        margin-bottom:0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -852,13 +902,13 @@
 <div class="panels-section" id="hero">
   <div class="panels-sticky">
     <article class="hero-panel" id="hp0">
-      <p class="hero-copy">Раньше под 9/10 задач приходилось нанимать людей</p>
+      <p class="hero-copy">Раньше за любую задачу Вам приходилось платить</p>
     </article>
     <article class="hero-panel" id="hp1">
-      <p class="hero-copy">Но рынок поменялся. Теперь их может выполнять ИИ</p>
+      <p class="hero-copy">Но рынок поменялся. Современный ИИ уже закрывает рутинные задачи</p>
     </article>
     <article class="hero-panel" id="hp2">
-      <p class="hero-copy">И делать это за копейки</p>
+      <p class="hero-copy">И делает это за копейки</p>
     </article>
   </div>
 </div>
@@ -1128,18 +1178,23 @@ document.querySelectorAll('.fade-up').forEach(el => {
 /* ═══ MOBILE MENU ══════════════════════════════════════════ */
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
+let savedScrollY = 0;
 function toggleMenu(force) {
   const open = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('is-open');
+  if (open === mobileMenu.classList.contains('is-open')) return;
 
   mobileMenu.classList.toggle('is-open', open);
   menuToggle.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
 
-  // Добавляем или убираем замок на скролл
   if (open) {
+    savedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.top = `-${savedScrollY}px`;
     document.body.classList.add('lock-scroll');
   } else {
     document.body.classList.remove('lock-scroll');
+    document.body.style.top = '';
+    window.scrollTo(0, savedScrollY);
   }
 }
 menuToggle.addEventListener('click', () => toggleMenu());
@@ -1158,8 +1213,11 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   const CELL = 44;
   const SPX = 0.4;
   const SPY = 0.3;
+  const canAnimate = false;
   let offX = 0;
   let offY = 0;
+  let active = false;
+  let rafId = 0;
 
   function setSize() {
     const width = section.offsetWidth;
@@ -1172,13 +1230,24 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   }
 
   function tick() {
+    if(!active) return;
     offX = (offX + SPX) % CELL;
     offY = (offY + SPY) % CELL;
     patBase.setAttribute('x', String(offX));
     patBase.setAttribute('y', String(offY));
     patReveal.setAttribute('x', String(offX));
     patReveal.setAttribute('y', String(offY));
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function setActive(next) {
+    if(!canAnimate) return;
+    active = next;
+    if(active && !rafId) rafId = requestAnimationFrame(tick);
+    if(!active && rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
   }
 
   section.addEventListener('mousemove', event => {
@@ -1194,16 +1263,36 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
 
   setSize();
   window.addEventListener('resize', setSize);
-  requestAnimationFrame(tick);
+  if(canAnimate && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      setActive(entries.some(entry => entry.isIntersecting));
+    }, { threshold:0.01 });
+    observer.observe(section);
+  } else if(canAnimate) {
+    setActive(true);
+  }
 })();
 
 /* ═══ HERO PANELS ══════════════════════════════════════════ */
 (function() {
   const heroEl=document.getElementById('hero');
-  const panels=[document.getElementById('hp0'),document.getElementById('hp1'),document.getElementById('hp2')];
+  const panels=[document.getElementById('hp0'),document.getElementById('hp1'),document.getElementById('hp2')].filter(Boolean);
+  if(!heroEl || !panels.length) return;
   function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
   function easeInOutCubic(v){return v<0.5?4*v*v*v:1-Math.pow(-2*v+2,3)/2;}
+  const last = new WeakMap();
+  let ticking = false;
+  let active = true;
+  function setPanelStyle(panel,next){
+    const prev = last.get(panel) || {};
+    if(prev.opacity !== next.opacity) panel.style.opacity = next.opacity;
+    if(prev.transform !== next.transform) panel.style.transform = next.transform;
+    if(prev.zIndex !== next.zIndex) panel.style.zIndex = next.zIndex;
+    last.set(panel,next);
+  }
   function update() {
+    ticking = false;
+    if(!active) return;
     const rect=heroEl.getBoundingClientRect();
     const vh=Math.max(window.innerHeight,1);
     const scrollable=Math.max(rect.height-vh,1);
@@ -1218,21 +1307,39 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
       let opacity=Math.max(0,Math.min(1,vis));
       let ty=delta>=0?-22*exitP:16-16*enterP;
       const sc=delta>=0?1-exitP*0.03:0.982+enterP*0.018;
-      let bl=delta>=0?exitP*10:(1-enterP)*10;
-      if(i===0&&rect.top>0){opacity*=introP;ty+=(1-introP)*28;bl+=(1-introP)*12;}
-      panel.style.opacity=opacity.toFixed(3);
-      panel.style.transform=`translate3d(0,${ty.toFixed(2)}vh,0) scale(${sc.toFixed(4)})`;
-      panel.style.filter=`blur(${bl.toFixed(2)}px)`;
-      panel.style.zIndex=String(delta>=0?panels.length+1:panels.length-i);
+      if(i===0&&rect.top>0){opacity*=introP;ty+=(1-introP)*28;}
+      setPanelStyle(panel,{
+        opacity:opacity.toFixed(3),
+        transform:`translate3d(0,${ty.toFixed(2)}vh,0) scale(${sc.toFixed(4)})`,
+        zIndex:String(delta>=0?panels.length+1:panels.length-i)
+      });
     });
   }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update);
+  function schedule(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+  if('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      active = entries.some(entry => entry.isIntersecting);
+      if(active) schedule();
+    }, { threshold:0 });
+    observer.observe(heroEl);
+  }
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
   update();
 })();
 
 /* ═══ REVEAL ON SCROLL ════════════════════════════════════= */
 (function() {
+  const targets = document.querySelectorAll('.reveal, .service-card, .process-step');
+  if(!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
   const obs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
@@ -1241,7 +1348,7 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
       }
     });
   },{threshold:0.12,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach((el,i)=>{
+  targets.forEach((el,i)=>{
     el.style.transitionDelay = (i % 4 * 90)+'ms';
     obs.observe(el);
   });
@@ -1251,52 +1358,43 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
 (function() {
   const canvas=document.getElementById('introCanvas');
   if(!canvas)return;
+  if(window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)').matches) return;
   const ctx=canvas.getContext('2d',{alpha:true});
-  let W=0,H=0,pts=[],fields=[];
+  let W=0,H=0,pts=[],fields=[],running=false,rafId=0;
   function build(){
-  // Проверяем, мобильный ли это экран (меньше 768px)
-  const isMobile = window.innerWidth < 768;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = Math.max(320, Math.round(rect.width));
+    H = Math.max(320, Math.round(rect.height));
 
-  // На мобильных ставим dpr=1, на ПК оставляем до 1.5 для четкости
-  const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  const rect = canvas.parentElement.getBoundingClientRect();
-  W = Math.max(320, Math.round(rect.width));
-  H = Math.max(320, Math.round(rect.height));
+    const mg = Math.max(28, Math.min(W, H) * 0.08);
+    const n = Math.max(90, Math.round(W * H / 5200));
 
-  canvas.width = W * dpr;
-  canvas.height = H * dpr;
-  canvas.style.width = W + 'px';
-  canvas.style.height = H + 'px';
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pts = Array.from({length: n}, () => ({
+      x: mg + Math.random() * (W - mg * 2),
+      y: mg + Math.random() * (H - mg * 2),
+      seed: Math.random() * Math.PI * 2
+    }));
 
-  const mg = Math.max(28, Math.min(W, H) * 0.08);
-
-  // ОПТИМИЗАЦИЯ:
-  // Если мобильный — берем n=60, если ПК — n=140 (или расчет по формуле)
-  const n = isMobile ? 60 : Math.max(140, Math.round(W * H / 3200));
-
-  pts = Array.from({length: n}, () => ({
-    x: mg + Math.random() * (W - mg * 2),
-    y: mg + Math.random() * (H - mg * 2),
-    seed: Math.random() * Math.PI * 2
-  }));
-
-  // На мобильных уменьшаем количество силовых полей с 5 до 2
-  const fieldCount = isMobile ? 2 : 5;
-
-  fields = Array.from({length: fieldCount}, () => ({
-    x: mg + Math.random() * (W - mg * 2),
-    y: mg + Math.random() * (H - mg * 2),
-    vx: (Math.random() - 0.5) * 0.14,
-    vy: (Math.random() - 0.5) * 0.10,
-    radius: Math.max(160, Math.min(W, H) * (0.13 + Math.random() * 0.09)),
-    sx: 0.8 + Math.random() * 0.6,
-    sy: 0.8 + Math.random() * 0.6,
-    phase: Math.random() * Math.PI * 2
-  }));
+    fields = Array.from({length: 3}, () => ({
+      x: mg + Math.random() * (W - mg * 2),
+      y: mg + Math.random() * (H - mg * 2),
+      vx: (Math.random() - 0.5) * 0.10,
+      vy: (Math.random() - 0.5) * 0.08,
+      radius: Math.max(160, Math.min(W, H) * (0.13 + Math.random() * 0.09)),
+      sx: 0.8 + Math.random() * 0.6,
+      sy: 0.8 + Math.random() * 0.6,
+      phase: Math.random() * Math.PI * 2
+    }));
   }
   function frame(t){
+    if(!running) return;
     ctx.clearRect(0,0,W,H);
     const ts=t*0.001;
     fields.forEach(f=>{f.x+=f.vx;f.y+=f.vy;if(f.x<60||f.x>W-60)f.vx*=-1;if(f.y<60||f.y>H-60)f.vy*=-1;});
@@ -1319,20 +1417,39 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
       ctx.arc(pt.x,pt.y,0.7+g*0.5+iw*0.2,0,Math.PI*2);
       ctx.fill();
     });
-    requestAnimationFrame(frame);
+    rafId=requestAnimationFrame(frame);
   }
-  build(); requestAnimationFrame(frame);
+  function start(){
+    if(running) return;
+    running=true;
+    rafId=requestAnimationFrame(frame);
+  }
+  function stop(){
+    running=false;
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId=0;
+  }
+  build();
+  if('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.some(entry => entry.isIntersecting) ? start() : stop();
+    }, { threshold:0.01 });
+    observer.observe(canvas.parentElement || canvas);
+  } else {
+    start();
+  }
   window.addEventListener('resize',build);
 })();
 
 /* ═══ DOT GRID CANVAS (AMBER) ══════════════════════════════ */
 function createDotGrid(canvas) {
   if(!canvas)return;
+  if(window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)').matches) return;
   const ctx=canvas.getContext('2d',{alpha:true});
   if(!ctx)return;
-  let W=0,H=0,pts=[],fields=[];
+  let W=0,H=0,pts=[],fields=[],running=false,rafId=0;
   function build(){
-    const dpr=Math.min(window.devicePixelRatio||1,1.5);
+    const dpr=Math.min(window.devicePixelRatio||1,1.25);
     const parent=canvas.parentElement;
     const bounds=parent?parent.getBoundingClientRect():{width:window.innerWidth,height:window.innerHeight};
     W=Math.max(320,Math.round(bounds.width));
@@ -1341,11 +1458,12 @@ function createDotGrid(canvas) {
     canvas.style.width=W+'px'; canvas.style.height=H+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
     const mg=Math.max(28,Math.min(W,H)*0.08);
-    const n=Math.max(180,Math.round(W*H/2400));
+    const n=Math.max(110,Math.round(W*H/4800));
     pts=Array.from({length:n},()=>({x:mg+Math.random()*(W-mg*2),y:mg+Math.random()*(H-mg*2),seed:Math.random()*Math.PI*2,offset:Math.random()*1000,weight:0.7+Math.random()*0.6}));
-    fields=Array.from({length:W<820?4:6},()=>({x:mg+Math.random()*(W-mg*2),y:mg+Math.random()*(H-mg*2),vx:(Math.random()-0.5)*0.16,vy:(Math.random()-0.5)*0.12,radius:Math.max(170,Math.min(W,H)*(0.14+Math.random()*0.08)),stretchX:0.78+Math.random()*0.7,stretchY:0.78+Math.random()*0.7,phase:Math.random()*Math.PI*2}));
+    fields=Array.from({length:W<820?3:4},()=>({x:mg+Math.random()*(W-mg*2),y:mg+Math.random()*(H-mg*2),vx:(Math.random()-0.5)*0.11,vy:(Math.random()-0.5)*0.09,radius:Math.max(170,Math.min(W,H)*(0.14+Math.random()*0.08)),stretchX:0.78+Math.random()*0.7,stretchY:0.78+Math.random()*0.7,phase:Math.random()*Math.PI*2}));
   }
   function animate(time){
+    if(!running) return;
     ctx.clearRect(0,0,W,H);
     const ts=time*0.001;
     fields.forEach(f=>{
@@ -1378,55 +1496,33 @@ function createDotGrid(canvas) {
       ctx.arc(pt.x,pt.y,r,0,Math.PI*2);
       ctx.fill();
     });
-    requestAnimationFrame(animate);
+    rafId=requestAnimationFrame(animate);
   }
-  build(); requestAnimationFrame(animate);
+  function start(){
+    if(running) return;
+    running=true;
+    rafId=requestAnimationFrame(animate);
+  }
+  function stop(){
+    running=false;
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId=0;
+  }
+  build();
+  if('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.some(entry => entry.isIntersecting) ? start() : stop();
+    }, { threshold:0.01, rootMargin:'120px 0px' });
+    observer.observe(canvas.parentElement || canvas);
+  } else {
+    start();
+  }
   window.addEventListener('resize',build);
 }
 createDotGrid(document.getElementById('sharedDotGrid'));
 createDotGrid(document.getElementById('servicesDotGrid'));
 
-/* ═══ SERVICES + PROCESS SCROLL ANIMATION ══════════════════ */
-(function() {
-  const servicesSection=document.getElementById('services');
-  const servicesCards=servicesSection?servicesSection.querySelectorAll('.service-card'):[];
-  const processSteps=document.querySelectorAll('.process-step');
-  function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
-  function ease(v){return v<0.5?4*v*v*v:1-Math.pow(-2*v+2,3)/2;}
-  let ticking=false;
-  function update(){
-    if(servicesSection){
-      const rect=servicesSection.getBoundingClientRect(),vh=Math.max(window.innerHeight,1);
-      const sp=clamp((vh-rect.top)/(vh+rect.height*0.28),0,1);
-      servicesCards.forEach((card,i)=>{
-        const lp=clamp((sp-i*0.12)/0.56,0,1),e=ease(lp);
-        const ox=(i%2===0?-1:1)*(1-e)*54;
-        card.style.opacity=(0.18+e*0.82).toFixed(3);
-        card.style.transform=`perspective(1400px) translate3d(${ox.toFixed(2)}px,${((1-e)*54).toFixed(2)}px,0) scale(${(0.94+e*0.06).toFixed(4)}) rotate(${((i%2===0?-1:1)*(1-e)*2.2).toFixed(2)}deg)`;
-        card.style.filter=`blur(${((1-e)*6).toFixed(2)}px)`;
-      });
-    }
-    if(processSteps.length){
-      const processSection=document.getElementById('process');
-      const rect=processSection.getBoundingClientRect(),vh=Math.max(window.innerHeight,1);
-      const bp=clamp((vh-rect.top)/(vh+rect.height*0.12),0,1);
-      processSteps.forEach((step,i)=>{
-        const lp=clamp((bp-i*0.11)/0.34,0,1),e=ease(lp);
-        const direction=i%2===0?-1:1;
-        const shiftX=(1-e)*direction*56;
-        const shiftY=(1-e)*62;
-        const rotateY=(1-e)*direction*12;
-        const rotateX=(1-e)*16;
-        step.style.opacity=(0.14+e*0.86).toFixed(3);
-        step.style.transform=`perspective(1400px) translate3d(${shiftX.toFixed(2)}px,${shiftY.toFixed(2)}px,0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${(0.94+e*0.06).toFixed(4)})`;
-        step.style.filter=`blur(${((1-e)*10).toFixed(2)}px) saturate(${(0.72+e*0.28).toFixed(3)})`;
-      });
-    }
-  }
-  window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;update();});}},{passive:true});
-  window.addEventListener('resize',update);
-  update();
-})();
+/* Services and process cards reveal through the shared IntersectionObserver above. */
 
 /* ═══ PORTFOLIO STACKING CARDS (ADAPTIVE VERSION) ═════════════════════════════ */
 (function() {
@@ -1434,62 +1530,21 @@ createDotGrid(document.getElementById('servicesDotGrid'));
   if(!stack) return;
   const cards = Array.from(stack.querySelectorAll('.portfolio-card'));
 
-  // Адаптивные константы
-  const isMobile = window.innerWidth < 768;
-  const HEADER = isMobile ? 60 : 80; // Меньший отступ для мобильных
-  const GAP = isMobile ? 12 : 18;    // Плотнее прилегание карточек
-
-  cards.forEach((card, i) => {
-    card.style.top = (HEADER + i * GAP) + 'px';
-    card.style.zIndex = i + 1;
-  });
-
-  function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
-
-  function update() {
+  function layout() {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const header = isMobile ? 0 : 80;
+    const gap = 18;
     cards.forEach((card, i) => {
-      const rect = card.getBoundingClientRect();
-      const stickyTop = HEADER + i * GAP;
-      const isStuck = rect.top - stickyTop <= 2;
-
-      let burial = 0;
-      if (isStuck) {
-        for (let j = i + 1; j < cards.length; j++) {
-          const jRect = cards[j].getBoundingClientRect();
-          const jSticky = HEADER + j * GAP;
-          if (jRect.top - jSticky <= 5) burial++;
-        }
-      }
-
-      const maxBurial = cards.length - 1;
-      const burialRatio = clamp(burial / (maxBurial * 0.7), 0, 1);
-
-      // Эффект масштаба оставляем, но делаем его чуть мягче
-      const scale = 1 - burialRatio * (isMobile ? 0.03 : 0.04);
-      card.style.transform = `scale(${scale.toFixed(4)})`;
-
-      // ГЛАВНАЯ ОПТИМИЗАЦИЯ:
-      if (isMobile) {
-        // На мобильных плавно меняем прозрачность (это быстро)
-        card.style.opacity = (1 - burialRatio * 0.4).toFixed(3);
-        card.style.filter = 'none';
-      } else {
-        // На ПК оставляем красивое затемнение (brightness)
-        const brightness = 1 - burialRatio * 0.35;
-        card.style.filter = `brightness(${brightness.toFixed(3)})`;
-        card.style.opacity = '1';
-      }
+      card.style.top = isMobile ? '' : (header + i * gap) + 'px';
+      card.style.zIndex = String(i + 1);
+      card.style.transform = '';
+      card.style.filter = '';
+      card.style.opacity = '';
     });
   }
 
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if(!ticking){
-      ticking=true;
-      requestAnimationFrame(()=>{ticking=false; update();});
-    }
-  },{passive:true});
-  update();
+  layout();
+  window.addEventListener('resize', layout);
 })();
 
 </script>
