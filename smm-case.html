@@ -516,6 +516,11 @@
       menuToggle.classList.toggle('is-open', isOpen);
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
+
+      // Снимаем класс lock-scroll, если меню закрывается
+      if (!isOpen) {
+        document.body.classList.remove('lock-scroll');
+      }
     }
 
     menuToggle?.addEventListener('click', () => {

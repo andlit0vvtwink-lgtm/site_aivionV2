@@ -485,6 +485,8 @@
       menuToggle?.classList.remove('is-open');
       menuToggle?.setAttribute('aria-expanded', 'false');
       mobileMenu?.classList.remove('open');
+      // Снимаем класс, который вызывает прыжок и заморозку
+      document.body.classList.remove('lock-scroll');
     }
 
     menuToggle?.addEventListener('click', () => {
