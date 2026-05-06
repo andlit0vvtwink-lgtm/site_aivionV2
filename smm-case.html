@@ -204,7 +204,7 @@
     .reveal.visible{opacity:1;transform:translateY(0)}
 
     @media (min-width:901px){
-      .how-system-layout{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:42px;align-items:start}
+      .how-system-layout{;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:42px;align-items:start}
       .how-system-layout .section-heading{margin:0 0 18px}
       .how-system-layout .roadmap-vertical{margin-top:0}
     }
@@ -354,7 +354,7 @@
     <div class="section-heading reveal" id="solution"><h2>Решение</h2></div>
      <p class="reveal">Цель была в том, чтобы <strong>автоматизировать полный цикл создания контента</strong> и обеспечить единый стандарт качества <strong>без расширения штата.</strong></p>
     <p class="reveal">Для этого мы разработали веб-приложение на базе Google Gemini с мультиагентной архитектурой, <strong>автоматизирующее полный цикл создания контента</strong> - от идеи до готового поста, с одновременной <strong>стандартизацией</strong> и <strong>повышением качества</strong> за счёт эталонного Tone of Voice.</p>
-    <p class="reveal">Система построена как конвейер из специализированных AI-агентов, где каждый из них отвечает за отдельный этап и передаёт результат следующему.</p>
+    <p class="reveal">Система построена как конвейер из специализированных AI-агентов, где каждый из них отвечает за отдельный этап и передаёт результат следующему:</p>
 
     <div class="architecture-system reveal" aria-label="Диаграмма мультиагентной архитектуры">
       <div class="architecture-agents">
@@ -372,8 +372,7 @@
     <section class="how-system-layout" aria-label="Как работает система">
       <div class="roadmap-copy">
         <div class="section-heading reveal" id="example"><h2>Как работает система</h2></div>
-        <p class="reveal visible">Менеджер открывает систему и вводит параметры: <br>Целевая аудитория — начинающие предприниматели, <br>Цель — заинтересовать в покупке его Telegram-бота, <br>Тезисы — ["вы теряете до 40% прибыли на логистике", "автоматизация через Telegram упрощает управление заказами", ...] </p>
-      </div>
+     </div>
 
       <div class="roadmap-vertical reveal" aria-label="Roadmap создания поста">
         <article class="roadmap-item left">
