@@ -260,31 +260,24 @@
     <div class="solution-grid reveal">
       <article class="solution-card">
         <h3>Гибкое управление проектами</h3>
-        <p>Трекинг прогресса строится на Milestones, приоритеты подсвечиваются визуально, а просроченные дедлайны автоматически выделяются для быстрого реагирования.</p>
+        <p>Milestones помогают отслеживать прогресс проекта, важные задачи выделяются визуально, а просроченные дедлайны сразу заметны для быстрой реакции.</p>
       </article>
+
       <article class="solution-card">
         <h3>Автоматические бэкапы</h3>
-        <p>APScheduler запускает ночные резервные копии активных проектов по расписанию, а также поддерживает ручные снапшоты перед критичными изменениями.</p>
+        <p>Система автоматически создаёт ночные резервные копии проектов по расписанию и позволяет вручную делать снапшоты перед важными изменениями.</p>
       </article>
+
       <article class="solution-card">
         <h3>Проверка целостности</h3>
-        <p>Каждый ZIP-архив сопровождается `metadata.json` и `контрольную сумму SHA-256`, что позволяет быстро проверить корректность хранения и исключить повреждения данных.</p>
+        <p>Каждый ZIP-архив получает <code>metadata.json</code> и SHA-256 хеш, чтобы можно было быстро проверить целостность файлов и избежать повреждения данных.</p>
       </article>
+      
       <article class="solution-card">
         <h3>RBAC и аудит действий</h3>
-        <p>Ролевая модель ограничивает доступ по зонам ответственности, а Audit Log фиксирует входы, скачивания и административные операции с IP и User-Agent.</p>
+        <p>Ролевая система ограничивает доступ пользователей, а журнал действий сохраняет входы, скачивания и административные операции.</p>
       </article>
     </div>
-
-    <div class="architecture-system reveal" aria-label="Архитектура PBMS">
-      <div class="architecture-agents">
-        <article class="agent-node"><h4>Project Hub</h4><p>Централизует проекты, этапы и задачи: от старта до архивирования, включая приоритеты, дедлайны и связанный контекст команды.</p></article>
-        <article class="agent-node"><h4>Backup Engine</h4><p>Формирует nightly-бэкапы и ручные snapshot-архивы, управляет расписанием и обеспечивает единый поток резервирования для всех активных проектов.</p></article>
-        <article class="agent-node"><h4>Integrity Guard</h4><p>Вычисляет SHA-256, создаёт `metadata.json` и валидирует архивы до скачивания и восстановления, чтобы минимизировать риск битых копий.</p></article>
-        <article class="agent-node"><h4>Access &amp; Audit Layer</h4><p>Контролирует RBAC-права и ведёт журнал действий для расследования инцидентов и проверки соблюдения регламентов.</p></article>
-      </div>
-    </div>
-    <p class="reveal visible">Такой контур дал компании <span class="accent-yellow">одновременно прозрачность процессов и контроль за сохранностью данных</span>.</p>
 
     <div class="block-sep"></div>
 
@@ -293,28 +286,18 @@
         <div class="section-heading reveal" id="example"><h2>Как работает система</h2></div>
         <p class="reveal visible">После внедрения PBMS команда работает в едином цикле: постановка и отслеживание задач, автоматический ночной бэкап, проверка целостности и контроль действий пользователей через Audit Log.</p>
       </div>
-      <div class="roadmap-vertical reveal" aria-label="Roadmap работы PBMS">
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Постановка и декомпозиция задач</h4><p>Проект создаётся в едином реестре: фиксируются сроки, Milestones, приоритеты и ответственные, чтобы исключить разрывы в коммуникации.</p></div>
-          <span class="roadmap-marker"></span>
-        </article>
-        <article class="roadmap-item right">
-          <span class="roadmap-marker"></span>
-          <div class="roadmap-content"><h4>Плановые ночные бэкапы</h4><p>BackgroundScheduler по Cron запускает резервирование активных проектов без ручного вмешательства администраторов.</p></div>
-        </article>
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Проверка целостности архивов</h4><p>Для каждого архива формируются `metadata.json` и `SHA-256 checksum`, чтобы контролировать корректность хранения и передачи копий.</p></div>
-          <span class="roadmap-marker"></span>
-        </article>
-        <article class="roadmap-item right">
-          <span class="roadmap-marker"></span>
-          <div class="roadmap-content"><h4>Ролевой доступ и аудит событий</h4><p>RBAC ограничивает операции по ролям, а журнал аудита фиксирует критичные действия пользователей с техническими метаданными.</p></div>
-        </article>
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Быстрое восстановление и контроль</h4><p>Команда может восстановить проект из последней валидной копии и быстро провести внутреннюю проверку по истории действий и статусам.</p></div>
-          <span class="roadmap-marker"></span>
-        </article>
+
+      <div class="architecture-system reveal" aria-label="Архитектура PBMS">
+        <div class="architecture-agents">
+          <article class="agent-node"><h4>Project Hub</h4><p>Собирает проекты, этапы и задачи в одном месте: помогает отслеживать приоритеты, дедлайны и всю важную информацию по работе команды.</p></article>
+          <article class="agent-node"><h4>Backup Engine</h4><p>Создаёт ночные бэкапы и ручные snapshot-копии, управляет расписанием резервирования и сохраняет данные всех активных проектов.</p></article>
+          <article class="agent-node"><h4>Integrity Guard</h4><p>Проверяет архивы через SHA-256, создаёт `metadata.json` и валидирует файлы перед скачиванием и восстановлением, снижая риск повреждённых копий.</p></article>
+          <article class="agent-node"><h4>Access &amp; Audit Layer</h4><p>Управляет правами доступа по ролям и сохраняет историю действий для контроля безопасности и проверки работы системы..</p></article>
+        </div>
       </div>
+    <p class="reveal visible">Такой контур дал компании <span class="accent-yellow">одновременно прозрачность процессов и контроль за сохранностью данных</span>.</p>
+
+      
     </section>
 
     <div class="block-sep"></div>
