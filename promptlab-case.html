@@ -121,7 +121,7 @@
     .cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 22px var(--accent-glow)}
     .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
-    @media (min-width:901px){.how-system-layout{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:42px;align-items:start}.how-system-layout .section-heading{margin:0 0 18px}.how-system-layout .roadmap-vertical{margin-top:0}}
+    @media (min-width:901px){.how-system-layout{;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:42px;align-items:start}.how-system-layout .section-heading{margin:0 0 18px}.how-system-layout .roadmap-vertical{margin-top:0}}
     @media (max-width:900px){body::after{opacity:.02}.page-bg{background:#020202}.grid-base,.grid-reveal{display:none}.bg-orb{animation:none;filter:blur(70px)}.bg-orb--gold,.bg-orb--amber,.bg-orb--sun{opacity:.25}.light-source--top-right{right:-26%;top:-24%;width:76%;height:76%;opacity:.72}.light-source--hero-focus{left:-24%;bottom:-24%;width:82%;height:82%;filter:blur(86px);opacity:.74}.hero-results,.solution-grid,.architecture-agents{grid-template-columns:1fr}.header-nav{display:none}.nav-toggle{display:flex}.mobile-menu{display:flex}.case-hero{padding-top:145px}.roadmap-vertical{gap:22px}.roadmap-vertical::before{left:18px;transform:none}.roadmap-item{grid-template-columns:36px 1fr;min-height:auto;align-items:flex-start;gap:14px}.roadmap-content{max-width:none}.roadmap-item.left .roadmap-content,.roadmap-item.right .roadmap-content{grid-column:2;justify-self:start;text-align:left;padding:0}.roadmap-marker{grid-column:1;justify-self:center;width:24px;height:24px;box-shadow:0 0 0 5px rgba(var(--accent-rgb),.08);margin-top:4px}}
     /* Этот класс блокирует скролл страницы */
     .lock-scroll {
@@ -195,8 +195,8 @@
 
   <div class="case-hero warm-section">
     <div class="hero-top-actions"><a class="cases-btn" href="index.html#portfolio">← Другие кейсы</a></div>
-    <h1 class="case-title reveal">Среда для тестирования <br> промптов <span class="hi">локальных LLM</span></h1>
-    <p class="case-lead reveal">R&amp;D-отдел маркетингового агентства уже использовал локальные модели в копирайтинге и аналитике, но работа через терминал занимала слишком много ручных шагов. Команда теряла скорость, а нетехнические специалисты постоянно зависели от разработчиков.</p>
+    <h1 class="case-title reveal">Среда для работы <br> с <span class="hi">локальной LLM</span></h1>
+    <p class="case-lead reveal">К нам обратился R&D-отдел маркетингового агентства (NDA), где AI уже использовался в копирайтинге и аналитике. Но работа с локальной моделью через терминал занимала слишком много ручных шагов, из-за чего команда теряла скорость и зависела от технических специалистов</p>
   </div>
 
   <div class="section-divider"></div>
@@ -205,7 +205,7 @@
     <div class="section-heading reveal" id="problem"><h2>Проблема</h2></div>
     <p class="reveal">Сотрудники вручную запускали один и тот же промпт по 5-10 раз, чтобы проверить стабильность ответа модели. Это отнимало время и мешало быстро сравнивать варианты генерации в рамках одной гипотезы.</p>
     <p class="reveal">Изменение температуры, seed и других параметров требовало работы через конфиги и терминал. Для копирайтеров и аналитиков такой формат был неудобен, поэтому процесс постоянно требовал вовлечения разработчиков.</p>
-    <p class="reveal"><span class="problem-accent">Вывод:</span> переход на локальные модели повысил безопасность, но усложнил ежедневную работу команды. Нужен был понятный интерфейс, который автоматизирует A/B-тестирование промптов без компромиссов по приватности.</p>
+    <p class="reveal"><span class="problem-accent">Вывод:</span> Переход на локальные модели повысил безопасность, но усложнил ежедневную работу команды. Нужен был понятный интерфейс, который автоматизирует A/B-тестирование промптов без компромиссов по приватности.</p>
 
     <div class="block-sep"></div>
 
