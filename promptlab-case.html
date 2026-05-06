@@ -232,16 +232,6 @@
       </article>
     </div>
 
-    <div class="architecture-system reveal" aria-label="Архитектура PromptLab">
-      <div class="architecture-agents">
-        <article class="agent-node"><h4>Batch Runner</h4><p>Ставит серию генераций в очередь и позволяет запускать сравнение вариантов одним действием без ручных повторов.</p></article>
-        <article class="agent-node"><h4>Model Controls</h4><p>Управляет параметрами модели через UI и помогает быстро переключаться между сценариями тестирования.</p></article>
-        <article class="agent-node"><h4>Seed Manager</h4><p>Даёт воспроизводимость, когда важна повторяемость результата, и вариативность, когда команда ищет новые формулировки.</p></article>
-        <article class="agent-node"><h4>Local Delivery</h4><p>Разворачивает весь контур локально и сохраняет приватность данных без зависимости от внешних облачных платформ.</p></article>
-      </div>
-    </div>
-    <p class="reveal visible">В итоге команда получила <span class="accent-yellow">скоростную инженерную среду для локальных LLM</span>, а не набор ручных терминальных операций.</p>
-
     <div class="block-sep"></div>
 
     <section class="how-system-layout" aria-label="Как работает система">
@@ -249,28 +239,33 @@
         <div class="section-heading reveal" id="example"><h2>Как работает система</h2></div>
         <p class="reveal visible">Пользователь выбирает модель, вводит промпт и задаёт параметры теста в веб-интерфейсе. Система отправляет задания в очередь и по мере готовности возвращает результаты потоково, без зависания страницы.</p>
       </div>
-      <div class="roadmap-vertical reveal" aria-label="Roadmap PromptLab">
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Запуск серии генераций</h4><p>Пользователь задаёт количество прогонов и запускает серию одним действием, чтобы сразу получить массив ответов для сравнения.</p></div>
-          <span class="roadmap-marker"></span>
+
+          <div class="architecture-system reveal" aria-label="Архитектура PromptLab">
+      <div class="architecture-agents">
+        <article class="agent-node">
+          <h4>Запуск серии генераций</h4>
+          <p>Пользователь задаёт количество прогонов и запускает серию одним действием, чтобы сразу получить массив ответов для сравнения.</p>
         </article>
-        <article class="roadmap-item right">
-          <span class="roadmap-marker"></span>
-          <div class="roadmap-content"><h4>Настройка параметров модели</h4><p>Temperature, Top-P, Top-K и Max Tokens регулируются в панели и применяются к каждой генерации в серии.</p></div>
+
+        <article class="agent-node">
+          <h4>Настройка параметров модели</h4>
+          <p>Temperature, Top-P, Top-K и Max Tokens регулируются в панели и применяются к каждой генерации в серии.</p>
         </article>
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Управление seed-сценарием</h4><p>Для воспроизводимости фиксируется seed, а для вариативности включается случайный режим — оба сценария доступны в одном месте.</p></div>
-          <span class="roadmap-marker"></span>
+        
+        <article class="agent-node">
+          <h4>Управление seed-сценарием</h4>
+          <p>Для воспроизводимости фиксируется seed, а для вариативности включается случайный режим — оба сценария доступны в одном месте.</p>
         </article>
-        <article class="roadmap-item right">
-          <span class="roadmap-marker"></span>
-          <div class="roadmap-content"><h4>Потоковая выдача результатов</h4><p>Ответы появляются по мере готовности через SSE, поэтому команда видит промежуточные результаты без ожидания завершения всей серии.</p></div>
-        </article>
-        <article class="roadmap-item left">
-          <div class="roadmap-content"><h4>Локальное развёртывание</h4><p>Приложение поднимается в локальной сети без внешних сервисов и сохраняет приватность данных клиентов.</p></div>
-          <span class="roadmap-marker"></span>
+        
+        <article class="agent-node">
+          <h4>Потоковая выдача результатов</h4>
+          <p>Ответы появляются по мере готовности через SSE, поэтому команда видит промежуточные результаты без ожидания завершения всей серии.</p>
         </article>
       </div>
+    </div>
+    <p class="reveal visible">В итоге команда получила <span class="accent-yellow">скоростную инженерную среду для локальных LLM</span>, а не набор ручных терминальных операций.</p>
+
+      
     </section>
 
     <div class="block-sep"></div>
