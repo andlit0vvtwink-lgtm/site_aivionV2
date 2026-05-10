@@ -157,9 +157,19 @@
     .problem-accent{color:var(--accent);font-weight:700}
 
     .solution-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
-    .solution-card{padding:26px 28px;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:rgba(255,255,255,.02)}
-    .solution-card h3{font-size:20px;line-height:1.25;margin-bottom:10px;color:var(--accent)}
-    .solution-card p{margin-bottom:0;color:var(--text)}
+    .solution-card{position:relative;padding:20px;border-radius:14px;background:radial-gradient(130% 120% at 0% 0%,rgba(10,25,54,.48),rgba(4,8,18,.9) 64%);border:1px solid rgba(54,130,255,.34);box-shadow:inset 0 1px 0 rgba(145,194,255,.2),0 16px 40px rgba(0,0,0,.4)}
+    .solution-card--transcript{background:radial-gradient(130% 120% at 0% 0%,rgba(40,24,82,.45),rgba(10,8,24,.9) 64%);border-color:rgba(149,104,255,.36)}
+    .solution-card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+    .solution-card-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#9fd0ff;background:linear-gradient(135deg,rgba(30,124,255,.38),rgba(16,72,171,.25));border:1px solid rgba(120,180,255,.28)}
+    .solution-card--transcript .solution-card-icon{color:#ccb1ff;background:linear-gradient(135deg,rgba(124,76,255,.4),rgba(88,54,190,.24));border-color:rgba(174,144,255,.28)}
+    .solution-card h3{font-size:34px;line-height:1.2;margin-bottom:2px;color:#e9eefc}
+    .solution-card-sub{margin-bottom:0;color:rgba(225,234,255,.75);font-size:15px;line-height:1.55}
+    .solution-code{margin:0;padding:18px;border-radius:10px;border:1px solid rgba(99,153,255,.2);background:rgba(4,8,18,.75);font-family:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace;font-size:15px;line-height:1.8;color:#c8d8ff;white-space:pre-wrap}
+    .solution-card--transcript .solution-code{border-color:rgba(164,126,255,.22);background:rgba(10,8,24,.75);color:#ded0ff}
+    .solution-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .solution-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;font-size:13px;line-height:1;color:#89c7ff;border:1px solid rgba(100,162,255,.22);background:rgba(11,26,54,.58)}
+    .solution-card--transcript .solution-chip{color:#c5afff;border-color:rgba(160,128,255,.25);background:rgba(28,18,58,.52)}
+    .solution-chip-dot{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(255,255,255,.08)}
 
     .architecture-system{position:relative;max-width:100%;margin:28px auto 28px}
     .architecture-road{display:none}
@@ -211,6 +221,7 @@
       .light-source--top-right{right:-26%;top:-24%;width:76%;height:76%;opacity:.72}
       .light-source--hero-focus{left:-24%;bottom:-24%;width:82%;height:82%;filter:blur(86px);opacity:.74}
       .hero-results,.solution-grid,.architecture-agents{grid-template-columns:1fr}
+      .solution-card h3{font-size:30px}
       .header-nav{display:none}
       .nav-toggle{display:flex}
       .mobile-menu{display:flex}
@@ -346,12 +357,54 @@
 
     <div class="solution-grid reveal">
       <article class="solution-card">
-        <h3>Address Only</h3>
-        <p>Быстрый режим для извлечения только критичных данных: адрес, детали заказа и комментарии к доставке. Перед отправкой в CRM всё валидируется схемой, чтобы в систему попадали только корректные и унифицированные поля.</p>
+        <div class="solution-card-head">
+          <div class="solution-card-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3V7M12 17V21M3 12H7M17 12H21M6.3 6.3L9.1 9.1M14.9 14.9L17.7 17.7M17.7 6.3L14.9 9.1M9.1 14.9L6.3 17.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="3.7" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Address Only</h3>
+            <p class="solution-card-sub">Извлечение только критичных данных заказа.</p>
+          </div>
+        </div>
+        <pre class="solution-code">{
+  "город": "Москва",
+  "улица": "Ленинградский проспект",
+  "дом": "37",
+  "подъезд": "2",
+  "этаж": "11",
+  "комментарий": "домофон не работает"
+}</pre>
+        <div class="solution-chips">
+          <span class="solution-chip"><span class="solution-chip-dot"></span>JSON validated</span>
+          <span class="solution-chip"><span class="solution-chip-dot"></span>CRM ready</span>
+          <span class="solution-chip"><span class="solution-chip-dot"></span>Fast mode</span>
+        </div>
       </article>
-      <article class="solution-card">
-        <h3>Full Transcript</h3>
-        <p>Расширенный режим для полной расшифровки разговора с ролями «Клиент / Оператор» и таймкодами. Он нужен для QA, обучения операторов и разбора спорных кейсов по доставке.</p>
+      <article class="solution-card solution-card--transcript">
+        <div class="solution-card-head">
+          <div class="solution-card-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12H7M17 12H20M8.8 9.5V14.5M12 7V17M15.2 9V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <rect x="2.5" y="5" width="19" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Full Transcript</h3>
+            <p class="solution-card-sub">Полная расшифровка звонка с ролями и таймкодами.</p>
+          </div>
+        </div>
+        <pre class="solution-code">[00:00:01] Оператор: Добрый день!
+[00:00:04] Клиент: Здравствуйте, хочу оформить доставку.
+[00:00:08] Оператор: Назовите адрес.
+[00:00:12] Клиент: Москва, Ленинградский проспект, 37.</pre>
+        <div class="solution-chips">
+          <span class="solution-chip"><span class="solution-chip-dot"></span>QA mode</span>
+          <span class="solution-chip"><span class="solution-chip-dot"></span>Speaker split</span>
+          <span class="solution-chip"><span class="solution-chip-dot"></span>Timestamps enabled</span>
+        </div>
       </article>
     </div>
 
