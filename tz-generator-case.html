@@ -159,6 +159,14 @@
     @keyframes techFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .tech-chip{padding:0;border:none;background:none;font-size:15px;line-height:1.7;color:var(--text);white-space:nowrap;opacity:.35;transition:opacity .25s linear}
 
+    .media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+    .media-single{margin-top:18px}
+    .media-card{border:1px solid rgba(255,255,255,.18);border-radius:14px;overflow:hidden;background:rgba(44,44,44,.45)}
+    .media-card img{display:block;width:100%;height:100%;object-fit:cover}
+    .download-card{margin-top:26px;padding:22px;border:1px solid rgba(var(--accent-rgb),.35);border-radius:16px;background:rgba(255,255,255,.02)}
+    .download-card h3{font-size:22px;margin-bottom:8px}
+    .download-card p{margin-bottom:14px;color:var(--text)}
+
     .cta-wrap{margin-top:86px;border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:44px 24px;text-align:center;background:rgba(18,18,18,.95)}
     .cta-wrap h3{font-size:clamp(26px,3vw,36px);line-height:1.15;margin-bottom:10px}
     .cta-wrap p{max-width:640px;margin:0 auto 20px;color:var(--muted)}
@@ -318,6 +326,10 @@
     <div class="solution-intro reveal">
       <p>Мы разработали веб-сервис для хранения всех проектов и подключили к нему Google Gemini (gemma-3-27b-it), чтобы тот формировал стандартизированные ТЗ на основе описаний клиента</p>
       <p>Вместо длинной ручной подготовки команда получила быстрый конвейер: от декомпозиции запроса до финального ТЗ проходило максимум 2 часа</p>
+      <div class="media-grid reveal" aria-label="Примеры параметров и итоговых ТЗ">
+        <figure class="media-card"><img src="static/tz-params.jpg" alt="ТЗ-парамс" loading="lazy"></figure>
+        <figure class="media-card"><img src="static/tz-example.jpg" alt="ТЗ-экземплс" loading="lazy"></figure>
+      </div>
     </div>
 
 
@@ -328,6 +340,10 @@
         <article class="agent-node agent-node--bl"><h4>Design Auditor</h4><p>Проверяет спецификацию на полноту и качество, даёт обратную связь и инициирует повторные итерации до прохождения требований.</p></article>
         <article class="agent-node agent-node--br"><h4>Template &amp; Style Curator</h4><p>Подключает библиотеку проверенных стилевых шаблонов (Data-First Futurism, Glassmorphism Elegance, Apple Minimalist) для быстрого создания альтернативных концепций.</p></article>
       </div>
+          <div class="media-grid reveal" aria-label="Скриншоты агентов и JSON">
+        <figure class="media-card"><img src="static/tz-agents.jpg" alt="ТЗ-эдженс" loading="lazy"></figure>
+        <figure class="media-card"><img src="static/tz-json.jpg" alt="ТЗ-джейсон" loading="lazy"></figure>
+      </div>
     </section>
 
     <div class="block-sep"></div>
@@ -337,6 +353,7 @@
       <div class="roadmap-copy">
         <div class="section-heading reveal" id="example"><h2>Как работает система</h2></div>
         <p class="reveal visible">После получения брифа система проходит несколько этапов: анализ запроса, проектирование структуры спецификации, генерация JSON и автоматический аудит. Благодаря этому документация формируется в едином стандарте независимо от исполнителя.</p>
+        <figure class="media-card media-single reveal"><img src="static/tz-pipeline.jpg" alt="ТЗ-пайплайн" loading="lazy"></figure>
       </div>
 
       <div class="solution-pillars">
@@ -347,6 +364,12 @@
     </section>
 
     <div class="block-sep"></div>
+
+    <section class="download-card reveal" aria-label="Скачать пример ТЗ">
+      <h3>Посмотреть пример сгенерированного ТЗ</h3>
+      <p>Скачайте готовый документ в формате Word, чтобы оценить структуру и глубину детализации.</p>
+      <a class="cta-btn" href="static/Пример_ТЗ_LLMProgger.docx" download>Скачать пример ТЗ (.docx)</a>
+    </section>
 
     <div class="section-heading reveal" id="results"><h2>Результаты</h2></div>
     <div class="hero-results reveal" aria-label="Ключевые результаты">
