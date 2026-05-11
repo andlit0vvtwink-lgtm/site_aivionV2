@@ -92,6 +92,14 @@
               </select>
             </label>
             <fieldset class="cf-roles">
+              <legend>Бюджет</legend>
+              <div class="cf-roles-grid">
+                <label class="cf-chip"><input type="radio" name="budget" value="до 200 000 ₽" checked/><span>до 200 000 ₽</span></label>
+                <label class="cf-chip"><input type="radio" name="budget" value="200 000 ₽ – 1 000 000 ₽"/><span>200 000 ₽ – 1 000 000 ₽</span></label>
+                <label class="cf-chip"><input type="radio" name="budget" value="более 1 000 000 ₽"/><span>более 1 000 000 ₽</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="cf-roles">
               <legend>Ваша роль</legend>
               <div class="cf-roles-grid">
                 <label class="cf-chip"><input type="radio" name="role" value="Собственник" checked/><span>Собственник</span></label>
