@@ -59,7 +59,7 @@
         <div class="cf-main">
           <form class="cf-form" id="cfForm">
             <div class="cf-grid">
-              <label class="cf-label">
+              <label class="">
                 <span class="cf-label-text">Имя *</span>
                 <input class="cf-input" type="text" name="firstName" autocomplete="given-name" required/>
               </label>
@@ -83,14 +83,6 @@
                 </select>
               </label>
             </div>
-            <label class="cf-label">
-              <span class="cf-label-text">Бюджет</span>
-              <select class="cf-input" name="budget">
-                <option value="до 200 000 ₽">до 200 000 ₽</option>
-                <option value="200 000 ₽ – 1 000 000 ₽">200 000 ₽ – 1 000 000 ₽</option>
-                <option value="более 1 000 000 ₽">более 1 000 000 ₽</option>
-              </select>
-            </label>
             <fieldset class="cf-roles">
               <legend>Бюджет</legend>
               <div class="cf-roles-grid">
