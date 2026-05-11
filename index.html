@@ -754,8 +754,8 @@
     .contact-side .section-text { font-size:14px; }
     .contact-scope h3 { font-size:16px; margin-bottom:12px; }
     .contact-main { padding:44px 36px; }
-    .contact-form { display:flex; flex-direction:column; gap:18px; }
-    .field-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .contact-form { display:flex; flex-direction:column; gap:14px; }
+    .field-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .field { display:flex; flex-direction:column; gap:7px; }
     .field span {
       font-family:"Montserrat",sans-serif; font-size:11px; font-weight:600;
@@ -763,7 +763,7 @@
     }
     .field input, .field select, .field textarea {
       background:rgba(255,255,255,0.04); border:1px solid var(--stroke);
-      border-radius:12px; padding:12px 16px;
+      border-radius:12px; padding:10px 14px;
       color:var(--text); font-family:"Montserrat",sans-serif; font-size:14px;
       transition:border-color .2s;
       outline:none; width:100%;
@@ -771,7 +771,7 @@
     .field input:focus, .field select:focus, .field textarea:focus {
       border-color:rgba(232,146,10,0.45);
     }
-    .field textarea { min-height:100px; resize:vertical; }
+    .field textarea { min-height:88px; resize:vertical; }
     .field select option { background:#0a0500; color:var(--text); }
     .choice-group { border:none; }
     .choice-group legend {
@@ -779,7 +779,7 @@
       letter-spacing:0.10em; text-transform:uppercase; color:var(--muted);
       margin-bottom:10px;
     }
-    .choice-grid { display:flex; flex-wrap:wrap; gap:8px; }
+    .choice-grid { display:flex; flex-wrap:wrap; gap:6px; }
     .choice-chip {
       display:flex; align-items:center; gap:0; cursor:pointer;
     }
@@ -787,7 +787,7 @@
     .choice-chip span {
       font-family:"Montserrat",sans-serif; font-size:12px; font-weight:600;
       letter-spacing:0.06em; text-transform:uppercase;
-      padding:8px 16px; border-radius:999px;
+      padding:7px 14px; border-radius:999px;
       background:rgba(255,255,255,0.04); border:1px solid var(--stroke);
       color:var(--muted); transition:all .2s;
     }
@@ -821,6 +821,38 @@
     @media (max-width:620px) {
       .hero-stats, .promise-grid, .services-grid { grid-template-columns:1fr; }
       .field-grid { grid-template-columns:1fr; }
+      .contact-modal__dialog {
+        padding:12px;
+      }
+      .contact-side,
+      .contact-main {
+        padding:24px 18px;
+      }
+      .contact-form { gap:12px; }
+      .field { gap:6px; }
+      .field span,
+      .choice-group legend {
+        font-size:10px;
+        letter-spacing:0.08em;
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        padding:9px 12px;
+      }
+      .field textarea { min-height:80px; }
+      .choice-chip span {
+        font-size:11px;
+        padding:6px 12px;
+      }
+      .consent-check span,
+      .form-legal-note,
+      .form-status {
+        font-size:12px;
+      }
+      .form-footer {
+        gap:10px;
+      }
     }
     @media (max-width:767px) {
       #introCanvas,
@@ -845,7 +877,19 @@
         filter:none !important;
         opacity:1 !important;
         margin-bottom:0;
+        gap:14px;
+        padding:16px;
+        border-radius:16px;
       }
+      .portfolio-card__meta { gap:8px; }
+      .portfolio-card h3 { font-size:22px; line-height:1.15; }
+      .portfolio-card p { font-size:14px; line-height:1.55; }
+      .portfolio-card__metrics { grid-template-columns:1fr; gap:10px; }
+      .metric-card { padding:12px; border-radius:12px; }
+      .metric-card__new-value { font-size:28px; }
+      .metric-card__old-value { font-size:18px; }
+      .metric-card__label { font-size:13px; margin-top:8px; }
+      .portfolio-card__link { font-size:11px; }
     }
   </style>
 </head>
@@ -1013,28 +1057,6 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
       <article class="process-step"><div class="process-icon"><svg viewBox="0 0 24 24"><path d="M5 19l5-6 4 3 5-7"/></svg></div><span class="process-number">03</span><div class="process-copy"><h3>Проектирование и запуск</h3><p>Собираем визуальный и технический слой, тестируем пользовательский сценарий и доводим запуск до рабочего состояния.</p></div></article>
       <article class="process-step"><div class="process-icon"><svg viewBox="0 0 24 24"><path d="M6 18L18 6M9 6h9v9"/></svg></div><span class="process-number">04</span><div class="process-copy"><h3>Встраивание в процессы</h3><p>Помогаем не просто выпустить решение, а встроить его в реальную повседневную работу команды.</p></div></article>
       <article class="process-step"><div class="process-icon"><svg viewBox="0 0 24 24"><path d="M6 12l4 4 8-8"/></svg></div><span class="process-number">05</span><div class="process-copy"><h3>Поддержка и развитие</h3><p>После запуска отслеживаем стабильность, корректируем UX и масштабируем систему по мере роста бизнеса.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="quote-break" id="subscription">
-  <div class="section-inner quote-break__inner">
-    <h2 class="quote-break__title reveal">Подписочный формат</h2>
-    <div class="quote-break__content reveal">
-      <p class="quote-break__text">Не доверяете ИИ?<br>Мы предлагаем <span class="quote-break__accent">безопасный запуск</span>: сначала разрабатываем решение, а дальше Вы пользуетесь им по подписке с возможностью остановить её в любой момент.</p>
-      <a class="btn btn-accent" href="#contact" data-open-form>Обсудить задачу</a>
-    </div>
-  </div>
-</section>
-
-<section class="faq-section" id="faq">
-  <div class="section-inner">
-    <h2 class="faq-title reveal">FAQ</h2>
-    <div class="faq-list">
-      <article class="faq-item is-open"><button class="faq-question" type="button" aria-expanded="true"><span>Когда появится первый измеримый эффект?</span><span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer">Обычно первый измеримый эффект появляется в течение 2–6 недель после старта пилота: сокращается время на рутину, снижается количество ошибок и ускоряется прохождение ключевых этапов процесса.</div></article>
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Как вы считаете ROI и какие входные данные от меня нужны?</span><span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer">Мы считаем ROI через текущие затраты и целевой эффект: ФОТ на операции, объём ручной работы, стоимость ошибок, скорость обработки и влияние на выручку. На вход нужны базовые цифры по процессу за 1–3 месяца.</div></article>
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Какие KPI вы фиксируете до старта?</span><span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer">До старта фиксируем исходные KPI: время цикла, долю ручных операций, количество ошибок, конверсию этапов, ФОТ и стоимость повторных действий. Это нужно, чтобы объективно оценить эффект после внедрения.</div></article>
-      <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Мы не можем отправлять внутренние данные в ChatGPT или другие зарубежные AI-сервисы. Что делать?</span><span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer">Для таких случаев используем локальные или изолированные контуры: развёртывание внутри вашего периметра, сегментацию доступов и работу с обезличенными данными. Архитектуру и ограничения согласуем до запуска пилота.</div></article>
     </div>
   </div>
 </section>
