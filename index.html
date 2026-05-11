@@ -11,14 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:            #000000;
+      --bg:            #eef3fb;
       --accent:        #E8920A;
       --accent-strong: #F5A822;
       --accent-soft:   rgba(232,146,10,0.10);
       --stroke-accent: rgba(232,146,10,0.22);
-      --text:          #ebebeb;
-      --muted:         rgba(235,235,235,0.52);
-      --muted-strong:  rgba(235,235,235,0.70);
+      --text:          #13233d;
+      --muted:         rgba(19,35,61,0.62);
+      --muted-strong:  rgba(19,35,61,0.78);
       --stroke:        rgba(255,255,255,0.08);
       --radius:        24px;
       --shadow:        0 30px 80px rgba(0,0,0,0.5);
@@ -460,14 +460,19 @@
     .portfolio-section { padding:100px 0 0; position:relative; }
     .portfolio-stack { position:relative; }
     .portfolio-card {
-      position:sticky; margin-bottom:0;
-      display:flex; flex-direction:column; gap:18px;
+      position:sticky; margin-bottom:18px;
+      display:flex; flex-direction:column; gap:22px;
       transform-origin:top center;
       transition:box-shadow .3s var(--ease);
+      border:1px solid rgba(140,170,220,.35);
+      background:linear-gradient(140deg, rgba(255,255,255,.72), rgba(236,246,255,.55));
+      backdrop-filter:blur(20px) saturate(120%);
+      box-shadow:0 20px 44px rgba(90,120,170,.16);
     }
     .portfolio-card__meta {
       display:flex; align-items:center; gap:12px; flex-wrap:wrap;
     }
+    .case-number{font-size:12px;color:#5b6f92;font-weight:700;}
     .portfolio-card__tag {
       font-family:"Montserrat",sans-serif; font-size:10px; font-weight:600;
       letter-spacing:0.12em; text-transform:uppercase;
@@ -484,6 +489,11 @@
     .portfolio-card__list li::before {
       content:"—"; position:absolute; left:0; color:var(--accent); font-size:12px;
     }
+     .portfolio-card__metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .metric-card{border:1px solid rgba(130,160,210,.35);border-radius:14px;padding:16px;background:rgba(255,255,255,.65)}
+    .metric-card__new-value{font-size:40px;font-weight:800;color:#f29f1d;line-height:1;}
+    .metric-card__old-value{margin-left:8px;font-size:24px;color:#8d9db8;text-decoration:line-through;}
+    .metric-card__label{font-size:14px;color:#4e6185;margin-top:10px;line-height:1.4;}
     .portfolio-card__link {
       display:inline-flex; align-items:center; gap:6px;
       color:var(--accent); font-family:"Montserrat",sans-serif;
@@ -936,80 +946,13 @@
     <div class="portfolio-stack" id="portfolioStack">
       <article class="portfolio-card glass-card">
         <div class="portfolio-card__meta">
-          <span class="case-number">01</span>
-          <span class="portfolio-card__tag">AI / Call Center</span>
+          <span class="case-number">01</span><span class="portfolio-card__tag">Продажи</span><span class="case-number">02</span><span class="portfolio-card__tag">Контроль качества</span>
         </div>
-        <h3>Авторазбор телефонных звонков</h3>
-        <p>AI-Микросервис для обработки звонков и контроля операторов</p>
-        <ul class="portfolio-card__list">
-          <li>Обработка звонка: 2 минуты → 30 секунд </li>
-          <li>-83% ошибок при заполнении CRM</li>
-          <li>2 Сотрудника уволены после проверки качества</li>
-        </ul>
-        <a class="portfolio-card__link" href="call-center-case.html">Открыть кейс</a>
+        <h3>Авторазбор телефонных звонков</h3><p>AI-Микросервис для колл-центра: обработка звонков и контроль операторов</p>
+        <div class="portfolio-card__metrics"><article class="metric-card"><span class="metric-card__new-value">30 секунд</span><span class="metric-card__old-value">2 минуты</span><p class="metric-card__label">Время обработки звонков</p></article><article class="metric-card"><span class="metric-card__new-value">-83% ошибок</span><p class="metric-card__label">При заполнении CRM оператором</p></article><article class="metric-card"><span class="metric-card__new-value">2 сотрудника</span><p class="metric-card__label">Уволены после проверки качества</p></article></div><a class="portfolio-card__link" href="call-center-case.html">Читать полностью</a>
       </article>
-
-      <article class="portfolio-card glass-card">
-        <div class="portfolio-card__meta">
-          <span class="case-number">02</span>
-          <span class="portfolio-card__tag">AI Assistant / Design Specs</span>
-        </div>
-        <h3>AI-составитель ТЗ</h3>
-        <p>ИИ-помощник, который превращает абстрактные идеи в понятное ТЗ и снимает проблему "чистого листа"</p>
-        <ul class="portfolio-card__list">
-          <li>Подготовка спецификаций: 2 дня → 2 часа</li>
-          <li>Единый стандарт оформления спецификаций</li>
-        </ul>
-        <a class="portfolio-card__link" href="tz-generator-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card">
-        <div class="portfolio-card__meta">
-          <span class="case-number">03</span>
-          <span class="portfolio-card__tag">Multi-Agent / Telegram</span>
-        </div>
-        <h3>Контент-завод</h3>
-        <p>Связка из ИИ-Агентов, создающая посты для социальных сетей</p>
-        <ul class="portfolio-card__list">
-          <li>Создание поста: 50 минут → 5 минут</li>
-          <li>Единый стиль контента</li>
-          <li>x1.3 Рост вовлеченности</li>
-        </ul>
-        <a class="portfolio-card__link" href="smm-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card">
-        <div class="portfolio-card__meta">
-          <span class="case-number">04</span>
-          <span class="portfolio-card__tag">Ops / Corporate System</span>
-        </div>
-        <h3>Корпоративная система для ИТ-отдела</h3>
-        <p>Внутренний контур для контроля проектов, ролевого доступа и надёжного резервирования</p>
-        <ul class="portfolio-card__list">
-          <li>Быстрый поиск по материалам и документам</li>
-          <li>Ролевой доступ и прозрачный контроль по журналу действий</li>
-          <li>Резервное копирование и стабильность данных</li>
-        </ul>
-        <a class="portfolio-card__link" href="pbms-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card">
-        <div class="portfolio-card__meta">
-          <span class="case-number">05</span>
-          <span class="portfolio-card__tag">LLM / Prompt Engineering</span>
-        </div>
-        <h3>Платформа для работы с локальным ИИ</h3>
-        <p>Инженерная среда для настройки локальных LLM</p>
-        <ul class="portfolio-card__list">
-          <li>х10 Быстрее проверка одной гипотезы</li>
-          <li>-90% Кликов</li>
-          <li>Полная приватность</li>
-        </ul>
-        <a class="portfolio-card__link" href="promptlab-case.html">Открыть кейс</a>
-      </article>
-
-
-
+      <article class="portfolio-card glass-card"><div class="portfolio-card__meta"><span class="case-number">03</span><span class="portfolio-card__tag">Анализ файлов</span><span class="case-number">04</span><span class="portfolio-card__tag">Составление документов</span></div><h3>AI-составитель ТЗ</h3><p>ИИ-помощник, который превращает абстрактные идеи в понятное ТЗ и снимает проблему "чистого листа"</p><div class="portfolio-card__metrics"><article class="metric-card"><span class="metric-card__new-value">2 часа</span><span class="metric-card__old-value">2 дня</span><p class="metric-card__label">Время подготовки спецификаций</p></article><article class="metric-card"><span class="metric-card__new-value">-50% правок</span><p class="metric-card__label">В ТЗ после передачи его в разработку</p></article><article class="metric-card"><span class="metric-card__new-value">Рост качества</span><p class="metric-card__label">Единый стандарт оформления инструкций</p></article></div><a class="portfolio-card__link" href="tz-generator-case.html">Читать полностью</a></article>
+      <article class="portfolio-card glass-card"><div class="portfolio-card__meta"><span class="case-number">04</span><span class="portfolio-card__tag">Маркетинг</span><span class="portfolio-card__tag">Социальные сети</span><span class="portfolio-card__tag">Контент</span></div><h3>Контент-завод SMM</h3><p>Связка из ИИ-Агентов, создающая посты для социальных сетей с упором на аудиторию</p><div class="portfolio-card__metrics"><article class="metric-card"><span class="metric-card__new-value">2 минуты</span><span class="metric-card__old-value">40 минут</span><p class="metric-card__label">Создание поста</p></article><article class="metric-card"><span class="metric-card__new-value">x1.3 ERR</span><p class="metric-card__label">Рост вовлеченности</p></article><article class="metric-card"><span class="metric-card__new-value">+5 Каналов</span><p class="metric-card__label">На одного копирайтера за счёт оптимизации</p></article></div><a class="portfolio-card__link" href="smm-case.html">Читать полностью</a></article>
     </div>
     <div class="section-action" style="padding-bottom:100px;">
       <a class="btn btn-accent" href="#contact" data-open-form>Обсудить проект</a>

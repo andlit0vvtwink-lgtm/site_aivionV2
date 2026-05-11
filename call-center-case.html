@@ -171,7 +171,11 @@
     .solution-card--transcript .solution-chip{color:#c5afff;border-color:rgba(160,128,255,.25);background:rgba(28,18,58,.52)}
     .solution-chip-dot{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(255,255,255,.08)}
 
-    .full-width-image{width:100%;display:block;margin:24px 0;border-radius:14px;border:1px solid rgba(255,255,255,.18)}
+    .full-width-image{width:100%;display:block;margin:24px 0;border-radius:14px;border:1px solid rgba(255,255,255,.18);cursor:zoom-in}
+.full-width-image.is-wide{width:100%;max-width:none}
+.image-lightbox{position:fixed;inset:0;background:rgba(5,10,20,.86);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:400;opacity:0;pointer-events:none;transition:opacity .25s ease;padding:24px}
+.image-lightbox.open{opacity:1;pointer-events:auto}
+.image-lightbox img{max-width:min(96vw,1600px);max-height:92vh;border-radius:16px;border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 60px rgba(0,0,0,.45)}
 
     .architecture-system{position:relative;max-width:100%;margin:28px auto 28px}
     .architecture-road{display:none}
@@ -355,7 +359,7 @@
 
     <div class="section-heading reveal" id="solution"><h2>Решение</h2></div>
     <p class="reveal">Мы разработали AI-микросервис на FastAPI, который интегрируется с CRM и работает в фоне: забирает запись звонка, извлекает нужные данные и возвращает структурированный JSON прямо в поля заказа.</p>
-    <img class="full-width-image reveal" src="static/call-list.jpg" alt="Список звонков в интерфейсе колл-центра" loading="lazy"/>
+    <img class="full-width-image reveal is-wide" src="static/call-list.jpg" alt="Список звонков в интерфейсе колл-центра" loading="lazy"/>
     <p class="reveal">Архитектура построена асинхронно: API быстро принимает задачу, воркеры обрабатывают звонки параллельно, а бизнес получает предсказуемое время обработки, прозрачный контроль затрат и устойчивость к сбоям внешнего AI-провайдера.</p>
 
     <div class="solution-grid reveal">
@@ -419,8 +423,8 @@
       <div class="roadmap-copy">
         <div class="section-heading reveal" id="example"><h2>Как работает система</h2></div>
         <p class="reveal visible">После завершения разговора CRM или телефония отправляют в сервис ссылку на аудио и параметры заказа. Дальше обработка идёт полностью автоматически, без участия оператора.</p>
-        <img class="full-width-image reveal" src="static/call-detailed.jpg" alt="Детали звонка и распознанные данные" loading="lazy"/>
-        <img class="full-width-image reveal" src="static/call-center.jpg" alt="Интерфейс колл-центра с заказами" loading="lazy"/>
+        <img class="full-width-image reveal is-wide" src="static/call-detailed.jpg" alt="Детали звонка и распознанные данные" loading="lazy"/>
+        <img class="full-width-image reveal is-wide" src="static/call-center.jpg" alt="Интерфейс колл-центра с заказами" loading="lazy"/>
       </div>
 
       <div class="architecture-system reveal" aria-label="Диаграмма архитектуры AI-микросервиса">
@@ -732,5 +736,20 @@
     })();
   </script>
   <script src="contact-form.js"></script>
+
+<div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+  <img id="lightboxImage" alt="Увеличенное изображение"/>
+</div>
+<script>
+  (function(){
+    const lightbox=document.getElementById('imageLightbox');
+    const lightboxImage=document.getElementById('lightboxImage');
+    document.querySelectorAll('.full-width-image').forEach((img)=>{
+      img.addEventListener('click',()=>{lightboxImage.src=img.src;lightboxImage.alt=img.alt||'';lightbox.classList.add('open');});
+    });
+    lightbox.addEventListener('click',()=>lightbox.classList.remove('open'));
+    document.addEventListener('keydown',(e)=>{if(e.key==='Escape') lightbox.classList.remove('open');});
+  })();
+</script>
 </body>
 </html>
