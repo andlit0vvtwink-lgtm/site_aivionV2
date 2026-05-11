@@ -7,18 +7,9 @@
     .contact-modal.is-open{opacity:1;pointer-events:all}
     .contact-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(12px)}
     .contact-modal__dialog{position:absolute;inset:0;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,5vw,60px) clamp(16px,4vw,40px)}
-    .contact-modal__content{position:relative;z-index:1;width:min(100%,900px);background:rgba(10,5,0,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1.4fr;gap:0}
+    .contact-modal__content{position:relative;z-index:1;width:min(100%,900px);background:rgba(10,5,0,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:18px;overflow:hidden;display:block}
     .contact-modal__close{position:absolute;top:20px;right:20px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);color:rgba(107,114,128,1);font-size:20px;line-height:1;display:grid;place-items:center;cursor:pointer;transform:rotate(45deg);transition:background .2s,color .2s}
     .contact-modal__close:hover{background:rgba(255,255,255,0.12);color:#fff}
-    .cf-side{background:rgba(232,146,10,0.04);border-right:1px solid rgba(255,255,255,0.14);padding:44px 36px;display:flex;flex-direction:column;gap:20px}
-    .cf-side h2{font-family:"Montserrat",sans-serif;font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.2}
-    .cf-side-text{font-family:"Montserrat",sans-serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7}
-    .cf-eyebrow{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E8920A}
-    .cf-scope-card{padding:20px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10)}
-    .cf-scope-card h3{font-family:"Montserrat",sans-serif;font-size:15px;font-weight:700;margin-bottom:12px;color:#fff}
-    .cf-scope-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-    .cf-scope-list li{font-family:"Montserrat",sans-serif;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;padding-left:16px;position:relative}
-    .cf-scope-list li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#E8920A}
     .cf-main{padding:44px 36px}
     .cf-form{display:flex;flex-direction:column;gap:18px}
     .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -52,8 +43,7 @@
     .cf-submit:hover{background:#F5A822;transform:translateY(-1px)}
     .cf-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
     @media(max-width:900px){
-      .contact-modal__content{grid-template-columns:1fr}
-      .cf-side{border-right:none;border-bottom:1px solid rgba(255,255,255,0.14)}
+      .contact-modal__content{display:block}
     }
     @media(max-width:620px){.cf-grid{grid-template-columns:1fr}}
   `;
@@ -65,19 +55,7 @@
     <div class="contact-modal__dialog">
       <div class="contact-modal__content">
         <button class="contact-modal__close" type="button" aria-label="Закрыть" data-close-form>+</button>
-        <aside class="cf-side">
-          <p class="cf-eyebrow">Запрос</p>
-          <h2>Обсудим задачу предметно</h2>
-          <p class="cf-side-text">Опишите задачу коротко и по сути. Мы используем только необходимые данные, чтобы связаться с вами и подготовить следующий шаг.</p>
-          <div class="cf-scope-card">
-            <h3>Что важно знать</h3>
-            <ul class="cf-scope-list">
-              <li>обязательные поля сведены к минимуму</li>
-              <li>согласие даётся отдельным действием</li>
-              <li>политика доступна до отправки формы</li>
-            </ul>
-          </div>
-        </aside>
+        
         <div class="cf-main">
           <form class="cf-form" id="cfForm">
             <div class="cf-grid">
@@ -105,6 +83,14 @@
                 </select>
               </label>
             </div>
+            <label class="cf-label">
+              <span class="cf-label-text">Бюджет</span>
+              <select class="cf-input" name="budget">
+                <option value="до 200 000 ₽">до 200 000 ₽</option>
+                <option value="200 000 ₽ – 1 000 000 ₽">200 000 ₽ – 1 000 000 ₽</option>
+                <option value="более 1 000 000 ₽">более 1 000 000 ₽</option>
+              </select>
+            </label>
             <fieldset class="cf-roles">
               <legend>Ваша роль</legend>
               <div class="cf-roles-grid">
@@ -214,6 +200,7 @@
           company: String(data.get('company') || '').trim(),
           contact: String(data.get('contact') || '').trim(),
           contactMethod: String(data.get('contactMethod') || '').trim(),
+          budget: String(data.get('budget') || '').trim(),
           role: String(data.get('role') || '').trim(),
           customRole: String(data.get('customRole') || '').trim(),
           details: String(data.get('details') || '').trim(),
