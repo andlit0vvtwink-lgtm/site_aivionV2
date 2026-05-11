@@ -11,17 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:            #071328;
-      --accent:        #7ab6ff;
-      --accent-strong: #a9d2ff;
-      --accent-soft:   rgba(122,182,255,0.14);
-      --stroke-accent: rgba(122,182,255,0.34);
-      --text:          #e8f0ff;
-      --muted:         rgba(211,227,255,0.70);
-      --muted-strong:  rgba(231,241,255,0.86);
+      --bg:            #000000;
+      --accent:        #E8920A;
+      --accent-strong: #F5A822;
+      --accent-soft:   rgba(232,146,10,0.14);
+      --stroke-accent: rgba(232,146,10,0.34);
+      --text:          #ffffff;
+      --muted:         #6B7280;
+      --muted-strong:  #9CA3AF;
       --stroke:        rgba(255,255,255,0.08);
       --radius:        24px;
-      --shadow:        0 30px 80px rgba(2,10,26,0.55);
+      --shadow:        0 30px 80px rgba(0,0,0,0.55);
       --ease:          cubic-bezier(0.4,0,0.2,1);
       --header-h:      80px;
     }
@@ -35,9 +35,9 @@
 
     body {
       background:
-        radial-gradient(ellipse 80vw 65vh at 15% -10%, rgba(82,133,255,0.24) 0%, transparent 62%),
-        radial-gradient(ellipse 60vw 50vh at 90% 0%, rgba(68,123,231,0.20) 0%, transparent 70%),
-        #071328;
+        radial-gradient(ellipse 80vw 65vh at 15% -10%, rgba(232,146,10,0.20) 0%, transparent 62%),
+        radial-gradient(ellipse 60vw 50vh at 90% 0%, rgba(200,90,0,0.14) 0%, transparent 70%),
+        #000000;
       color: var(--text);
       font-family: "Montserrat", "Space Grotesk", sans-serif;
       width:100%; max-width:100%; min-width:0;
@@ -282,7 +282,7 @@
       display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;
     }
     .hero-stat {
-      background:rgba(168,202,255,0.08); border:1px solid rgba(188,216,255,0.22);
+      background:rgba(232,146,10,0.08); border:1px solid rgba(232,146,10,0.22);
       backdrop-filter: blur(14px);
       border-radius:20px; padding:20px 22px;
       display:grid; align-content:space-between; text-align:left;
@@ -294,7 +294,7 @@
       background:linear-gradient(135deg,rgba(122,182,255,0.2),transparent 55%);
       pointer-events:none;
     }
-    .hero-stat:hover { border-color:rgba(160,205,255,0.5); background:rgba(122,182,255,0.16); }
+    .hero-stat:hover { border-color:rgba(232,146,10,0.45); background:rgba(232,146,10,0.16); }
     .stat-label {
       font-family:"Montserrat",sans-serif; font-size:10px; font-weight:600;
       letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);
@@ -396,7 +396,7 @@
 
     /* Glass card */
     .glass-card {
-      background:rgba(167,202,255,0.10); border:1px solid rgba(187,217,255,0.24);
+      background:rgba(232,146,10,0.10); border:1px solid rgba(232,146,10,0.24);
       backdrop-filter:blur(20px) saturate(120%); box-shadow:var(--shadow);
       border-radius:var(--radius); padding:28px;
       position:relative; overflow:hidden;
@@ -410,10 +410,10 @@
     }
     .glass-card::after {
       content:""; position:absolute; inset:0; border-radius:inherit;
-      background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(122,182,255,0.22),transparent 70%);
+      background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(232,146,10,0.22),transparent 70%);
       opacity:0; pointer-events:none; transition:opacity .45s var(--ease);
     }
-    .glass-card:hover { transform:translateY(-8px); border-color:rgba(172,212,255,0.6); background:rgba(122,182,255,0.16); box-shadow:0 0 0 1px rgba(172,212,255,0.24),0 24px 64px rgba(2,14,36,0.6),0 0 42px rgba(122,182,255,0.16); }
+    .glass-card:hover { transform:translateY(-8px); border-color:rgba(232,146,10,0.50); background:rgba(232,146,10,0.16); box-shadow:0 0 0 1px rgba(232,146,10,0.24),0 24px 64px rgba(2,14,36,0.6),0 0 42px rgba(232,146,10,0.16); }
     .glass-card:hover::after { opacity:1; }
     .glass-card p { color:var(--muted); line-height:1.65; font-size:15px; margin-top:0; }
     .glass-card:hover p { color:var(--muted-strong); }
@@ -447,7 +447,7 @@
     }
     .mesh { position:absolute; border-radius:50%; pointer-events:none; z-index:0; animation:meshDrift 22s ease-in-out infinite alternate; }
     .mesh-a { bottom:-15%; left:-8%; width:58vw; height:58vw; background:radial-gradient(circle,rgba(232,146,10,0.18) 0%,rgba(200,100,5,0.07) 45%,transparent 70%); filter:blur(90px); }
-    .mesh-b { bottom:-12%; right:-6%; width:46vw; height:46vw; background:radial-gradient(circle,rgba(72,138,255,0.22) 0%,transparent 65%); filter:blur(110px); animation-duration:30s; animation-direction:reverse; }
+    .mesh-b { bottom:-12%; right:-6%; width:46vw; height:46vw; background:radial-gradient(circle,rgba(232,146,10,0.18) 0%,transparent 65%); filter:blur(110px); animation-duration:30s; animation-direction:reverse; }
     .mesh-center { position:absolute; border-radius:50%; pointer-events:none; z-index:0; bottom:-5%; left:25%; right:25%; width:50vw; height:30vw; background:radial-gradient(ellipse,rgba(245,168,34,0.12) 0%,rgba(232,146,10,0.05) 50%,transparent 75%); filter:blur(80px); animation:meshDrift 28s ease-in-out infinite alternate-reverse; }
     .mesh-horizon { position:absolute; pointer-events:none; z-index:1; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(232,146,10,0.22) 30%,rgba(245,168,34,0.36) 50%,rgba(232,146,10,0.22) 70%,transparent 100%); }
     @keyframes meshDrift { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,-3%) scale(1.06);} }
@@ -469,15 +469,15 @@
       display:flex; flex-direction:column; gap:22px;
       transform-origin:top center;
       transition:box-shadow .3s var(--ease);
-      border:1px solid rgba(140,170,220,.35);
-      background:linear-gradient(140deg, rgba(255,255,255,.72), rgba(236,246,255,.55));
+      border:1px solid rgba(232,146,10,.35);
+      background:linear-gradient(140deg, rgba(50,36,12,.72), rgba(30,22,8,.55));
       backdrop-filter:blur(20px) saturate(120%);
       box-shadow:0 20px 44px rgba(90,120,170,.16);
     }
     .portfolio-card__meta {
       display:flex; align-items:center; gap:12px; flex-wrap:wrap;
     }
-    .case-number{font-size:12px;color:#5b6f92;font-weight:700;}
+    .case-number{font-size:12px;color:#A38A5A;font-weight:700;}
     .portfolio-card__tag {
       font-family:"Montserrat",sans-serif; font-size:10px; font-weight:600;
       letter-spacing:0.12em; text-transform:uppercase;
@@ -495,10 +495,10 @@
       content:"—"; position:absolute; left:0; color:var(--accent); font-size:12px;
     }
      .portfolio-card__metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
-    .metric-card{border:1px solid rgba(130,160,210,.35);border-radius:14px;padding:16px;background:rgba(255,255,255,.65)}
+    .metric-card{border:1px solid rgba(232,146,10,.35);border-radius:14px;padding:16px;background:rgba(255,255,255,.65)}
     .metric-card__new-value{font-size:40px;font-weight:800;color:#f29f1d;line-height:1;}
-    .metric-card__old-value{margin-left:8px;font-size:24px;color:#8d9db8;text-decoration:line-through;}
-    .metric-card__label{font-size:14px;color:#4e6185;margin-top:10px;line-height:1.4;}
+    .metric-card__old-value{margin-left:8px;font-size:24px;color:#8C7A57;text-decoration:line-through;}
+    .metric-card__label{font-size:14px;color:#BDA06C;margin-top:10px;line-height:1.4;}
     .portfolio-card__link {
       display:inline-flex; align-items:center; gap:6px;
       color:var(--accent); font-family:"Montserrat",sans-serif;
