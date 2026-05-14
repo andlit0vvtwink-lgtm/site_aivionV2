@@ -169,7 +169,7 @@
     }
     /* ═══ OPENING SCREEN ════════════════════════════════════ */
     .opening-screen {
-      position:relative; min-height:100svh;
+      position:relative; min-height:110svh;
       display:flex; flex-direction:column; justify-content:center;
       padding-top:var(--header-h); overflow:hidden;
       background:var(--bg);
@@ -621,8 +621,7 @@
       transform:translateX(-50%) scale(1.35);
     }
     .challenge-section{padding:90px 0 40px;}
-    .challenge-heading{text-align:left;max-width:920px;margin-bottom:40px;}
-    .challenge-heading h2{font-size:clamp(34px,5vw,68px);}
+    .challenge-heading{text-align:left;max-width:1280px;margin-bottom:40px;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
     .challenge-card{min-height:220px;display:flex;flex-direction:column;gap:16px;}
     .challenge-icon{width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke-accent);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);}
@@ -835,7 +834,7 @@
     .section-inner{width:min(100% - 80px,1360px);} 
     .section-pad{padding:150px 0;}
     .opening-inner{width:min(100% - 80px,1360px);grid-template-columns:minmax(0,920px) 1fr;align-items:center;min-height:calc(100svh - var(--header-h));}
-    .eyebrow{font-size:12px;letter-spacing:.16em;border:1px solid var(--stroke-accent);padding:8px 14px;border-radius:999px;color:var(--accent);background:rgba(232,146,10,.06);margin-bottom:32px;}
+    .eyebrow{font-size:12px;letter-spacing:.16em;padding:4px;color:var(--accent);margin-bottom:32px;}
     .opening-title{font-size:clamp(58px,8vw,116px);font-weight:900;line-height:.93;max-width:920px;}
     .opening-lead{max-width:600px;font-size:clamp(18px,1.6vw,22px);line-height:1.7;margin-top:36px;}
     .opening-actions{margin-top:42px;margin-bottom:56px;gap:16px;}
@@ -845,7 +844,7 @@
     .hero-metric span{font-size:15px;color:var(--muted);margin-top:10px;display:block;}
     .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:160px 0 0;}
     .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
-    .challenge-heading h2{font-size:clamp(48px,6vw,86px);font-weight:900;line-height:1.05;}
+    .challenge-heading h2{font-size: 42px; font-weight:900;line-height:1.05;}
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
     .challenge-card{min-height:300px;padding:38px;border-radius:22px;}
@@ -933,17 +932,17 @@
   <div class="opening-inner">
     <div>
       <p class="eyebrow fade-up">ИИ-АВТОМАТИЗАЦИЯ • IT-РАЗРАБОТКА</p>
-      <h1 class="opening-title fade-up">Создаём AI-системы <br><span class="title-accent">для роста бизнеса</span></h1>
-      <p class="opening-lead fade-up">Проектируем и внедряем корпоративные AI-решения, которые сокращают операционные затраты, убирают рутину и дают прозрачный управляемый результат.</p>
-      <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Обсудить внедрение</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
-      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Срок окупаемости</span></div><div class="hero-metric"><strong>8</strong><span>Отраслей внедрения</span></div></div>
+      <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
+      <p class="opening-lead fade-up">Автоматизируем бизнес-процессы с помощью передовых технологий. Первый результат - через 2-4 недели</p>
+      <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
+      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>8</strong><span>Отраслей внедрения</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div></div>
     </div>
   </div>
 </section>
 
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин</h2><span class="deco-line"></span><h2><span class="title-accent">вы в правильном месте</span></h2></div>
+    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин</h2><h2><span class="title-accent">вы в правильном месте</span></h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
         <div class="challenge-icon">01</div>
@@ -963,6 +962,97 @@
     </div>
   </div>
 </section>
+
+
+<!-- ═══ PROCESS ════════════════════════════════════════════════ -->
+<section class="process-section" id="process"
+  style="padding:100px 0;background:linear-gradient(180deg,rgba(0,0,0,0.88) 0%,rgba(4,2,0,0.95) 50%,rgba(8,4,0,0.98) 100%)">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow reveal">КАК МЫ РАБОТАЕМ</p>
+      <h2 class="reveal" style="max-width:920px;margin-inline:auto;">ПРОЦЕСС ВНЕДРЕНИЯ</h2>
+    </div>
+    <div class="process-list" id="processList">
+      <article class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
+        </div>
+        <span class="process-number">01</span>
+        <div class="process-copy">
+          <h3>Первичный разбор</h3>
+          <p><strong>3–5 дней.</strong> Фиксируем задачу, ограничения и точки потери ресурса.</p>
+        </div>
+      </article>
+      <article class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h10M5 17h8"/></svg>
+        </div>
+        <span class="process-number">02</span>
+        <div class="process-copy">
+          <h3>Модель решения</h3>
+          <p><strong>до 7 дней.</strong> Определяем, что автоматизировать и какой стек даст максимальный эффект.</p>
+        </div>
+      </article>
+      <article class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 19l5-6 4 3 5-7"/></svg>
+        </div>
+        <span class="process-number">03</span>
+        <div class="process-copy">
+          <h3>Проектирование и запуск</h3>
+          <p><strong>2–6 недель.</strong> Собираем решение, тестируем сценарии и выводим в рабочую среду.</p>
+        </div>
+      </article>
+      <article class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 18L18 6M9 6h9v9"/></svg>
+        </div>
+        <span class="process-number">04</span>
+        <div class="process-copy">
+          <h3>Встраивание в процессы</h3>
+          <p><strong>постоянно.</strong> Закрепляем регламенты, обучаем команду и масштабируем результат.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ══════════════════════════════════════════════ -->
+<section class="services-section section-pad" id="services"
+style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%)">
+<canvas class="dot-grid-canvas" id="servicesDotGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.5;"></canvas>
+<div class="section-inner" style="position:relative;z-index:2;">
+  <div class="section-heading">
+    <p class="eyebrow reveal">УСЛУГИ</p>
+      <h2 class="reveal" style="text-align:center;max-width:980px;margin-inline:auto;">ЧТО МЫ ДЕЛАЕМ</h2>
+  </div>
+  <div class="services-grid">
+    <article class="glass-card service-card">
+      <h3>AI и автоматизация</h3>
+      <ul class="service-list">
+        <li class="service-row">AI-ассистенты для команд и отделов</li>
+        <li class="service-row">автоматизация обработки заявок и документов</li>
+        <li class="service-row">разбор диалогов, брифов и входящих обращений</li>
+        <li class="service-row">контентные и аналитические AI-сценарии</li>
+      </ul>
+      </article>
+    <article class="glass-card service-card">
+      <h3>Системы и интерфейсы</h3>
+      <ul class="service-list">
+        <li class="service-row">сайты и landing pages с сильной подачей</li>
+        <li class="service-row">внутренние кабинеты, CRM и панели</li>
+        <li class="service-row">Telegram-боты и операционные интеграции</li>
+        <li class="service-row">архитектура данных, ролей и сценариев доступа</li>
+      </ul>
+      </article>
+  </div>
+</div>
+</section>
+
 
 <!-- ═══ PORTFOLIO STACKING ════════════════════════════════════ -->
 <section class="portfolio-section" id="portfolio">
@@ -1047,111 +1137,11 @@
   </div>
 </section>
 
-<!-- ═══ SERVICES ══════════════════════════════════════════════ -->
-<section class="services-section section-pad" id="services"
-style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%)">
-<canvas class="dot-grid-canvas" id="servicesDotGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.5;"></canvas>
-<div class="section-inner" style="position:relative;z-index:2;">
-  <div class="section-heading">
-    <p class="eyebrow reveal">Что делаем</p>
-      <h2 class="reveal" style="text-align:center;max-width:980px;margin-inline:auto;">Строим не разрозненные инструменты, а управляемый цифровой слой бизнеса</h2>
-    <p class="section-text reveal">Иногда задача решается AI, иногда — интерфейсом, ботом, регламентом или новой логикой процесса.</p>
-  </div>
-  <div class="services-grid">
-    <article class="glass-card service-card">
-      <h3>AI и автоматизация</h3>
-      <ul class="service-list">
-        <li class="service-row">AI-ассистенты для команд и отделов</li>
-        <li class="service-row">автоматизация обработки заявок и документов</li>
-        <li class="service-row">разбор диалогов, брифов и входящих обращений</li>
-        <li class="service-row">контентные и аналитические AI-сценарии</li>
-      </ul>
-      </article>
-    <article class="glass-card service-card">
-      <h3>Системы и интерфейсы</h3>
-      <ul class="service-list">
-        <li class="service-row">сайты и landing pages с сильной подачей</li>
-        <li class="service-row">внутренние кабинеты, CRM и панели</li>
-        <li class="service-row">Telegram-боты и операционные интеграции</li>
-        <li class="service-row">архитектура данных, ролей и сценариев доступа</li>
-      </ul>
-      </article>
-  </div>
-</div>
-</section>
-
-
-<!-- ═══ PROCESS ════════════════════════════════════════════════ -->
-<section class="process-section" id="process"
-  style="padding:100px 0;background:linear-gradient(180deg,rgba(0,0,0,0.88) 0%,rgba(4,2,0,0.95) 50%,rgba(8,4,0,0.98) 100%)">
-  <div class="section-inner">
-    <div class="section-heading">
-      <p class="eyebrow reveal">КАК МЫ РАБОТАЕМ</p>
-      <h2 class="reveal" style="text-align:center;max-width:920px;margin-inline:auto;">Процесс внедрения</h2>
-    </div>
-    <div class="process-list" id="processList">
-      <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
-        </div>
-        <span class="process-number">01</span>
-        <div class="process-copy">
-          <h3>Первичный разбор</h3>
-          <p><strong>3–5 дней.</strong> Фиксируем задачу, ограничения и точки потери ресурса.</p>
-        </div>
-      </article>
-      <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h10M5 17h8"/></svg>
-        </div>
-        <span class="process-number">02</span>
-        <div class="process-copy">
-          <h3>Модель решения</h3>
-          <p><strong>до 7 дней.</strong> Определяем, что автоматизировать и какой стек даст максимальный эффект.</p>
-        </div>
-      </article>
-      <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M5 19l5-6 4 3 5-7"/></svg>
-        </div>
-        <span class="process-number">03</span>
-        <div class="process-copy">
-          <h3>Проектирование и запуск</h3>
-          <p><strong>2–6 недель.</strong> Собираем решение, тестируем сценарии и выводим в рабочую среду.</p>
-        </div>
-      </article>
-      <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 18L18 6M9 6h9v9"/></svg>
-        </div>
-        <span class="process-number">04</span>
-        <div class="process-copy">
-          <h3>Встраивание в процессы</h3>
-          <p><strong>постоянно.</strong> Закрепляем регламенты, обучаем команду и масштабируем результат.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
 
 <section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Enterprise-подход</h3><p>Строим процессы как управляемую систему, а не набор инструментов.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Измеримый эффект</h3><p>Каждое внедрение привязано к метрикам ROI, скорости и качества.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Безопасный контур</h3><p>Продумываем роли доступа, контроль данных и внутренние регламенты.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Быстрый запуск</h3><p>От диагностики до рабочего пилота в течение первых недель проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Команда Senior</h3><p>Архитекторы, разработчики и AI-инженеры с опытом enterprise внедрений.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Поддержка роста</h3><p>Не оставляем систему после релиза — масштабируем вместе с бизнесом.</p></article></div></div></section>
 <section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span>↗</span></div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span>↗</span></div><div class="faq-item"><span>Как считается экономический эффект?</span><span>↗</span></div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span>↗</span></div></div></div></section>
 
-<!-- ═══ QUOTE BREAK ════════════════════════════════════════════ -->
-<section class="quote-break">
-  <div class="section-inner quote-break__inner">
-    <p class="quote-break__text reveal">
-      Хороших людей не становится больше.<br>
-      <em>Но то, что они успевают —<br>можно увеличить.</em>
-    </p>
-    <a class="btn btn-accent reveal" href="#contact" data-open-form>Обсудить задачу</a>
-  </div>
-</section>
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer class="site-footer" id="contact">
