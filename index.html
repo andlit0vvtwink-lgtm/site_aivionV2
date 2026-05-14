@@ -830,6 +830,52 @@
         margin-bottom:0;
       }
     }
+  
+    /* ===== 2026 premium layout refresh ===== */
+    .section-inner{width:min(100% - 80px,1360px);} 
+    .section-pad{padding:150px 0;}
+    .opening-inner{width:min(100% - 80px,1360px);grid-template-columns:minmax(0,920px) 1fr;align-items:center;min-height:calc(100svh - var(--header-h));}
+    .eyebrow{font-size:12px;letter-spacing:.16em;border:1px solid var(--stroke-accent);padding:8px 14px;border-radius:999px;color:var(--accent);background:rgba(232,146,10,.06);margin-bottom:32px;}
+    .opening-title{font-size:clamp(58px,8vw,116px);font-weight:900;line-height:.93;max-width:920px;}
+    .opening-lead{max-width:600px;font-size:clamp(18px,1.6vw,22px);line-height:1.7;margin-top:36px;}
+    .opening-actions{margin-top:42px;margin-bottom:56px;gap:16px;}
+    .btn{border-radius:12px;min-height:62px;padding:0 32px;font-size:14px;}
+    .hero-stats-line{max-width:920px;border-top:1px solid rgba(255,255,255,.15);padding-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px;}
+    .hero-metric strong{display:block;font-size:clamp(38px,4vw,48px);font-weight:800;color:var(--accent);line-height:1;}
+    .hero-metric span{font-size:15px;color:var(--muted);margin-top:10px;display:block;}
+    .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:160px 0 0;}
+    .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
+    .challenge-heading h2{font-size:clamp(48px,6vw,86px);font-weight:900;line-height:1.05;}
+    .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
+    .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
+    .challenge-card{min-height:300px;padding:38px;border-radius:22px;}
+    .process-heading{text-align:center;}
+    .process-list{margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;padding-top:58px;position:relative;}
+    .process-list::before{content:'';position:absolute;left:4%;right:4%;top:38px;height:1px;background:rgba(232,146,10,.3);} 
+    .process-step{text-align:left;justify-items:start;gap:16px;padding:0 8px;border:none;opacity:1;transform:none;}
+    .process-dot{display:none;}
+    .process-icon{width:76px;height:76px;border-radius:50%;background:rgba(15,10,6,.95);}
+    .process-number{font-family:monospace;font-size:26px;letter-spacing:.02em;}
+    .process-copy h3{font-size:32px;line-height:1.1;}
+    .process-copy p{font-size:16px;max-width:280px;}
+    .portfolio-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
+    .portfolio-card{min-height:430px;padding:34px;}
+    .result-main{font-size:clamp(60px,5vw,86px);font-weight:900;color:var(--accent);line-height:.95;}
+    .before-after{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;}
+    .before-after .before,.before-after .after{padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);font-size:14px;line-height:1.5;}
+    .before-after .after{border-color:rgba(16,185,129,.4);color:#5ce6aa;}
+    .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;}
+    .service-meta{display:none;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:58px;}
+    .why-card{padding:34px;border-radius:20px;min-height:220px;display:flex;flex-direction:column;gap:16px;}
+    .faq-wrap{max-width:1000px;margin:58px auto 0;display:grid;gap:18px;}
+    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:30px;display:flex;justify-content:space-between;align-items:center;font-size:28px;font-weight:700;}
+    .site-footer{margin-top:160px;padding-top:80px;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
+    .footer-col{display:flex;flex-direction:column;gap:12px;}
+    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
+    @media (max-width:700px){.section-inner{width:min(100% - 36px,1360px);} .opening-title{font-size:56px;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr;} .hero-stats-line{grid-template-columns:1fr;gap:24px;}}
+
   </style>
 </head>
 <body>
@@ -885,28 +931,19 @@
     <div class="orb orb-3"></div>
   </div>
   <div class="opening-inner">
-    <p class="eyebrow fade-up">System Design · AI · Automation</p>
-    <h1 class="opening-title fade-up">
-      Усиливаем бизнес<br>не количеством людей,<br>
-      а <span class="title-accent">качеством систем.</span>
-    </h1>
-    <p class="opening-lead fade-up">
-      Проектируем AI-инструменты, автоматизацию и внутренние процессы так, чтобы команда работала
-      быстрее, точнее и спокойнее — без перегруза и хаотичного масштабирования.
-    </p>
-    <div class="opening-actions fade-up">
-      <a class="btn btn-accent" href="#contact" data-open-form>Запланировать стратегическую сессию</a>
-      <a class="btn btn-ghost" href="#portfolio">Смотреть внедрения</a>
+    <div>
+      <p class="eyebrow fade-up">ИИ-АВТОМАТИЗАЦИЯ • IT-РАЗРАБОТКА</p>
+      <h1 class="opening-title fade-up">Создаём AI-системы <br><span class="title-accent">для роста бизнеса</span></h1>
+      <p class="opening-lead fade-up">Проектируем и внедряем корпоративные AI-решения, которые сокращают операционные затраты, убирают рутину и дают прозрачный управляемый результат.</p>
+      <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Обсудить внедрение</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
+      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Срок окупаемости</span></div><div class="hero-metric"><strong>8</strong><span>Отраслей внедрения</span></div></div>
     </div>
-    
   </div>
 </section>
 
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal">
-      <h2>Если у вас есть хотя бы одна из этих задач — <span class="title-accent">вы в правильном месте.</span></h2>
-    </div>
+    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин</h2><span class="deco-line"></span><h2><span class="title-accent">вы в правильном месте</span></h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
         <div class="challenge-icon">01</div>
@@ -927,24 +964,6 @@
   </div>
 </section>
 
-<!-- ═══ HERO PANELS ════════════════════════════════════════════ -->
-<div class="panels-section" id="hero">
-  <div class="panels-sticky">
-    <article class="hero-panel" id="hp0">
-      <p class="hero-copy">Раньше за любую задачу Вам приходилось платить</p>
-    </article>
-    <article class="hero-panel" id="hp1">
-      <p class="hero-copy">Но рынок поменялся. Современный ИИ уже закрывает рутинные задачи</p>
-    </article>
-    <article class="hero-panel" id="hp2">
-      <p class="hero-copy">И делает это за копейки</p>
-    </article>
-  </div>
-</div>
-
-
-
-
 <!-- ═══ PORTFOLIO STACKING ════════════════════════════════════ -->
 <section class="portfolio-section" id="portfolio">
   <div class="section-inner">
@@ -963,11 +982,7 @@
         </div>
         <h3>Авторазбор телефонных звонков</h3>
         <p>AI-Микросервис для обработки звонков и контроля операторов</p>
-        <ul class="portfolio-card__list">
-          <li>Обработка звонка: 2 минуты → 30 секунд </li>
-          <li>-83% ошибок при заполнении CRM</li>
-          <li>2 сотрудника уволены после проверки качества</li>
-        </ul>
+        <div class="result-main">-83%</div><p>снижение ошибок в CRM после автоматического разбора звонков</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 минуты ручной проверки одного звонка.</div><div class="after"><strong>СТАЛО:</strong> 30 секунд и автоматический отчёт по качеству.</div></div>
         <a class="portfolio-card__link" href="call-center-case.html">Открыть кейс</a>
       </article>
 
@@ -978,10 +993,7 @@
         </div>
         <h3>AI-составитель ТЗ</h3>
         <p>ИИ-помощник, который превращает абстрактные идеи в понятное ТЗ и снимает проблему "чистого листа"</p>
-        <ul class="portfolio-card__list">
-          <li>Подготовка спецификаций: 2 дня → 2 часа</li>
-          <li>Единый стандарт оформления ТЗ</li>
-        </ul>
+        <div class="result-main">16x</div><p>ускорение подготовки ТЗ для продуктовой команды</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 дня на сбор и структурирование требований.</div><div class="after"><strong>СТАЛО:</strong> 2 часа и единый формат спецификаций.</div></div>
         <a class="portfolio-card__link" href="tz-generator-case.html">Открыть кейс</a>
       </article>
 
@@ -992,11 +1004,7 @@
         </div>
         <h3>Контент-завод</h3>
         <p>Связка из ИИ-Агентов, создающая посты для социальных сетей</p>
-        <ul class="portfolio-card__list">
-          <li>Создание поста: 40 минут → 2 минуты</li>
-          <li>Единый стиль контента</li>
-          <li>x1.3 рост вовлеченности</li>
-        </ul>
+        <div class="result-main">20x</div><p>быстрее производство контента с мульти-агентным пайплайном</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 40 минут на один пост вручную.</div><div class="after"><strong>СТАЛО:</strong> 2 минуты и стабильная контент-матрица.</div></div>
         <a class="portfolio-card__link" href="smm-case.html">Открыть кейс</a>
       </article>
 
@@ -1058,12 +1066,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <li class="service-row">разбор диалогов, брифов и входящих обращений</li>
         <li class="service-row">контентные и аналитические AI-сценарии</li>
       </ul>
-      <div class="service-meta">
-        <div class="service-meta-item"><span>Цена</span><strong>от 190 000 ₽</strong></div>
-        <div class="service-meta-item"><span>Сроки</span><strong>2–6 недель</strong></div>
-        <div class="service-meta-item"><span>Формат</span><strong>Под ключ</strong></div>
-      </div>
-    </article>
+      </article>
     <article class="glass-card service-card">
       <h3>Системы и интерфейсы</h3>
       <ul class="service-list">
@@ -1072,12 +1075,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <li class="service-row">Telegram-боты и операционные интеграции</li>
         <li class="service-row">архитектура данных, ролей и сценариев доступа</li>
       </ul>
-      <div class="service-meta">
-        <div class="service-meta-item"><span>Цена</span><strong>от 240 000 ₽</strong></div>
-        <div class="service-meta-item"><span>Сроки</span><strong>3–8 недель</strong></div>
-        <div class="service-meta-item"><span>Формат</span><strong>Проектно</strong></div>
-      </div>
-    </article>
+      </article>
   </div>
 </div>
 </section>
@@ -1088,7 +1086,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
   style="padding:100px 0;background:linear-gradient(180deg,rgba(0,0,0,0.88) 0%,rgba(4,2,0,0.95) 50%,rgba(8,4,0,0.98) 100%)">
   <div class="section-inner">
     <div class="section-heading">
-      <p class="eyebrow reveal">Процесс</p>
+      <p class="eyebrow reveal">КАК МЫ РАБОТАЕМ</p>
       <h2 class="reveal" style="text-align:center;max-width:920px;margin-inline:auto;">Процесс внедрения</h2>
     </div>
     <div class="process-list" id="processList">
@@ -1140,6 +1138,10 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
   </div>
 </section>
 
+
+<section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Enterprise-подход</h3><p>Строим процессы как управляемую систему, а не набор инструментов.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Измеримый эффект</h3><p>Каждое внедрение привязано к метрикам ROI, скорости и качества.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Безопасный контур</h3><p>Продумываем роли доступа, контроль данных и внутренние регламенты.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Быстрый запуск</h3><p>От диагностики до рабочего пилота в течение первых недель проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Команда Senior</h3><p>Архитекторы, разработчики и AI-инженеры с опытом enterprise внедрений.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Поддержка роста</h3><p>Не оставляем систему после релиза — масштабируем вместе с бизнесом.</p></article></div></div></section>
+<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span>↗</span></div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span>↗</span></div><div class="faq-item"><span>Как считается экономический эффект?</span><span>↗</span></div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span>↗</span></div></div></div></section>
+
 <!-- ═══ QUOTE BREAK ════════════════════════════════════════════ -->
 <section class="quote-break">
   <div class="section-inner quote-break__inner">
@@ -1157,28 +1159,11 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
     <div class="footer-top">
       <div class="footer-brand">
         <a class="logo footer-logo" href="#">Aivion</a>
-        <p class="footer-tagline">AI-системы, автоматизация и внутренние цифровые контуры — для команд, которые хотят работать умнее.</p>
+        <p class="footer-tagline">Premium AI automation agency для компаний, которым нужна масштабируемая и управляемая операционная система роста.</p>
       </div>
-      <div class="footer-nav-group">
-        <div class="footer-col">
-          <p class="footer-col-title">Навигация</p>
-          <div class="footer-links">
-            <a href="#portfolio">Кейсы</a>
-            <a href="#services">Что делаем</a>
-            <a href="#contact" data-open-form>Написать нам</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">Кейсы</p>
-          <div class="footer-links">
-            <a href="call-center-case.html">AI разбор звонков</a>
-            <a href="pbms-case.html">Корпоративная система PBMS</a>
-            <a href="promptlab-case.html">LLM тестирование промптов</a>
-            <a href="smm-case.html">SMM автоматизация Telegram</a>
-            <a href="tz-generator-case.html">AI дизайн-спецификации</a>
-          </div>
-        </div>
-      </div>
+      <div class="footer-col"><p class="footer-col-title">Навигация</p><div class="footer-links"><a href="#portfolio">Кейсы</a><a href="#services">Услуги</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div></div>
+      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (999) 000-00-00</a><a href="#contact" data-open-form>Запросить консультацию</a></div></div>
+      <div class="footer-col"><p class="footer-col-title">Соцсети</p><div class="footer-links"><a href="#">Telegram</a><a href="#">LinkedIn</a><a href="#">Behance</a><a href="#">GitHub</a></div></div>
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 Aivion. Все права защищены.</p>
