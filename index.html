@@ -581,7 +581,7 @@
       position:relative; padding-top:30px;
     }
     .process-list::before {
-      content:""; position:absolute; left:2%; right:2%; top:36px; height:1px;
+      content:""; position:absolute; left:2%; right:2%; top:60px; height:1px;
       background:linear-gradient(90deg,transparent,rgba(232,146,10,0.35) 8%,rgba(232,146,10,0.35) 92%,transparent);
       pointer-events:none; z-index:0;
     }
@@ -676,7 +676,7 @@
     }
     .challenge-section{padding:90px 0 40px;}
     .challenge-heading{text-align:left;max-width:1280px;margin-bottom:40px;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+    .challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
     .challenge-card{min-height:220px;display:flex;flex-direction:column;gap:16px;}
     .challenge-icon{width:40px;height:40px;border-radius:10px;border:1px solid var(--stroke-accent);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;}
 
@@ -900,7 +900,7 @@
     .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
     .challenge-heading h2{font-size:36px;font-weight:800;line-height:1.15;}
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
+    .challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;}
     .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
     .process-section{padding:100px 0 140px;}
     .process-list{margin-top:120px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;position:relative;align-items:start;width:100%;}
@@ -1034,10 +1034,14 @@
 
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Если вы узнаете себя в этом —<br><span class="title-accent">вы в правильном месте</span></h2></div>
+    <div class="challenge-heading reveal"><h2>Признаки, что вам <br><span class="title-accent">критически нужен AI прямо сейчас</span></h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
         <h3>Слишком много задач</h3>
+        <p>Таблицы, CRM, чаты и отчёты создают поток информации, который команда не успевает обрабатывать. Время уходит на поиск и проверку данных вместо роста компании</p>
+      </article>
+      <article class="glass-card challenge-card reveal">
+        <h3>Доходы падают, расходы на зарплаты растут</h3>
         <p>Таблицы, CRM, чаты и отчёты создают поток информации, который команда не успевает обрабатывать. Время уходит на поиск и проверку данных вместо роста компании</p>
       </article>
       <article class="glass-card challenge-card reveal">
@@ -1052,6 +1056,38 @@
   </div>
 </section>
 
+
+<!-- ═══ SERVICES ══════════════════════════════════════════════ -->
+<section class="services-section section-pad" id="services"
+style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%); padding-bottom: 50px;">
+<canvas class="dot-grid-canvas" id="servicesDotGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.5;"></canvas>
+<div class="section-inner" style="position:relative;z-index:2;">
+  <div class="section-heading">
+    <p class="eyebrow reveal">ТРАНСФОРМАЦИЯ</p>
+      <h2 class="reveal" style="max-width:1360px;">Что изменится</h2>
+  </div>
+  <div class="services-grid">
+    <article class="glass-card service-card">
+      <h3>AI и автоматизация</h3>
+      <ul class="service-list">
+        <li class="service-row">AI-ассистенты для команд и отделов</li>
+        <li class="service-row">автоматизация обработки заявок и документов</li>
+        <li class="service-row">разбор диалогов, брифов и входящих обращений</li>
+        <li class="service-row">контентные и аналитические AI-сценарии</li>
+      </ul>
+      </article>
+    <article class="glass-card service-card">
+      <h3>Системы и интерфейсы</h3>
+      <ul class="service-list">
+        <li class="service-row">сайты и landing pages с сильной подачей</li>
+        <li class="service-row">внутренние кабинеты, CRM и панели</li>
+        <li class="service-row">Telegram-боты и операционные интеграции</li>
+        <li class="service-row">архитектура данных, ролей и сценариев доступа</li>
+      </ul>
+      </article>
+  </div>
+</div>
+</section>
 
 <!-- ═══ PROCESS ════════════════════════════════════════════════ -->
 <section class="process-section" id="process"
@@ -1136,7 +1172,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
   <div class="section-inner">
     <div class="section-heading">
       <p class="eyebrow reveal">Кейсы</p>
-      <h2 class="reveal">Примеры автоматизаций</h2>
+      <h2 class="reveal">Примеры экономии</h2>
       <p class="section-text reveal">
         Наши собственные решения и продукты: от корпоративных платформ до полноценных ИИ-Сотрудников
       </p>
