@@ -902,14 +902,19 @@
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
     .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
-    .process-list{margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;padding-top:58px;position:relative;}
-    .process-list::before{content:'';position:absolute;left:4%;right:4%;top:38px;height:1px;background:rgba(232,146,10,.3);} 
-    .process-step{text-align:left;justify-items:start;gap:16px;padding:0 8px;border:none;opacity:1;transform:none;}
-    .process-dot{display:none;}
-    .process-icon{width:76px;height:76px;border-radius:50%;background:rgba(15,10,6,.95);}
-    .process-number{font-family:"Montserrat",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:.85;}
-    .process-copy h3{font-size:22px;line-height:1.2;font-weight:700;}
-    .process-copy p{font-size:16px;max-width:280px;}
+    .process-section{padding:100px 0 140px;}
+    .process-list{margin-top:120px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;position:relative;align-items:start;width:100%;}
+    .process-list::before{content:'';position:absolute;left:0;right:0;top:31px;height:1px;background:rgba(184,134,11,.72);}
+    .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:0;border:none;background:none;box-shadow:none;opacity:1;transform:none;}
+    .process-step::after,.process-number,.process-dot{display:none !important;}
+    .process-step:hover{background:none;box-shadow:none;}
+    .process-step:hover .process-copy h3,.process-step:hover .process-copy p{color:inherit;}
+    .process-icon{width:62px;height:62px;border-radius:50%;border:2px solid #B8860B;background:#050505;color:#B8860B;display:grid;place-items:center;font-family:"Space Mono","JetBrains Mono",monospace;font-size:24px;font-weight:700;letter-spacing:.02em;position:relative;z-index:2;box-shadow:none;transform:none;}
+    .process-step:hover .process-icon{transform:none;border-color:#B8860B;background:#050505;box-shadow:none;}
+    .process-copy{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:0;}
+    .process-copy h3{font-size:clamp(36px,2.45vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:0;}
+    .process-meta{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#B8860B;font-weight:600;}
+    .process-copy p{font-size:clamp(18px,1.35vw,20px);line-height:1.6;color:rgba(255,255,255,.7);max-width:280px;}
     .portfolio-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
     .portfolio-card{min-height:0;padding:28px 30px;}
     .result-main{font-size:clamp(44px,4vw,64px);font-weight:900;color:var(--accent);line-height:1;margin-top:8px;}
@@ -925,8 +930,17 @@
     .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
-    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
-    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
+    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
+    .process-list{grid-template-columns:1fr 1fr;gap:48px 28px;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
+    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
+    .process-list{grid-template-columns:1fr;margin-top:88px;padding-left:22px;gap:44px;}
+    .process-list::before{left:30px;right:auto;top:0;bottom:0;width:1px;height:auto;}
+    .process-step{display:grid;grid-template-columns:62px minmax(0,1fr);column-gap:22px;row-gap:0;align-items:start;text-align:left;}
+    .process-icon{grid-column:1;grid-row:1;justify-self:center;}
+    .process-copy{grid-column:2;grid-row:1;align-items:flex-start;padding-top:4px;}
+    .process-copy h3{font-size:clamp(30px,8vw,38px);}
+    .process-meta{font-size:14px;}
+    .process-copy p{max-width:360px;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
 
   </style>
 </head>
@@ -1049,47 +1063,35 @@
     </div>
     <div class="process-list" id="processList">
       <article class="process-step process-step--primary">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
-        </div>
-        <span class="process-number">01</span>
+        <div class="process-icon" aria-hidden="true">01</div>
         <div class="process-copy">
           <h3>Диагностика</h3>
-          <p><strong>3–5 дней.</strong> Фиксируем задачу, ограничения и точки потери ресурса.</p>
+          <span class="process-meta">3–5 дней • бесплатно</span>
+          <p>Фиксируем задачу, ограничения и точки потери ресурса.</p>
         </div>
       </article>
       <article class="process-step process-step--primary">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h10M5 17h8"/></svg>
-        </div>
-        <span class="process-number">02</span>
+        <div class="process-icon" aria-hidden="true">02</div>
         <div class="process-copy">
           <h3>Стратегия</h3>
-          <p><strong>до 7 дней.</strong> Определяем, что автоматизировать и какой стек даст максимальный эффект.</p>
+          <span class="process-meta">до 7 дней • roadmap</span>
+          <p>Определяем, что автоматизировать и какой стек даст максимальный эффект.</p>
         </div>
       </article>
       <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M5 19l5-6 4 3 5-7"/></svg>
-        </div>
-        <span class="process-number">03</span>
+        <div class="process-icon" aria-hidden="true">03</div>
         <div class="process-copy">
           <h3>Запуск</h3>
-          <p><strong>2–6 недель.</strong> Собираем решение, тестируем сценарии и выводим в рабочую среду.</p>
+          <span class="process-meta">2–6 недель • внедрение</span>
+          <p>Собираем решение, тестируем сценарии и выводим в рабочую среду.</p>
         </div>
       </article>
       <article class="process-step">
-        <div class="process-dot"></div>
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 18L18 6M9 6h9v9"/></svg>
-        </div>
-        <span class="process-number">04</span>
+        <div class="process-icon" aria-hidden="true">04</div>
         <div class="process-copy">
           <h3>Масштабирование</h3>
-          <p><strong>постоянно.</strong> Закрепляем регламенты, обучаем команду и масштабируем результат.</p>
+          <span class="process-meta">постоянно • поддержка</span>
+          <p>Закрепляем регламенты, обучаем команду и масштабируем результат.</p>
         </div>
       </article>
     </div>
