@@ -514,7 +514,7 @@
       width:6px; height:6px; border-radius:50%;
       background:var(--accent); opacity:0.7;
     }
-    .service-row{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .service-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:none;}
     .service-row:last-child{border-bottom:none;}
     .service-row::before{content:"✦";color:var(--accent);font-size:12px;line-height:1.3;opacity:.9;margin-top:4px;}
     .service-meta{margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
@@ -600,6 +600,8 @@
       transition:color .3s var(--ease);
     }
     .process-step:hover .process-copy h3 { color:#fff; }
+    .process-step--primary{border-color:rgba(232,146,10,.28);background:linear-gradient(145deg,rgba(232,146,10,.08),rgba(255,255,255,.02));}
+    .process-step--primary .process-number{opacity:1;}
     .process-copy p {
       font-size:15px; color:var(--muted); line-height:1.65;
       transition:color .3s var(--ease);
@@ -623,7 +625,7 @@
     .challenge-heading{text-align:left;max-width:1280px;margin-bottom:40px;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
     .challenge-card{min-height:220px;display:flex;flex-direction:column;gap:16px;}
-    .challenge-icon{width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke-accent);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);}
+    .challenge-icon{width:40px;height:40px;border-radius:10px;border:1px solid var(--stroke-accent);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;}
 
     /* ═══ QUOTE BREAK ═══════════════════════════════════════ */
     .quote-break {
@@ -831,34 +833,34 @@
   
     /* ===== 2026 premium layout refresh ===== */
     .section-inner{width:min(100% - 80px,1360px);} 
-    .section-pad{padding:150px 0;}
+    .section-pad{padding:96px 0;}
     .opening-inner{width:min(100% - 80px,1360px);grid-template-columns:minmax(0,920px) 1fr;align-items:center;min-height:calc(100svh - var(--header-h));}
     .eyebrow{font-size:12px;letter-spacing:.16em;padding:4px;color:var(--accent);margin-bottom:32px;}
-    .opening-title{font-size:clamp(58px,8vw,116px);font-weight:900;line-height:.93;max-width:920px;}
-    .opening-lead{max-width:600px;font-size:clamp(18px,1.6vw,22px);line-height:1.7;margin-top:36px;}
-    .opening-actions{margin-top:42px;margin-bottom:56px;gap:16px;}
-    .btn{border-radius:12px;min-height:62px;padding:0 32px;font-size:14px;}
-    .hero-stats-line{max-width:920px;border-top:1px solid rgba(255,255,255,.15);padding-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:42px;}
+    .opening-title{font-size:clamp(48px,6.5vw,88px);font-weight:800;line-height:1;max-width:920px;}
+    .opening-lead{max-width:580px;font-size:clamp(17px,1.5vw,20px);line-height:1.72;margin-top:28px;margin-bottom:4px;color:rgba(235,235,235,.78);}
+    .opening-actions{margin-top:36px;margin-bottom:40px;gap:14px;}
+    .btn{border-radius:10px;min-height:54px;padding:0 28px;font-size:14px;letter-spacing:.03em;}
+    .hero-stats-line{max-width:920px;border-top:1px solid rgba(255,255,255,.15);padding-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
     .hero-metric strong{display:block;font-size:clamp(38px,4vw,48px);font-weight:800;color:var(--accent);line-height:1;}
-    .hero-metric span{font-size:15px;color:var(--muted);margin-top:10px;display:block;}
-    .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:160px 0 0;}
+    .hero-metric span{font-size:14px;color:rgba(235,235,235,.60);margin-top:6px;display:block;}
+    .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:100px 0 0;}
     .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
-    .challenge-heading h2{font-size: 42px; font-weight:900;line-height:1.05;}
+    .challenge-heading h2{font-size:36px;font-weight:800;line-height:1.15;}
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
-    .challenge-card{min-height:300px;padding:38px;border-radius:22px;}
+    .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
     .process-heading{text-align:center;}
     .process-list{margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;padding-top:58px;position:relative;}
     .process-list::before{content:'';position:absolute;left:4%;right:4%;top:38px;height:1px;background:rgba(232,146,10,.3);} 
     .process-step{text-align:left;justify-items:start;gap:16px;padding:0 8px;border:none;opacity:1;transform:none;}
     .process-dot{display:none;}
     .process-icon{width:76px;height:76px;border-radius:50%;background:rgba(15,10,6,.95);}
-    .process-number{font-family:monospace;font-size:26px;letter-spacing:.02em;}
-    .process-copy h3{font-size:32px;line-height:1.1;}
+    .process-number{font-family:"Montserrat",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:.85;}
+    .process-copy h3{font-size:22px;line-height:1.2;font-weight:700;}
     .process-copy p{font-size:16px;max-width:280px;}
     .portfolio-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
-    .portfolio-card{min-height:430px;padding:34px;}
-    .result-main{font-size:clamp(60px,5vw,86px);font-weight:900;color:var(--accent);line-height:.95;}
+    .portfolio-card{min-height:0;padding:28px 30px;}
+    .result-main{font-size:clamp(44px,4vw,64px);font-weight:900;color:var(--accent);line-height:1;margin-top:8px;}
     .before-after{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;}
     .before-after .before,.before-after .after{padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);font-size:14px;line-height:1.5;}
     .before-after .after{border-color:rgba(16,185,129,.4);color:#5ce6aa;}
@@ -867,12 +869,12 @@
     .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:58px;}
     .why-card{padding:34px;border-radius:20px;min-height:220px;display:flex;flex-direction:column;gap:16px;}
     .faq-wrap{max-width:1000px;margin:58px auto 0;display:grid;gap:18px;}
-    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:30px;display:flex;justify-content:space-between;align-items:center;font-size:28px;font-weight:700;}
-    .site-footer{margin-top:160px;padding-top:80px;}
+    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}
+    .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
     @media (max-width:980px){.opening-inner{grid-template-columns:1fr;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
-    @media (max-width:700px){.section-inner{width:min(100% - 36px,1360px);} .opening-title{font-size:56px;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr;} .hero-stats-line{grid-template-columns:1fr;gap:24px;}}
+    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid,.process-list{grid-template-columns:1fr;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
 
   </style>
 </head>
@@ -932,7 +934,7 @@
     <div>
       <p class="eyebrow fade-up">ИИ-АВТОМАТИЗАЦИЯ • IT-РАЗРАБОТКА</p>
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
-      <p class="opening-lead fade-up">Автоматизируем бизнес-процессы с помощью передовых технологий. Первый результат - через 2-4 недели</p>
+      <p class="opening-lead fade-up">Строим ИИ-системы, которые берут рутину на себя. Вы видите первый результат через 2–4 недели — а не через полгода.</p>
       <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
       <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>8</strong><span>Отраслей внедрения</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div></div>
     </div>
@@ -941,7 +943,7 @@
 
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин</h2><h2><span class="title-accent">вы в правильном месте</span></h2></div>
+    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин —<br><span class="title-accent">вы в правильном месте</span></h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
         <div class="challenge-icon">01</div>
@@ -972,25 +974,25 @@
       <h2 class="reveal" style="max-width:920px;margin-inline:auto;">ПРОЦЕСС ВНЕДРЕНИЯ</h2>
     </div>
     <div class="process-list" id="processList">
-      <article class="process-step">
+      <article class="process-step process-step--primary">
         <div class="process-dot"></div>
         <div class="process-icon">
           <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
         </div>
         <span class="process-number">01</span>
         <div class="process-copy">
-          <h3>Первичный разбор</h3>
+          <h3>Диагностика</h3>
           <p><strong>3–5 дней.</strong> Фиксируем задачу, ограничения и точки потери ресурса.</p>
         </div>
       </article>
-      <article class="process-step">
+      <article class="process-step process-step--primary">
         <div class="process-dot"></div>
         <div class="process-icon">
           <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h10M5 17h8"/></svg>
         </div>
         <span class="process-number">02</span>
         <div class="process-copy">
-          <h3>Модель решения</h3>
+          <h3>Стратегия</h3>
           <p><strong>до 7 дней.</strong> Определяем, что автоматизировать и какой стек даст максимальный эффект.</p>
         </div>
       </article>
@@ -1001,7 +1003,7 @@
         </div>
         <span class="process-number">03</span>
         <div class="process-copy">
-          <h3>Проектирование и запуск</h3>
+          <h3>Запуск</h3>
           <p><strong>2–6 недель.</strong> Собираем решение, тестируем сценарии и выводим в рабочую среду.</p>
         </div>
       </article>
@@ -1012,7 +1014,7 @@
         </div>
         <span class="process-number">04</span>
         <div class="process-copy">
-          <h3>Встраивание в процессы</h3>
+          <h3>Масштабирование</h3>
           <p><strong>постоянно.</strong> Закрепляем регламенты, обучаем команду и масштабируем результат.</p>
         </div>
       </article>
@@ -1138,8 +1140,8 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 
 
-<section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Enterprise-подход</h3><p>Строим процессы как управляемую систему, а не набор инструментов.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Измеримый эффект</h3><p>Каждое внедрение привязано к метрикам ROI, скорости и качества.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Безопасный контур</h3><p>Продумываем роли доступа, контроль данных и внутренние регламенты.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Быстрый запуск</h3><p>От диагностики до рабочего пилота в течение первых недель проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Команда Senior</h3><p>Архитекторы, разработчики и AI-инженеры с опытом enterprise внедрений.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Поддержка роста</h3><p>Не оставляем систему после релиза — масштабируем вместе с бизнесом.</p></article></div></div></section>
-<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span>↗</span></div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span>↗</span></div><div class="faq-item"><span>Как считается экономический эффект?</span><span>↗</span></div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span>↗</span></div></div></div></section>
+<section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Enterprise-подход</h3><p>Строим процессы как управляемую систему, а не набор инструментов. Каждое решение документировано, масштабируемо и поддерживаемо.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Измеримый эффект</h3><p>Каждое внедрение привязано к метрикам ROI, скорости и качества. Вы знаете точный эффект до старта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Безопасный контур</h3><p>Продумываем роли доступа, контроль данных и внутренние регламенты.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Быстрый запуск</h3><p>От диагностики до рабочего пилота в течение первых недель проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Команда Senior</h3><p>Архитекторы, разработчики и AI-инженеры с опытом enterprise-внедрений. Без джунов на ключевых задачах.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Поддержка роста</h3><p>Не оставляем систему после релиза — масштабируем вместе с бизнесом.</p></article></div></div></section>
+<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Частые вопросы</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Первый рабочий пилот — за 2–4 недели. Полное внедрение с регламентами и обучением команды — 1–3 месяца в зависимости от масштаба задачи.</div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да. Подключаемся к текущей CRM и другим системам через API, вебхуки и безопасные интеграционные слои без слома текущих процессов.</div><div class="faq-item"><span>Как считается экономический эффект?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Считаем эффект по времени, стоимости операций, скорости цикла и качеству. До старта фиксируем baseline и целевые KPI, после запуска сравниваем фактические метрики.</div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да, работаем с NDA, политиками ИБ и закрытыми контурами. Настраиваем роли доступа, аудит действий и безопасное хранение данных.</div></div></div></section>
 
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
@@ -1148,7 +1150,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
     <div class="footer-top">
       <div class="footer-brand">
         <a class="logo footer-logo" href="#">Aivion</a>
-        <p class="footer-tagline">Premium AI automation agency для компаний, которым нужна масштабируемая и управляемая операционная система роста.</p>
+        <p class="footer-tagline">Внедряем ИИ и автоматизацию в бизнес. Первый результат — через 2–4 недели.</p>
       </div>
       <div class="footer-col"><p class="footer-col-title">Навигация</p><div class="footer-links"><a href="#portfolio">Кейсы</a><a href="#services">Услуги</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div></div>
       <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (999) 000-00-00</a><a href="#contact" data-open-form>Запросить консультацию</a></div></div>
