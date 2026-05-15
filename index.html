@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -227,9 +228,9 @@
       width:min(100% - 32px,1320px); margin:0 auto;
       min-height:calc(100svh - var(--header-h));
       display:grid; align-content:center;
-      grid-template-columns:minmax(0,920px) minmax(280px,360px);
+      grid-template-columns:minmax(0,920px) minmax(280px,520px);
       justify-content:space-between;
-      justify-items:start; text-align:left; gap:48px;
+      justify-items:start; text-align:left;
     }
     .opening-content{max-width:920px;}
     .eyebrow {
@@ -248,7 +249,7 @@
       filter:drop-shadow(0 0 28px rgba(232,146,10,0.38));
     }
     .opening-lead {
-      max-width:720px; margin-bottom:38px;
+      max-width:620px; margin-bottom:38px;
       font-size:clamp(15px,1.45vw,19px); font-weight:400; line-height:1.62;
       color:var(--muted-strong);
     }
@@ -405,7 +406,7 @@
 
     /* ═══ SECTION COMMON ════════════════════════════════════ */
     .section-inner {
-      width:min(100% - 32px,1240px); margin:0 auto;
+      width:min(100% - 32px,1240px); margin:0 auto; margin-bottom: 100px;
       position:relative; z-index:2;
     }
     .section-pad { padding:110px 0 100px; position:relative; }
@@ -422,7 +423,7 @@
     }
 
     .section-heading { margin-bottom:56px; }
-    .section-heading .eyebrow { margin-bottom:14px; }
+    .section-heading .eyebrow { margin-bottom:14px;}
     .section-heading h2 { margin-bottom:16px; }
     .section-text {
       font-size:17px; line-height:1.72; color:var(--muted-strong); max-width:640px;
@@ -886,10 +887,10 @@
     /* ===== 2026 premium layout refresh ===== */
     .section-inner{width:min(100% - 80px,1360px);} 
     .section-pad{padding:96px 0;}
-    .opening-inner{width:min(100% - 80px,1360px);grid-template-columns:minmax(0,920px) minmax(280px,360px);align-items:center;min-height:calc(100svh - var(--header-h));column-gap:52px;}
+    .opening-inner{width:min(100% - 80px,1360px);grid-template-columns:minmax(0,920px) minmax(280px,520px);align-items:center;min-height:calc(100svh - var(--header-h));}
     .eyebrow{font-size:12px;letter-spacing:.16em;padding:4px;color:var(--accent);margin-bottom:32px;}
     .opening-title{font-size:clamp(48px,6.5vw,88px);font-weight:800;line-height:1;max-width:920px;}
-    .opening-lead{max-width:580px;font-size:clamp(17px,1.5vw,20px);line-height:1.72;margin-top:28px;margin-bottom:4px;color:rgba(235,235,235,.78);}
+    .opening-lead{max-width:680px;font-size:clamp(17px,1.5vw,20px);line-height:1.72;margin-top:28px;margin-bottom:4px;color:rgba(235,235,235,.78);}
     .opening-actions{margin-top:36px;margin-bottom:40px;gap:14px;}
     .btn{border-radius:10px;min-height:54px;padding:0 28px;font-size:14px;letter-spacing:.03em;}
     .hero-stats-line{max-width:760px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
@@ -901,7 +902,6 @@
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
     .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;}
     .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
-    .process-heading{text-align:center;}
     .process-list{margin-top:72px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;padding-top:58px;position:relative;}
     .process-list::before{content:'';position:absolute;left:4%;right:4%;top:38px;height:1px;background:rgba(232,146,10,.3);} 
     .process-step{text-align:left;justify-items:start;gap:16px;padding:0 8px;border:none;opacity:1;transform:none;}
@@ -920,7 +920,7 @@
     .service-meta{display:none;}
     .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:58px;}
     .why-card{padding:34px;border-radius:20px;min-height:220px;display:flex;flex-direction:column;gap:16px;}
-    .faq-wrap{max-width:1000px;margin:58px auto 0;display:grid;gap:18px;}
+    .faq-wrap{max-width:1360px;display:grid;gap:18px;}
     .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}
     .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
@@ -984,7 +984,6 @@
   </div>
   <div class="opening-inner">
     <div class="opening-content">
-      <p class="eyebrow fade-up">ИИ-АВТОМАТИЗАЦИЯ • IT-РАЗРАБОТКА</p>
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
       <p class="opening-lead fade-up">Строим ИИ-системы, которые берут рутину на себя. Вы видите первый результат через 2–4 недели — а не через полгода.</p>
       <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
@@ -1015,33 +1014,25 @@
           <li>📈 Контроль в реальном времени</li>
         </ul>
       </div>
-      <div class="transform-metrics">
-        <div class="transform-metric"><strong>−80%</strong><span>ручной работы</span></div>
-        <div class="transform-metric"><strong>x3</strong><span>скорость процессов</span></div>
-        <div class="transform-metric"><strong>24/7</strong><span>AI-обработка</span></div>
-      </div>
     </aside>
   </div>
 </section>
 
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Если у вас хотя бы одна из этих причин —<br><span class="title-accent">вы в правильном месте</span></h2></div>
+    <div class="challenge-heading reveal"><h2>Если вы узнаете себя в этом —<br><span class="title-accent">вы в правильном месте</span></h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
-        <div class="challenge-icon">01</div>
-        <h3>Команда тонет в ручной рутине</h3>
-        <p>Повторяющиеся задачи съедают часы ключевых сотрудников и замедляют рост без реальной ценности для бизнеса.</p>
+        <h3>Слишком много задач</h3>
+        <p>Таблицы, CRM, чаты и отчёты создают поток информации, который команда не успевает обрабатывать. Время уходит на поиск и проверку данных вместо роста компании</p>
       </article>
       <article class="glass-card challenge-card reveal">
-        <div class="challenge-icon">02</div>
-        <h3>Нет единого управляемого контура</h3>
-        <p>Сервисы, чаты и таблицы живут отдельно, из-за чего теряется прозрачность процессов и контроль качества.</p>
+        <h3>Всё держится на вас</h3>
+        <p>Новых людей долго вводить в контекст, ошибки стоят дорого, а потеря экспертизы тормозит всю команду. Хочется, чтобы лучшие практики работали автоматически</p>
       </article>
       <article class="glass-card challenge-card reveal">
-        <div class="challenge-icon">03</div>
-        <h3>Нужен AI, который дает результат</h3>
-        <p>Важно не «подключить модный инструмент», а встроить рабочую систему, которая сокращает издержки и ошибки.</p>
+        <h3>Информация разбросана</h3>
+        <p>Чаты, таблицы, CRM и документы живут отдельно друг от друга. Из-за этого процессы сложно контролировать, а нужная информация постоянно теряется</p>
       </article>
     </div>
   </div>
@@ -1054,7 +1045,7 @@
   <div class="section-inner">
     <div class="section-heading">
       <p class="eyebrow reveal">КАК МЫ РАБОТАЕМ</p>
-      <h2 class="reveal" style="max-width:920px;margin-inline:auto;">ПРОЦЕСС ВНЕДРЕНИЯ</h2>
+      <h2 class="reveal" style="max-width:1360px;">ПРОЦЕСС ВНЕДРЕНИЯ</h2>
     </div>
     <div class="process-list" id="processList">
       <article class="process-step process-step--primary">
@@ -1107,12 +1098,12 @@
 
 <!-- ═══ SERVICES ══════════════════════════════════════════════ -->
 <section class="services-section section-pad" id="services"
-style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%)">
+style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%); padding-bottom: 50px;">
 <canvas class="dot-grid-canvas" id="servicesDotGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.5;"></canvas>
 <div class="section-inner" style="position:relative;z-index:2;">
   <div class="section-heading">
     <p class="eyebrow reveal">УСЛУГИ</p>
-      <h2 class="reveal" style="text-align:center;max-width:980px;margin-inline:auto;">ЧТО МЫ ДЕЛАЕМ</h2>
+      <h2 class="reveal" style="max-width:1360px;">Что мы делаем</h2>
   </div>
   <div class="services-grid">
     <article class="glass-card service-card">
@@ -1224,7 +1215,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 
 <section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Enterprise-подход</h3><p>Строим процессы как управляемую систему, а не набор инструментов. Каждое решение документировано, масштабируемо и поддерживаемо.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Измеримый эффект</h3><p>Каждое внедрение привязано к метрикам ROI, скорости и качества. Вы знаете точный эффект до старта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Безопасный контур</h3><p>Продумываем роли доступа, контроль данных и внутренние регламенты.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Быстрый запуск</h3><p>От диагностики до рабочего пилота в течение первых недель проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Команда Senior</h3><p>Архитекторы, разработчики и AI-инженеры с опытом enterprise-внедрений. Без джунов на ключевых задачах.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Поддержка роста</h3><p>Не оставляем систему после релиза — масштабируем вместе с бизнесом.</p></article></div></div></section>
-<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Частые вопросы</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Первый рабочий пилот — за 2–4 недели. Полное внедрение с регламентами и обучением команды — 1–3 месяца в зависимости от масштаба задачи.</div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да. Подключаемся к текущей CRM и другим системам через API, вебхуки и безопасные интеграционные слои без слома текущих процессов.</div><div class="faq-item"><span>Как считается экономический эффект?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Считаем эффект по времени, стоимости операций, скорости цикла и качеству. До старта фиксируем baseline и целевые KPI, после запуска сравниваем фактические метрики.</div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да, работаем с NDA, политиками ИБ и закрытыми контурами. Настраиваем роли доступа, аудит действий и безопасное хранение данных.</div></div></div></section>
+<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Первый рабочий пилот — за 2–4 недели. Полное внедрение с регламентами и обучением команды — 1–3 месяца в зависимости от масштаба задачи.</div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да. Подключаемся к текущей CRM и другим системам через API, вебхуки и безопасные интеграционные слои без слома текущих процессов.</div><div class="faq-item"><span>Как считается экономический эффект?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Считаем эффект по времени, стоимости операций, скорости цикла и качеству. До старта фиксируем baseline и целевые KPI, после запуска сравниваем фактические метрики.</div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да, работаем с NDA, политиками ИБ и закрытыми контурами. Настраиваем роли доступа, аудит действий и безопасное хранение данных.</div></div></div></section>
 
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
@@ -1236,7 +1227,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <p class="footer-tagline">Внедряем ИИ и автоматизацию в бизнес. Первый результат — через 2–4 недели.</p>
       </div>
       <div class="footer-col"><p class="footer-col-title">Навигация</p><div class="footer-links"><a href="#portfolio">Кейсы</a><a href="#services">Услуги</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div></div>
-      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (999) 000-00-00</a><a href="#contact" data-open-form>Запросить консультацию</a></div></div>
+      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (901) 760-90-67</a></div></div>
       <div class="footer-col"><p class="footer-col-title">Соцсети</p><div class="footer-links"><a href="#">Telegram</a><a href="#">LinkedIn</a><a href="#">Behance</a><a href="#">GitHub</a></div></div>
     </div>
     <div class="footer-bottom">
