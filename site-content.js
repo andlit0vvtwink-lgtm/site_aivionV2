@@ -22,7 +22,7 @@ window.siteContent = {
   ],
   services: {
     eyebrow: "Услуги",
-    title: "ЧТО МЫ ДЕЛАЕМ",
+    title: "Что мы делаем",
     cards: [
       {
         title: "AI и автоматизация",
@@ -45,8 +45,8 @@ window.siteContent = {
     ]
   },
   process: {
-    eyebrow: "Как мы работаем",
-    title: "ПРОЦЕСС ВНЕДРЕНИЯ",
+    eyebrow: "КАК МЫ РАБОТАЕМ",
+    title: "Процесс внедрения",
     steps: [
       {
         title: "Аудит",
