@@ -256,34 +256,53 @@
       display:flex; flex-wrap:wrap; justify-content:flex-start; gap:14px; margin-bottom:48px;
     }
     .transform-card{
-      width:100%;
-      padding:20px 18px 16px;
-      border-radius:18px;
-      border:1px solid #2a2a2a;
+      position:relative;
+      width:min(100%,510px);
+      padding:36px 32px 30px;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.11);
       background:
-        linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
-        #1a1a1a;
-      background-size:24px 24px,24px 24px,auto;
-      box-shadow:0 18px 40px rgba(0,0,0,.35);
+        radial-gradient(125% 95% at 80% -10%, rgba(96,170,255,.16), transparent 56%),
+        radial-gradient(125% 120% at -20% 115%, rgba(226,120,20,.17), transparent 58%),
+        linear-gradient(160deg,#111316 0%,#0d1014 52%,#090b0f 100%);
+      box-shadow:0 28px 70px rgba(0,0,0,.52),inset 0 1px 0 rgba(255,255,255,.06);
+      overflow:hidden;
+      animation:transformCardFloat 10s ease-in-out infinite;
+      transition:transform .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease);
     }
-    .transform-card__title{font-size:10px;letter-spacing:.22em;color:#888;margin:0 0 14px;text-transform:uppercase;font-weight:600;}
-    .transform-block{padding:12px 12px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.08);}
-    .transform-block--before{background:#161616;}
-    .transform-block--after{background:#131313;border-color:rgba(110,231,160,.25);}
-    .transform-label{font-size:10px;letter-spacing:.18em;color:#8f8f8f;text-transform:uppercase;font-weight:600;margin-bottom:8px;}
-    .transform-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;}
-    .transform-list li{font-size:13px;line-height:1.35;color:rgba(238,238,238,.88);padding-left:13px;position:relative;}
-    .transform-list li::before{content:"";position:absolute;left:0;top:.52em;width:5px;height:5px;border-radius:50%;}
-    .transform-list--before li::before{background:#F5A623;}
-    .transform-list--after li::before{background:#6EE7A0;}
-    .transform-flow{display:grid;place-items:center;gap:8px;margin:14px 0;}
-    .transform-gear{width:44px;height:44px;border-radius:50%;background:#F5A623;display:grid;place-items:center;color:#160b00;font-size:20px;font-weight:700;box-shadow:0 0 24px rgba(245,166,35,.35);}
-    .transform-arrow{color:#F5A623;font-size:16px;line-height:1;}
-    .transform-ai{font-size:11px;letter-spacing:.18em;color:#a6a6a6;text-transform:uppercase;}
-    .transform-metrics{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
-    .transform-metric strong{display:block;font-size:18px;line-height:1;color:#F5A623;}
-    .transform-metric span{display:block;font-size:10px;color:#8e8e8e;line-height:1.2;margin-top:4px;}
+    .transform-card::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+      background-image:radial-gradient(circle at 20% 15%,rgba(255,255,255,.55) .35px,transparent .9px);
+      background-size:3px 3px;mix-blend-mode:soft-light;
+    }
+    .transform-card::after{
+      content:"";position:absolute;inset:-28% 0 auto;height:34%;pointer-events:none;opacity:0;
+      background:linear-gradient(180deg,rgba(255,185,90,0) 0%,rgba(255,188,92,.22) 45%,rgba(255,176,70,0) 100%);
+      filter:blur(8px);
+      animation:aiScan 8s cubic-bezier(0.45,0.03,0.55,0.97) infinite;
+    }
+    .transform-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2);box-shadow:0 34px 78px rgba(0,0,0,.62),0 0 34px rgba(245,166,35,.11);}
+    .transform-card__title{font-size:11px;letter-spacing:.24em;color:rgba(226,230,236,.66);margin:0 0 20px;text-transform:uppercase;font-weight:600;}
+    .transform-block{padding:18px 18px 16px;border-radius:18px;border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(2px);}
+    .transform-block--before{background:linear-gradient(140deg,rgba(78,36,24,.45),rgba(44,20,15,.38));border-color:rgba(255,120,72,.25);}
+    .transform-block--after{background:linear-gradient(138deg,rgba(13,74,58,.45),rgba(8,54,45,.38));border-color:rgba(110,231,160,.35);}
+    .transform-label{font-size:11px;letter-spacing:.2em;color:#aab2be;text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+    .transform-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+    .transform-list li{font-size:15px;line-height:1.4;color:rgba(236,239,242,.93);padding-left:16px;position:relative;}
+    .transform-list li::before{content:"";position:absolute;left:0;top:.56em;width:6px;height:6px;border-radius:50%;}
+    .transform-list--before li{color:rgba(255,210,193,.88);} .transform-list--before li::before{background:#f18b58;box-shadow:0 0 10px rgba(241,139,88,.42);} 
+    .transform-list--after li{color:rgba(215,255,235,.95);} .transform-list--after li::before{background:#6EE7A0;box-shadow:0 0 10px rgba(110,231,160,.45);} 
+    .transform-flow{display:grid;place-items:center;gap:10px;margin:20px 0 18px;}
+    .transform-gear{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;color:#f9fde9;font-size:27px;font-weight:700;background:radial-gradient(circle at 32% 30%,rgba(164,255,215,.5),rgba(24,140,107,.72));box-shadow:0 0 0 1px rgba(164,255,215,.3),0 0 30px rgba(74,224,168,.35),0 0 80px rgba(74,224,168,.2);animation:aiPulse 4s ease-in-out infinite;}
+    .transform-arrow{color:rgba(245,184,105,.88);font-size:22px;line-height:1;}
+    .transform-ai{font-size:12px;letter-spacing:.28em;color:#c5ccd5;text-transform:uppercase;}
+    .transform-metrics{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+    .transform-metric{padding:10px 8px 8px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);}
+    .transform-metric strong{display:block;font-size:20px;line-height:1;color:#f5b065;}
+    .transform-metric span{display:block;font-size:11px;color:#99a3af;line-height:1.2;margin-top:6px;}
+    @keyframes transformCardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+    @keyframes aiScan{0%{transform:translateY(-34%);opacity:0;}14%{opacity:.2;}50%{opacity:.34;}86%{opacity:.16;}100%{transform:translateY(310%);opacity:0;}}
+    @keyframes aiPulse{0%,100%{box-shadow:0 0 0 1px rgba(164,255,215,.25),0 0 24px rgba(74,224,168,.28),0 0 70px rgba(74,224,168,.16);}50%{box-shadow:0 0 0 1px rgba(164,255,215,.38),0 0 34px rgba(74,224,168,.4),0 0 95px rgba(74,224,168,.24);}}
     .btn {
       display:inline-flex; align-items:center; justify-content:center;
       min-height:50px; padding:0 26px; border-radius:999px;
@@ -972,34 +991,34 @@
       <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>8</strong><span>Отраслей внедрения</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div></div>
     </div>
     <aside class="transform-card fade-up" aria-label="Трансформация процесса">
-      <p class="transform-card__title">Трансформация процесса</p>
+      <p class="transform-card__title">ТРАНСФОРМАЦИЯ ПРОЦЕССА</p>
       <div class="transform-block transform-block--before">
         <div class="transform-label">Было</div>
         <ul class="transform-list transform-list--before">
-          <li>Ручной ввод данных</li>
-          <li>Excel-таблицы</li>
-          <li>Email-пересылки</li>
-          <li>Часы на проверку</li>
+          <li>⚠️ Ручная рутина</li>
+          <li>📂 Данные разбросаны</li>
+          <li>⏳ Всё согласуется долго</li>
+          <li>😵 Команда перегружена</li>
         </ul>
       </div>
       <div class="transform-flow">
-        <div class="transform-gear" aria-hidden="true">⚙</div>
+        <div class="transform-gear" aria-hidden="true">✦</div>
         <div class="transform-arrow" aria-hidden="true">↓</div>
         <div class="transform-ai">AI</div>
       </div>
       <div class="transform-block transform-block--after">
         <div class="transform-label">Стало</div>
         <ul class="transform-list transform-list--after">
-          <li>Авто-обработка</li>
-          <li>Живые дашборды</li>
-          <li>AI-маршрутизация</li>
-          <li>Секунды</li>
+          <li>✅ AI берёт рутину</li>
+          <li>🧠 Автоматический анализ</li>
+          <li>🚀 Быстрая обработка</li>
+          <li>📈 Контроль в реальном времени</li>
         </ul>
       </div>
       <div class="transform-metrics">
-        <div class="transform-metric"><strong>-80%</strong><span>времени</span></div>
-        <div class="transform-metric"><strong>+25%</strong><span>конверсии</span></div>
-        <div class="transform-metric"><strong>×3</strong><span>скорость</span></div>
+        <div class="transform-metric"><strong>−80%</strong><span>ручной работы</span></div>
+        <div class="transform-metric"><strong>x3</strong><span>скорость процессов</span></div>
+        <div class="transform-metric"><strong>24/7</strong><span>AI-обработка</span></div>
       </div>
     </aside>
   </div>
