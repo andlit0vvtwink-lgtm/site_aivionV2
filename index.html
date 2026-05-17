@@ -1598,7 +1598,17 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
           <div class="field"><label for="cta-topic">С чем связана задача?</label><select id="cta-topic" name="topic" required><option value="" selected disabled>Выберите вариант</option><option>Клиенты и коммуникация</option><option>Документы и отчёты</option><option>Сбор и обработка данных</option><option>Автоматизация рутинных задач</option><option>AI-инструмент или сервис</option><option>Другое</option></select></div>
           <div class="field"><label for="cta-brief">Кратко опишите задачу</label><textarea id="cta-brief" name="brief" placeholder="Например: ERP-система с AI-поиском и аналитикой" required></textarea></div>
           <div class="field"><label for="cta-contact">Telegram / Телефон</label><input id="cta-contact" name="contact" type="text" placeholder="@username или +7 XXX-XXX-XX-XX" required/></div>
-          <label class="premium-cta-legal" for="cta-consent"><input id="cta-consent" type="checkbox" required/><span>Я согласен(а) на обработку персональных данных.</span></label>
+          <div class="cf-consents">
+            <label class="cf-consent" for="cta-policy">
+              <input id="cta-policy" type="checkbox" required/>
+              <span>Я ознакомился(ась) с <a href="/privacy" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span>
+            </label>
+            <label class="cf-consent" for="cta-consent">
+              <input id="cta-consent" type="checkbox" required/>
+              <span>Даю согласие на обработку моих персональных данных в соответствии с <a href="/consent" target="_blank" rel="noopener noreferrer">текстом согласия</a>.</span>
+            </label>
+          </div>
+          <p class="cf-legal">Если вы не дадите согласие на обработку данных, мы не сможем обработать заявку.</p>
           <button class="btn btn-accent" type="submit">Отправить запрос</button>
         </form>
       </div>
