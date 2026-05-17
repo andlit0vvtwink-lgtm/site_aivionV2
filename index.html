@@ -1289,7 +1289,7 @@
     .opening-lead{max-width:680px;font-size:clamp(17px,1.5vw,20px);line-height:1.72;margin-top:28px;margin-bottom:4px;color:rgba(235,235,235,.78);}
     .opening-actions{margin-top:36px;margin-bottom:40px;gap:14px;}
     .btn{border-radius:10px;min-height:54px;padding:0 28px;font-size:14px;letter-spacing:.03em;}
-    .hero-stats-line{max-width:760px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+    .hero-stats-line{max-width:460px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
     .hero-metric strong{display:block;font-size:clamp(29px,3vw,37px);font-weight:800;color:var(--accent);line-height:1;}
     .hero-metric span{font-size:12px;color:rgba(235,235,235,.60);margin-top:3px;display:block;}
     .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:100px 0 0;}
@@ -1397,7 +1397,7 @@
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
       <p class="opening-lead fade-up">Строим ИИ-системы, которые берут рутину на себя. Вы видите первый результат через 2–4 недели — а не через полгода.</p>
       <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
-      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>100%</strong><span>Окупившихся внедрений</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div></div>
+      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div></div>
     </div>
     
   </div>
@@ -1554,30 +1554,23 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
     </div>
     <div class="roi-layout">
       <div class="roi-steps">
-        <article class="roi-step"><div class="roi-step__number">1</div><div><h3 class="roi-step__title">Разбираем текущий процесс</h3><p class="roi-step__text">Фиксируем, как на самом деле движутся заявки, задачи и документы, где теряется время и на каких этапах возникают ручные узкие места.</p></div></article>
-        <article class="roi-step"><div class="roi-step__number">2</div><div><h3 class="roi-step__title">Считаем экономику внедрения</h3><p class="roi-step__text">Сопоставляем стоимость разработки и поддержки с ожидаемой выгодой по времени, качеству и управляемости, чтобы увидеть реалистичный срок окупаемости.</p></div></article>
-        <article class="roi-step"><div class="roi-step__number">3</div><div><h3 class="roi-step__title">Выбираем минимально достаточное решение</h3><p class="roi-step__text">Не усложняем архитектуру: оставляем только то, что даёт эффект в операционке сейчас и может безболезненно масштабироваться дальше.</p></div></article>
-        <article class="roi-step"><div class="roi-step__number">4</div><div><h3 class="roi-step__title">Запускаем пилот и фиксируем результат</h3><p class="roi-step__text">Стартуем с контролируемого сценария, измеряем KPI на фактических данных и только затем расширяем внедрение на новые участки.</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">1</div><div><h3 class="roi-step__title">Погружаемся в бизнес</h3><p class="roi-step__text">После заявки направляем короткий опросник, чтобы понять специфику Вашего бизнеса и предметно подготовиться к аудиту</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">2</div><div><h3 class="roi-step__title">Разбираем процессы</h3><p class="roi-step__text">Созваниваеся и смотрим, что работает неэффективно, - ищем точки роста</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">3</div><div><h3 class="roi-step__title">Считаем экономику</h3><p class="roi-step__text">Сопоставляем стоимость разработки и поддержки с ожидаемой выгодой по времени, качеству и управляемости, чтобы понять реальный срок окупаемости</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">4</div><div><h3 class="roi-step__title">Предлагаем решение</h3><p class="roi-step__text">Не усложняем архитектуру: оставляем только то, что даёт эффект в операционке сейчас и может безболезненно масштабироваться дальше.</p></div></article>
       </div>
       <article class="roi-case-card">
         <span class="roi-tag">Пример из практики</span>
         <h3 class="roi-case-title">Как не потратили лишнее на то,<br>что уже было решено иначе</h3>
         <p class="roi-case-intro">Маркетинговое агентство перевело копирайтеров и аналитиков на локальную LLM — ради приватности данных. Но работа через терминал оказалась неподъёмной для нетехнических специалистов: <strong>менять конфиги, выставлять температуру, управлять параметрами вручную</strong> — не их профиль. Клиент пришёл с идеей поставить поверх модели AI-ассистента, который обучал бы команду с ней работать. Мы посчитали, во что это выйдет — и предложили другое.</p>
         <div class="roi-facts-grid">
-          <div class="roi-facts roi-facts--red"><span class="clabel">Доп. расходы с ассистентом</span><span class="cvalue">+[X] ₽/мес</span><span class="cnote">Отдельный GPU, инфраструктура и обслуживание второй модели поверх основной</span></div>
+          <div class="roi-facts roi-facts--red"><span class="clabel">Доп. расходы с ассистентом</span><span class="cvalue">+800 000 ₽</span><span class="cnote">Отдельный GPU, инфраструктура и обслуживание второй модели поверх основной</span></div>
           <div class="roi-facts roi-facts--green"><span class="clabel">Доп. расходы с интерфейсом</span><span class="cvalue">0 ₽</span><span class="cnote">Работает поверх той же модели — никакого дополнительного железа</span></div>
         </div>
         <div class="roi-work">
           <h4>Что мы увидели</h4>
           <p>Клиент планировал решить проблему интерфейса ещё одной моделью без интерфейса. <strong>AI-ассистент поверх локальной LLM потребовал бы отдельного GPU</strong> — и при этом всё равно не устранил бы исходное узкое место: сотрудникам по-прежнему пришлось бы разбираться в терминале.</p>
           <p>Мы предложили веб-интерфейс поверх уже работающей модели: управление параметрами, пакетные запросы, история сессий — всё без терминала и без дополнительного железа. Команда обучилась за две сессии и вошла в рабочий ритм быстрее, чем планировала с ассистентом.</p>
-        </div>
-        <div class="roi-result">
-          <div class="roi-stat"><span class="roi-value">[Y] ₽</span><span class="roi-label">сэкономлено на инфраструктуре</span></div>
-          <div class="roi-sep" aria-hidden="true"></div>
-          <div class="roi-stat"><span class="roi-value">3 недели</span><span class="roi-label">от старта до запуска</span></div>
-          <div class="roi-sep" aria-hidden="true"></div>
-          <div class="roi-stat"><span class="roi-value">2 сессии</span><span class="roi-label">на обучение всей команды</span></div>
         </div>
       </article>
     </div>
@@ -1595,21 +1588,16 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
     <div class="premium-cta-wrap reveal">
       <div class="premium-cta-left">
         <p class="eyebrow">Next-step automation</p>
-        <h3>Построим AI-систему, которая высвободит команду для стратегических задач.</h3>
+        <h3>Связаться с нами</h3>
         <p>Проектируем и внедряем цифровые контуры под ваши процессы: от клиентских коммуникаций до внутренних аналитических сервисов и автоматизации принятия решений.</p>
-        <ul class="premium-contact-list">
-          <li><a href="mailto:hello@aivion.agency">hello@aivion.agency</a></li>
-          <li><a href="tel:+79017609067">+7 (901) 760-90-67</a></li>
-          <li>Москва / remote worldwide</li>
-        </ul>
-        <a class="btn btn-accent premium-telegram-btn" href="https://t.me" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+        
       </div>
       <div class="premium-cta-right">
         <form class="premium-cta-form" action="#" method="post">
           <div class="field"><label for="cta-name">Ваше имя</label><input id="cta-name" name="name" type="text" placeholder="Иван" required/></div>
           <div class="field"><label for="cta-topic">С чем связана задача?</label><select id="cta-topic" name="topic" required><option value="" selected disabled>Выберите вариант</option><option>Клиенты и коммуникация</option><option>Документы и отчёты</option><option>Сбор и обработка данных</option><option>Автоматизация рутинных задач</option><option>AI-инструмент или сервис</option><option>Другое</option></select></div>
           <div class="field"><label for="cta-brief">Кратко опишите задачу</label><textarea id="cta-brief" name="brief" placeholder="Например: ERP-система с AI-поиском и аналитикой" required></textarea></div>
-          <div class="field"><label for="cta-contact">Telegram / Телефон</label><input id="cta-contact" name="contact" type="text" placeholder="@username или +7 (...)" required/></div>
+          <div class="field"><label for="cta-contact">Telegram / Телефон</label><input id="cta-contact" name="contact" type="text" placeholder="@username или +7 XXX-XXX-XX-XX" required/></div>
           <label class="premium-cta-legal" for="cta-consent"><input id="cta-consent" type="checkbox" required/><span>Я согласен(а) на обработку персональных данных.</span></label>
           <button class="btn btn-accent" type="submit">Отправить запрос</button>
         </form>
