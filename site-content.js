@@ -22,7 +22,7 @@ window.siteContent = {
   ],
   services: {
     eyebrow: "Услуги",
-    title: "Что мы делаем",
+    title: "Карта компетенций",
     cards: [
       {
         title: "AI и автоматизация",
