@@ -257,6 +257,134 @@
     .opening-actions {
       display:flex; flex-wrap:wrap; justify-content:flex-start; gap:14px; margin-bottom:48px;
     }
+
+    .roi-section {
+      background:#0D0D0D;
+      padding:80px 0;
+    }
+    .roi-heading {
+      margin-bottom:32px;
+      max-width:980px;
+    }
+    .roi-heading h2 {
+      font-family:"Onest","Space Grotesk","Montserrat",sans-serif;
+      font-size:clamp(30px,4.4vw,56px);
+      line-height:1.05;
+      margin-bottom:20px;
+      color:#fff;
+    }
+    .roi-heading p {
+      font-size:clamp(16px,2.2vw,20px);
+      line-height:1.55;
+      color:rgba(255,255,255,0.78);
+      max-width:840px;
+    }
+    .roi-layout {
+      display:grid;
+      grid-template-columns:minmax(260px,400px) minmax(0,1fr);
+      gap:32px;
+      align-items:start;
+    }
+    .roi-steps {
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:28px;
+    }
+    .roi-step {
+      position:relative;
+      display:grid;
+      grid-template-columns:38px 1fr;
+      gap:16px;
+      padding-bottom:24px;
+    }
+    .roi-step:last-child { padding-bottom:0; }
+    .roi-step:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      left:18px;
+      top:44px;
+      bottom:8px;
+      width:1px;
+      background:rgba(255,255,255,0.2);
+    }
+    .roi-step__number {
+      color:#E09D2B;
+      font-size:22px;
+      font-weight:700;
+      line-height:1;
+    }
+    .roi-step__title {
+      font-family:"Onest","Space Grotesk","Montserrat",sans-serif;
+      font-size:20px;
+      margin-bottom:10px;
+      color:#fff;
+    }
+    .roi-step__text { color:rgba(255,255,255,0.76); line-height:1.58; }
+    .roi-case-card {
+      background:#1A1A1A;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:28px;
+      display:grid;
+      gap:24px;
+    }
+    .roi-tag {
+      display:inline-flex;
+      width:max-content;
+      font-size:13px;
+      color:#E09D2B;
+      border:1px solid rgba(224,157,43,0.5);
+      border-radius:999px;
+      padding:8px 12px;
+      letter-spacing:0.03em;
+    }
+    .roi-case-title { font-size:30px; line-height:1.2; margin-bottom:12px; color:#fff; }
+    .roi-case-intro { color:rgba(255,255,255,0.78); line-height:1.6; }
+    .roi-facts-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .roi-facts {
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:20px;
+      display:grid;
+      gap:14px;
+    }
+    .roi-fact {
+      display:flex;
+      gap:10px;
+      color:rgba(255,255,255,0.84);
+      line-height:1.45;
+    }
+    .roi-fact__emoji { color:#E09D2B; font-size:24px; line-height:1; }
+    .roi-work {
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:20px;
+      display:grid;
+      gap:14px;
+    }
+    .roi-work h4 { font-size:18px; color:#fff; margin-bottom:6px; }
+    .roi-result {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .roi-chip {
+      border:1px solid rgba(224,157,43,0.55);
+      color:#fff;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    @media (max-width:980px){
+      .roi-layout { grid-template-columns:1fr; }
+    }
+    @media (max-width:700px){
+      .roi-facts-grid { grid-template-columns:1fr; }
+      .roi-section { padding:80px 0; }
+    }
     .transform-card{
       position:relative;
       width:min(100%,510px);
@@ -1186,6 +1314,49 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 
 
+
+<section class="roi-section" id="roi-approach">
+  <div class="section-inner">
+    <div class="roi-heading">
+      <h2>Большинство AI-внедрений не окупаются. Вот как мы этого избегаем</h2>
+      <p>Перед запуском изучаем процессы, считаем экономику и только потом предлагаем решение.</p>
+    </div>
+    <div class="roi-layout">
+      <div class="roi-steps">
+        <article class="roi-step"><div class="roi-step__number">1</div><div><h3 class="roi-step__title">Разбираем текущий процесс</h3><p class="roi-step__text">Фиксируем, как на самом деле движутся заявки, задачи и документы, где теряется время и на каких этапах возникают ручные узкие места.</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">2</div><div><h3 class="roi-step__title">Считаем экономику внедрения</h3><p class="roi-step__text">Сопоставляем стоимость разработки и поддержки с ожидаемой выгодой по времени, качеству и управляемости, чтобы увидеть реалистичный срок окупаемости.</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">3</div><div><h3 class="roi-step__title">Выбираем минимально достаточное решение</h3><p class="roi-step__text">Не усложняем архитектуру: оставляем только то, что даёт эффект в операционке сейчас и может безболезненно масштабироваться дальше.</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">4</div><div><h3 class="roi-step__title">Запускаем пилот и фиксируем результат</h3><p class="roi-step__text">Стартуем с контролируемого сценария, измеряем KPI на фактических данных и только затем расширяем внедрение на новые участки.</p></div></article>
+      </div>
+      <article class="roi-case-card">
+        <span class="roi-tag">Пример из практики</span>
+        <div><h3 class="roi-case-title">Как сократили потери заявок в отделе продаж</h3><p class="roi-case-intro">Компания получала стабильный поток лидов, но часть заявок зависала между этапами CRM и не доходила до оплаты. Мы начали с диагностики процесса, посчитали влияние на выручку и запустили точечный сценарий автоматизации без лишней сложности.</p></div>
+        <div class="roi-facts-grid">
+          <div class="roi-facts">
+            <p class="roi-fact"><span class="roi-fact__emoji">🔍</span><span>Изучили воронку CRM и путь заявки от первого касания до оплаты.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">📉</span><span>Нашли провалы между статусами, где менеджеры теряли контекст по клиенту.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">🧩</span><span>Собрали карту ручных действий и проверили, какие из них действительно критичны.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">📊</span><span>Оценили стоимость задержек на каждом этапе и влияние на итоговую конверсию.</span></p>
+          </div>
+          <div class="roi-facts">
+            <p class="roi-fact"><span class="roi-fact__emoji">⏱️</span><span>Увидели, что ответы клиентам часто уходили позже рабочего окна.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">🛑</span><span>Часть заявок останавливалась из-за неполных карточек и пропущенных полей.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">📬</span><span>Уведомления о «зависших» лидах приходили слишком поздно и без приоритета.</span></p>
+            <p class="roi-fact"><span class="roi-fact__emoji">💬</span><span>Скрипты менеджеров отличались по качеству, что влияло на скорость закрытия.</span></p>
+          </div>
+        </div>
+        <div class="roi-work">
+          <h4>Что сделали</h4>
+          <p class="roi-fact"><span class="roi-fact__emoji">⚙️</span><span>Перестроили статусы воронки, добавили обязательные поля и автоматические проверки полноты карточек.</span></p>
+          <p class="roi-fact"><span class="roi-fact__emoji">🤖</span><span>Подключили AI-подсказки по следующим шагам для менеджеров и контроль критичных задержек в заявках.</span></p>
+          <p class="roi-fact"><span class="roi-fact__emoji">📣</span><span>Настроили приоритетные триггеры и уведомления руководителю по рисковым сделкам в реальном времени.</span></p>
+          <p class="roi-fact"><span class="roi-fact__emoji">🧠</span><span>Собрали единый регламент обработки лидов и закрепили его прямо в CRM-интерфейсе команды.</span></p>
+        </div>
+        <div class="roi-result"><span class="roi-chip">🚀 Быстрее внедрение</span><span class="roi-chip">📈 Выше конверсия</span><span class="roi-chip">🧭 Прозрачный процесс</span><span class="roi-chip">💸 Понятная окупаемость</span></div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему все наши внедрения <span class="title-accent">окупаются</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Считаем окупаемость до запуска</h3><p>До начала разработки показываем, как автоматизация повлияет на расходы, скорость работы и прибыль.
 
