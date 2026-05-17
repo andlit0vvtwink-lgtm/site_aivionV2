@@ -644,71 +644,221 @@
     .portfolio-stack::-webkit-scrollbar-thumb{background:rgba(232,146,10,.45);border-radius:999px;}
     .portfolio-stack::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:999px;}
     .portfolio-folder {
-      position:relative; top:auto;
-      border-radius:34px;
-      padding:12px;
-      background:linear-gradient(155deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 35px 90px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.14);
-      backdrop-filter:blur(16px);
-      overflow:hidden;
-      transform-origin:50% 0%;
+      position: sticky; /* sticky оставляем — его использует JS-анимация */
+      border-radius: 28px;
+      background: linear-gradient(155deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      transform-origin: 50% 0%;
+      display: grid;                          /* ← горизонтальный layout */
+      grid-template-columns: 1fr 1fr;        /* ← изображение и контент рядом */
+      min-height: 420px;
       scroll-snap-align:start;
     }
-    .portfolio-folder::before{
-      content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-      background:radial-gradient(circle at var(--mx,10%) var(--my,10%),rgba(255,170,64,0.16),transparent 45%);
-      opacity:0;transition:opacity .55s var(--ease);
-    }
-    .portfolio-folder:hover::before{opacity:1;}
+
+    /* Убрать вложенный padding-контейнер .portfolio-hero */
     .portfolio-hero {
-      position:relative; height:clamp(420px,42vw,560px); border-radius:28px;
-      overflow:hidden;
+      position: relative;
+      border-radius: 20px 0 0 20px;          /* скругление только слева */
+      overflow: hidden;
+      height: 100%;
+      min-height: 380px;
     }
+
     .portfolio-hero img {
-      width:100%; height:100%; object-fit:contain; display:block;
-      transition:transform .65s var(--ease), filter .55s var(--ease);
-      filter:brightness(0.35) saturate(0.7);
-      background:#020202;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;                     /* ← cover вместо contain, заполняет зону */
+      display: block;
+      transition: transform .65s var(--ease), filter .55s var(--ease);
+      filter: brightness(0.72) saturate(0.85);
     }
-    .portfolio-folder.is-active .portfolio-hero img { filter:brightness(1) saturate(1); }
-    .portfolio-folder:hover .portfolio-hero img { transform:scale(1.03); }
-    .portfolio-hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,0.02) 25%,rgba(0,0,0,0.65) 100%);
-      pointer-events:none;
+
+    .portfolio-folder:hover .portfolio-hero img {
+      transform: scale(1.04);
+      filter: brightness(0.88) saturate(1);
     }
-    .portfolio-content { padding:28px 28px 22px; display:grid; gap:18px; }
-    .portfolio-card__meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-    .portfolio-card__tag { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--stroke); padding:6px 12px; border-radius:999px; }
-    .portfolio-content h3 { font-size:clamp(30px,4vw,52px); letter-spacing:-0.04em; max-width:920px; }
-    .portfolio-content p { color:var(--muted-strong); max-width:980px; line-height:1.72; }
-    .result-main { font-family:"Space Grotesk",sans-serif; font-size:clamp(62px,10vw,124px); letter-spacing:-0.04em; line-height:0.9; color:#fff; text-shadow:0 0 28px rgba(232,146,10,0.25); }
-    .before-after { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .before, .after { border-radius:18px; padding:16px 18px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.12); color:var(--muted-strong); }
-    .before strong, .after strong { color:#fff; }
-    .portfolio-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:4px; }
-    .portfolio-card__link, .portfolio-card__download {
-      display:inline-flex; align-items:center; justify-content:center; min-height:46px;
-      border-radius:999px; padding:0 22px; text-decoration:none; font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
-      transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+
+    /* Градиент поверх картинки — тонкий оверлей справа, чтобы перетекало в контент */
+    .portfolio-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 55%, rgba(5,5,5,0.85) 100%),
+                  linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.45) 100%);
+      pointer-events: none;
     }
-    .portfolio-card__link { background:linear-gradient(135deg,var(--accent),var(--accent-strong)); color:#1b0c00; box-shadow:0 16px 30px rgba(232,146,10,0.32); }
-    .portfolio-card__download { color:#fff; border:1px solid rgba(255,255,255,0.24); background:rgba(255,255,255,0.05); backdrop-filter:blur(12px); }
-    .portfolio-card__link:hover, .portfolio-card__download:hover { transform:translateY(-2px); }
-    @media (max-width:860px) {
-      .portfolio-stack{grid-auto-columns:92%;}
-      .portfolio-folder{ border-radius:30px; }
-      .portfolio-content{ padding:22px 18px; }
-      .before-after{ grid-template-columns:1fr; }
+
+    /* Правая панель с контентом */
+    .portfolio-content {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: center;
+      background: rgba(8,5,2,0.72);
+      position: relative;
     }
-    @media (max-width:560px){
-      .portfolio-section{padding-top:80px;}
-      .portfolio-stack{grid-auto-columns:96%;}
-      .portfolio-folder{ border-radius:28px; }
-      .portfolio-hero{height:320px;}
-      .portfolio-content h3{font-size:32px;}
-      .result-main{font-size:74px;}
+
+    /* Шапка карточки: тег + номер */
+    .portfolio-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-card__tag {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--stroke);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+
+    /* Заголовок кейса — меньше чем был (т.к. нужно в колонку) */
+    .portfolio-content h3 {
+      font-size: clamp(22px, 2.4vw, 36px);
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Описание */
+    .portfolio-content > p {
+      color: var(--muted-strong);
+      line-height: 1.65;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    /* Главная метрика */
+    .result-main {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 5vw, 80px);
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--accent);
+      text-shadow: 0 0 28px rgba(232,146,10,0.35);
+      margin: 4px 0 0;
+    }
+
+    /* Подпись под метрикой */
+    .result-main + p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Было / Стало — горизонтально в колонку */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .before, .after {
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted-strong);
+    }
+
+    .after {
+      border-color: rgba(16,185,129,0.35);
+      color: #5ce6aa;
+    }
+
+    /* Кнопки */
+    .portfolio-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    /* Кнопка "Открыть кейс" → иконка-стрелка в углу */
+    .portfolio-card__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #1b0c00;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(232,146,10,0.32);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      flex-shrink: 0;
+    }
+
+    .portfolio-card__link::after {
+      content: "↗";
+    }
+
+    .portfolio-card__link:hover {
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 14px 32px rgba(232,146,10,0.45);
+    }
+
+    .portfolio-card__download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 18px;
+      height: 44px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .25s, border-color .25s;
+    }
+
+    .portfolio-card__download:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    /* Адаптив: на планшете и мобильном — вертикально */
+    @media (max-width: 860px) {
+      .portfolio-folder {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .portfolio-hero {
+        border-radius: 20px 20px 0 0;
+        min-height: 260px;
+        height: 260px;
+      }
+      .portfolio-hero::after {
+        background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.85) 100%);
+      }
+      .portfolio-content {
+        padding: 28px 24px 32px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .portfolio-hero { min-height: 200px; height: 200px; }
+      .portfolio-content { padding: 22px 18px 26px; }
+      .result-main { font-size: 52px; }
     }
     .portfolio-slider-controls{
       display:flex;justify-content:flex-end;gap:10px;margin:8px 0 18px;
@@ -1221,7 +1371,7 @@
       <button class="portfolio-slider-btn" id="portfolioNext" type="button" aria-label="Следующий кейс">→</button>
     </div>
     <div class="portfolio-stack" id="portfolioStack">
-      <article class="portfolio-folder reveal">
+      <article class="portfolio-card portfolio-folder reveal">
         <div class="portfolio-hero"><img src="assets/call-center-preview.jpg" alt="Превью кейса call center"></div>
         <div class="portfolio-content">
           <div class="portfolio-card__meta"><span class="case-number">01</span><span class="portfolio-card__tag">AI / Call Center</span></div>
@@ -1230,10 +1380,10 @@
           <div class="result-main">-83%</div>
           <p>Ошибок в CRM после автоматического разбора звонков.</p>
           <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 минуты ручной проверки одного звонка.</div><div class="after"><strong>СТАЛО:</strong> 30 секунд и автоматический отчёт по качеству.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="call-center-case.html">Открыть кейс</a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
+          <div class="portfolio-actions"><a class="portfolio-card__link" href="call-center-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
         </div>
       </article>
-      <article class="portfolio-folder reveal">
+      <article class="portfolio-card portfolio-folder reveal">
         <div class="portfolio-hero"><img src="assets/tz.jpg" alt="Превью кейса составитель ТЗ"></div>
         <div class="portfolio-content">
           <div class="portfolio-card__meta"><span class="case-number">02</span><span class="portfolio-card__tag">AI Assistant / Design Specs</span></div>
@@ -1242,10 +1392,10 @@
           <div class="result-main">16x</div>
           <p>Скорость подготовки спецификаций.</p>
           <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 дня на сбор и структурирование требований.</div><div class="after"><strong>СТАЛО:</strong> 2 часа и единый формат спецификаций.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="tz-generator-case.html">Открыть кейс</a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
+          <div class="portfolio-actions"><a class="portfolio-card__link" href="tz-generator-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
         </div>
       </article>
-      <article class="portfolio-folder reveal">
+      <article class="portfolio-card portfolio-folder reveal">
         <div class="portfolio-hero"><img src="assets/content-zavod.jpg" alt="Превью кейса контент-завод"></div>
         <div class="portfolio-content">
           <div class="portfolio-card__meta"><span class="case-number">03</span><span class="portfolio-card__tag">Multi-Agent / Telegram</span></div>
@@ -1254,7 +1404,7 @@
           <div class="result-main">20x</div>
           <p>Скорость производства контента.</p>
           <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 40 минут на один пост вручную.</div><div class="after"><strong>СТАЛО:</strong> 2 минуты и единый стиль постов.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="smm-case.html">Открыть кейс</a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
+          <div class="portfolio-actions"><a class="portfolio-card__link" href="smm-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
         </div>
       </article>
     </div>
