@@ -1317,7 +1317,11 @@
     .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:58px;}
     .why-card{padding:34px;border-radius:20px;min-height:220px;display:flex;flex-direction:column;gap:16px;}
     .faq-wrap{max-width:1360px;display:grid;gap:18px;}
-    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}
+    .faq-entry{display:grid;gap:10px;}
+    .faq-item{width:100%;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}.faq-icon{color:var(--accent);font-size:20px;font-weight:300;opacity:.8;transition:transform .2s ease;}
+    .faq-answer{display:none;padding:0 26px 12px;color:rgba(255,255,255,.78);line-height:1.6;}
+    .faq-entry.is-open .faq-answer{display:block;}
+    .faq-entry.is-open .faq-icon{transform:rotate(45deg);}
     .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
@@ -1600,7 +1604,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 </section>
 
 
-<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Первый рабочий пилот — за 2–4 недели. Полное внедрение с регламентами и обучением команды — 1–3 месяца в зависимости от масштаба задачи.</div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да. Подключаемся к текущей CRM и другим системам через API, вебхуки и безопасные интеграционные слои без слома текущих процессов.</div><div class="faq-item"><span>Как считается экономический эффект?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Считаем эффект по времени, стоимости операций, скорости цикла и качеству. До старта фиксируем baseline и целевые KPI, после запуска сравниваем фактические метрики.</div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да, работаем с NDA, политиками ИБ и закрытыми контурами. Настраиваем роли доступа, аудит действий и безопасное хранение данных.</div></div></div></section>
+<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-entry"><button class="faq-item" type="button"><span>Сколько стоят услуги?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Стоимость зависит от сложности проекта и количества интеграций. Простые AI-ассистенты в Telegram на базе знаний обычно стартуют от 150 тыс. ₽. Если нужен полноценный AI-ассистент с подключением CRM, внутренних БД, автоматизацией процессов и интеграциями — такие проекты обычно начинаются от 700 тыс. ₽ и выше.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Сколько времени занимает внедрение?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Сроки также зависят от объёма задач. Базовые решения обычно внедряются за 1–3 недели. Более сложные проекты с интеграциями, внутренними системами и кастомной логикой — в среднем от 1 до 3 месяцев.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>С чего начать в моем бизнесе?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Лучший ROI — в процессах, которые повторяются по одному сценарию и напрямую влияют на выручку:<br><br>Квалификация входящих лидов — AI отвечает мгновенно, квалифицирует по скрипту, передаёт готовый лид в CRM. Первое, с чего начинаем в большинстве проектов.<br>Поддержка клиентов — AI закрывает 60–80% типовых запросов без оператора. Подходит для магазинов, школ, агентств.<br>Входящие звонки — AI принимает звонок 24/7, квалифицирует, записывает данные в CRM.<br>Внутренние операции — саммари встреч, GPT-ассистент по регламентам. Сокращает рутину на 20–40%.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Можно ли доверять ИИ корпоративные данные?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Да, но здесь важно правильно выстроить архитектуру и учитывать требования 152-ФЗ о персональных данных. Для большинства задач можно безопасно использовать облачные AI-сервисы, но если речь идёт о чувствительных данных, коммерческой тайне или персональных данных — мы настаиваем на локальных нейросетях в закрытом контуре компании. В этом случае данные не уходят во внешние сервисы, но потребуется отдельная инфраструктура и серверное оборудование. По требованиям и ограничениям обычно консультируем отдельно под конкретный кейс.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Что будет, если зарубежные AI-сервисы ограничат или заблокируют в РФ?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Сейчас это один из главных рисков для бизнеса, поэтому многие компании сразу закладывают возможность перехода на локальные или альтернативные модели. Мы обычно строим решения так, чтобы AI-модель можно было заменить без полной переработки системы — например, перейти с OpenAI на локальную Llama, DeepSeek или российские решения. Нужно понимать, что локальные модели дают больше контроля и безопасности, но требуют более мощного железа и отдельной поддержки инфраструктуры.</div></div></div></div></section>
 
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
@@ -1666,6 +1670,16 @@ const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => {
   hdr.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive:true });
+
+
+/* ═══ FAQ ACCORDION ═════════════════════════════════════════ */
+document.querySelectorAll('.faq-entry .faq-item').forEach((button) => {
+  button.addEventListener('click', () => {
+    const entry = button.closest('.faq-entry');
+    if (!entry) return;
+    entry.classList.toggle('is-open');
+  });
+});
 
 /* ═══ OPENING FADE-UP ════════════════════════════════════= */
 document.querySelectorAll('.fade-up').forEach(el => {
