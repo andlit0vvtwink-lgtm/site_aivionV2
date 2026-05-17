@@ -832,22 +832,8 @@
     .pf-controls {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 28px 0 0;
-    }
-    .pf-arrow {
-      width: 52px; height: 52px; border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.04);
-      color: #fff; font-size: 20px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .2s, border-color .2s, transform .2s;
-      flex-shrink: 0;
-    }
-    .pf-arrow:hover {
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.36);
-      transform: scale(1.05);
     }
     .pf-dots {
       display: flex; align-items: center; gap: 10px;
@@ -1143,6 +1129,8 @@
       margin:4px 0 8px;
     }
     .premium-cta-legal input { margin-top:0; accent-color:#fff; flex-shrink:0; width:16px; height:16px; }
+    .premium-cta-legal span { transition:color .2s ease; }
+    .premium-cta-legal input:checked + span { color:#FFD060; }
     .premium-cta-submit{
       width:100%;
       border:0;
@@ -1312,8 +1300,8 @@
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
     }
-    .challenge-grid::-webkit-scrollbar{height:6px;}
-    .challenge-grid::-webkit-scrollbar-thumb{background:rgba(232,146,10,.45);border-radius:999px;}
+    .challenge-grid{scrollbar-width:none;-ms-overflow-style:none;}
+    .challenge-grid::-webkit-scrollbar{display:none;}
     .challenge-card{
       min-height:240px;
       padding:28px 32px;
@@ -1592,12 +1580,12 @@
         <p>Если знания разбросаны по чатам, таблицам и документам, сотрудники начинают зависеть друг от друга вместо системы.</p>
       </article>
     </div>
-    <div class="challenge-dots" id="challengeDots" aria-label="Навигация по карточкам">
-      <button class="challenge-dot is-active" type="button" data-idx="0" aria-label="Карточка 1"></button>
-      <button class="challenge-dot" type="button" data-idx="1" aria-label="Карточка 2"></button>
-      <button class="challenge-dot" type="button" data-idx="2" aria-label="Карточка 3"></button>
-      <button class="challenge-dot" type="button" data-idx="3" aria-label="Карточка 4"></button>
-      <button class="challenge-dot" type="button" data-idx="4" aria-label="Карточка 5"></button>
+    <div class="pf-dots challenge-dots" id="challengeDots" aria-label="Навигация по карточкам">
+      <button class="pf-dot challenge-dot is-active" type="button" data-idx="0" aria-label="Карточка 1"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="1" aria-label="Карточка 2"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="2" aria-label="Карточка 3"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="3" aria-label="Карточка 4"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="4" aria-label="Карточка 5"></button>
     </div>
   </div>
 </section>
@@ -1675,14 +1663,12 @@
 
       <!-- Нижняя панель: стрелка ← | точки | стрелка → -->
       <div class="pf-controls">
-        <button class="pf-arrow" id="pfPrev" type="button" aria-label="Назад">←</button>
         <div class="pf-dots" id="pfDots">
           <button class="pf-dot is-active" data-idx="0"></button>
           <button class="pf-dot" data-idx="1"></button>
           <button class="pf-dot" data-idx="2"></button>
           <button class="pf-dot" data-idx="3"></button>
         </div>
-        <button class="pf-arrow" id="pfNext" type="button" aria-label="Вперёд">→</button>
       </div>
     </div><!-- /pf-slider-outer -->
 
