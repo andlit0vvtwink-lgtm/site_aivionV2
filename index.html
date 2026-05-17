@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -284,7 +283,7 @@
       display:grid;
       grid-template-columns:minmax(260px,400px) minmax(0,1fr);
       gap:32px;
-      align-items:start;
+      align-items:stretch;
     }
     .roi-steps {
       border:1px solid rgba(255,255,255,0.08);
@@ -302,15 +301,18 @@
     .roi-step:not(:last-child)::after{
       content:"";
       position:absolute;
-      left:18px;
-      top:44px;
+      left:17px;
+      top:42px;
       bottom:8px;
       width:1px;
       background:rgba(255,255,255,0.2);
     }
     .roi-step__number {
+      display:flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      background:rgba(224,157,43,0.12); border:1px solid rgba(224,157,43,0.38);
       color:#E09D2B;
-      font-size:22px;
+      font-size:15px;
       font-weight:700;
       line-height:1;
     }
@@ -798,7 +800,6 @@
       font-size: clamp(52px, 5.5vw, 80px);
       font-weight: 900; letter-spacing: -.04em; line-height: 1;
       color: var(--accent);
-      text-shadow: 0 0 32px rgba(232,146,10,0.32);
     }
     .pf-metric-sub { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.4; }
 
@@ -816,11 +817,11 @@
     .pf-link {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 12px 28px;
-      border-radius: 8px;
-      background: var(--accent); color: #1b0c00;
+      border-radius: 4px;
+      color: var(--accent);
       font-size: 14px; font-weight: 700; letter-spacing: .03em;
       text-decoration: none; align-self: flex-start; margin-top: 8px;
-      box-shadow: 0 8px 24px rgba(232,146,10,0.28);
+      border: 1px solid var(--accent);
       transition: background .25s, transform .25s, box-shadow .25s;
     }
     .pf-link:hover {
@@ -1106,27 +1107,17 @@
       position:relative;
     }
     .premium-cta-shell{
-      width:min(100% - 80px,1360px);
+      width:min(100% - 48px,620px);
       margin:0 auto;
-      display:grid;
-      grid-template-columns:minmax(320px,1fr) minmax(340px,560px);
-      gap:clamp(40px,7vw,130px);
-      align-items:start;
+      display:flex;
+      flex-direction:column;
+      gap:32px;
     }
-    .premium-cta-left{display:flex;flex-direction:column;gap:34px;}
-    .premium-cta-left h3{
-      font:800 clamp(44px,6vw,88px)/0.93 "Space Grotesk","Montserrat",sans-serif;
-      letter-spacing:-0.04em;
+    .premium-cta-heading {
+      font:800 clamp(32px,4vw,52px)/1.05 "Space Grotesk","Montserrat",sans-serif;
+      letter-spacing:-0.03em;
+      color:#fff;
     }
-    .premium-contact-list{list-style:none;display:grid;gap:14px;}
-    .premium-contact-list a{
-      color:rgba(255,255,255,0.82);
-      text-decoration:none;
-      font-size:clamp(16px,1.45vw,22px);
-      letter-spacing:0.01em;
-      transition:color .2s ease;
-    }
-    .premium-contact-list a:hover{color:#fff;}
     .premium-cta-form { display:grid; gap:14px; }
     .premium-cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     .premium-cta-form input,
@@ -1148,12 +1139,12 @@
       background:rgba(255,255,255,0.045);
     }
     .premium-cta-legal {
-      display:flex; align-items:flex-start; gap:10px;
+      display:flex; align-items:center; gap:10px;
       font-size:13px; color:rgba(255,255,255,0.72);
       line-height:1.55;
       margin:4px 0 8px;
     }
-    .premium-cta-legal input { margin-top:3px; accent-color:#fff; }
+    .premium-cta-legal input { margin-top:0; accent-color:#fff; flex-shrink:0; width:16px; height:16px; }
     .premium-cta-submit{
       width:100%;
       border:0;
@@ -1166,10 +1157,7 @@
       text-transform:uppercase;
       cursor:pointer;
     }
-    @media (max-width:980px) {
-      .premium-cta-shell { grid-template-columns:1fr; gap:44px; width:min(100% - 40px,1360px); }
-      .premium-cta-grid { grid-template-columns:1fr; }
-    }
+    /* (premium-cta-shell is now single-column, no media override needed) */
 
 
     .contact-modal {
@@ -1364,6 +1352,108 @@
     .process-meta{font-size:14px;}
     .process-copy p{max-width:360px;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
 
+    /* ═══ MOBILE IMPROVEMENTS (≤ 480px) ══════════════════════ */
+    @media (max-width:480px) {
+      :root { --header-h:64px; }
+
+      /* Opening */
+      .opening-inner {
+        grid-template-columns:1fr;
+        padding:0 16px;
+        width:100%;
+      }
+      .opening-title { font-size:clamp(36px,10vw,52px) !important; line-height:1.05; }
+      .opening-lead { font-size:16px !important; margin-top:16px; }
+      .opening-actions { gap:10px; }
+      .opening-actions .btn { min-height:48px; font-size:13px; padding:0 20px; }
+      .hero-stats-line {
+        grid-template-columns:1fr 1fr !important;
+        gap:0 !important;
+        border-top:1px solid rgba(255,255,255,.12);
+        padding-top:20px;
+        margin-top:24px;
+        max-width:100%;
+      }
+      .hero-metric strong { font-size:28px !important; }
+      .hero-metric span { font-size:11px; }
+
+      /* Section inner padding */
+      .section-inner { width:calc(100% - 32px) !important; }
+
+      /* ROI section */
+      .roi-section { padding:60px 0; }
+      .roi-layout { grid-template-columns:1fr !important; }
+      .roi-heading h2 { font-size:clamp(26px,7vw,38px); }
+      .roi-steps { padding:20px 16px; }
+      .roi-case-card { padding:20px 16px 24px !important; }
+      .roi-facts-grid { grid-template-columns:1fr !important; }
+      .roi-facts .cvalue { font-size:clamp(26px,7vw,36px); }
+
+      /* Challenge cards */
+      .challenge-grid { grid-template-columns:1fr !important; gap:16px; }
+      .challenge-heading h2 { font-size:clamp(24px,7vw,34px) !important; }
+      .challenge-card { min-height:0 !important; padding:20px !important; }
+
+      /* Portfolio slider */
+      .pf-card { flex-direction:column; min-height:auto; }
+      .pf-img { flex:0 0 180px; height:180px; }
+      .pf-content { padding:20px 16px 24px; }
+      .pf-metric { font-size:48px; }
+      .pf-tg-inner { padding:40px 20px; gap:16px; }
+      .pf-tg-title { font-size:22px; }
+
+      /* Services */
+      .services-grid { grid-template-columns:1fr !important; gap:16px; }
+
+      /* Process */
+      .process-list { margin-top:60px !important; padding-left:16px !important; gap:32px; }
+      .process-copy h3 { font-size:clamp(22px,6vw,30px) !important; }
+      .process-copy p { font-size:16px !important; }
+
+      /* FAQ */
+      .faq-item { font-size:15px !important; padding:16px 18px !important; }
+      .faq-wrap { gap:12px; }
+
+      /* Statement */
+      .statement-section p { font-size:clamp(20px,5.5vw,28px); }
+
+      /* Form CTA */
+      .premium-cta-grid { grid-template-columns:1fr !important; }
+      .premium-cta-form input,
+      .premium-cta-form textarea { font-size:16px !important; }
+      .premium-cta-submit { min-height:52px; font-size:13px; }
+
+      /* Footer */
+      .footer-top { grid-template-columns:1fr !important; gap:28px; }
+      .footer-nav-group { grid-template-columns:1fr 1fr; }
+      .footer-bottom { flex-direction:column; align-items:flex-start; gap:10px; }
+
+      /* Hero panels */
+      .hero-copy { font-size:clamp(22px,7vw,38px); }
+
+      /* Buttons */
+      .btn { border-radius:10px; }
+
+      /* Sections padding */
+      .challenge-section,
+      .portfolio-section,
+      .services-section,
+      .process-section,
+      .why-section,
+      .faq-section { padding:64px 0 0 !important; }
+      .process-section { padding-bottom:80px !important; }
+    }
+
+    /* ═══ TABLET (481-860px) ═══════════════════════════════════ */
+    @media (min-width:481px) and (max-width:860px) {
+      .opening-inner { grid-template-columns:1fr; }
+      .opening-title { font-size:clamp(40px,8vw,64px) !important; }
+      .roi-layout { grid-template-columns:1fr !important; }
+      .challenge-grid { grid-template-columns:1fr 1fr; }
+      .services-grid { grid-template-columns:1fr 1fr; }
+      .premium-cta-grid { grid-template-columns:1fr 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -1423,7 +1513,7 @@
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
       <p class="opening-lead fade-up">Строим ИИ-системы, которые берут рутину на себя. Вы видите первый результат через 2–4 недели — а не через полгода.</p>
       <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
-      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI за 3-6 мес.</span></div></div>
+      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div><div class="hero-metric"><strong>196%</strong><span>Средний ROI за 3-6 мес.</span></div></div>
     </div>
     
   </div>
@@ -1478,7 +1568,7 @@
   <div class="section-inner">
     <div class="section-heading">
       <p class="eyebrow reveal">Кейсы</p>
-      <h2 class="reveal">Как это автоматизируют</h2>
+      <h2 class="reveal">Примеры внедрений</h2>
       <p class="section-text reveal">Наши собственные решения: от корпоративных платформ до полноценных ИИ-Сотрудников</p>
     </div>
 
@@ -1490,43 +1580,45 @@
           <!-- Карточка 1 -->
           <article class="pf-card">
             <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/call-center-preview.jpg" alt="Авторазбор звонков">
+              </div>
               <h3>Авторазбор телефонных звонков</h3>
               <p class="pf-desc">AI-Микросервис для обработки звонков и контроля работы операторов.</p>
               <div class="pf-metric">-83%</div>
               <p class="pf-metric-sub">Ошибок в CRM после автоматического разбора звонков.</p>
               <a class="pf-link" href="call-center-case.html">Подробнее</a>
             </div>
-            <div class="pf-img">
-              <img src="assets/call-center-preview.jpg" alt="Авторазбор звонков">
-            </div>
+            
           </article>
 
           <!-- Карточка 2 -->
           <article class="pf-card">
             <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
+              </div>
               <h3>AI-составитель ТЗ</h3>
               <p class="pf-desc">ИИ-помощник, который пишет документацию по шаблону и снимает проблему «чистого листа».</p>
               <div class="pf-metric">16x</div>
               <p class="pf-metric-sub">Скорость подготовки спецификаций.</p>
               <a class="pf-link" href="tz-generator-case.html">Подробнее</a>
             </div>
-            <div class="pf-img">
-              <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
-            </div>
           </article>
 
           <!-- Карточка 3 -->
           <article class="pf-card">
             <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/content-zavod.jpg" alt="Контент-завод">
+              </div>
               <h3>Контент-завод</h3>
               <p class="pf-desc">Связка из ИИ-Агентов, создающая посты для социальных сетей.</p>
               <div class="pf-metric">20x</div>
               <p class="pf-metric-sub">Скорость производства контента.</p>
               <a class="pf-link" href="smm-case.html">Подробнее</a>
             </div>
-            <div class="pf-img">
-              <img src="assets/content-zavod.jpg" alt="Контент-завод">
-            </div>
+            
           </article>
 
           <!-- Карточка 4 — TG -->
@@ -1564,7 +1656,7 @@
 <section class="roi-section" id="roi-approach">
   <div class="section-inner">
     <div class="roi-heading">
-      <h2>Почему эти внедрения сработали</h2>
+      <h2>Почему эти внедрения окупились</h2>
       <p>Перед запуском изучаем процессы, считаем экономику и только потом предлагаем решение.</p>
     </div>
     <div class="roi-layout">
@@ -1608,11 +1700,11 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <div class="card-badge">AI</div>
       </div>
       <div class="card-items">
-        <div class="item"><div class="item-icon" aria-hidden="true">🤖</div><div class="item-label">AI-ассистенты для бизнеса</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">📄</div><div class="item-label">Анализ и обработка документов</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">📈</div><div class="item-label">Прогнозирование и аналитика</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">🎧</div><div class="item-label">Voice и chat боты</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">⚡</div><div class="item-label">Внутренние AI-инструменты</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">AI-ассистенты для бизнеса</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Анализ и обработка документов</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Прогнозирование и аналитика</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Voice и chat боты</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние AI-инструменты</div></div>
       </div>
     </article>
     <article class="service-card">
@@ -1621,11 +1713,11 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <div class="card-badge">IT</div>
       </div>
       <div class="card-items">
-        <div class="item"><div class="item-icon" aria-hidden="true">🔗</div><div class="item-label">CRM / ERP / 1С интеграции</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">💻</div><div class="item-label">Внутренние сервисы и порталы</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">☁️</div><div class="item-label">Cloud & Security</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">📊</div><div class="item-label">IT-аудит инфраструктуры</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true">🛠️</div><div class="item-label">Custom development</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">CRM / ERP / 1С интеграции</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние сервисы и порталы</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Cloud & Security</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">IT-аудит инфраструктуры</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Custom development</div></div>
       </div>
     </article>
   </div>
@@ -1646,19 +1738,12 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 
 <section class="statement-section">
-  <p>«Вопрос уже не в том, нужен ли AI, а как встроить его в существующие процессы.»</p>
+  <p>Вопрос уже не в том, нужен ли AI, а как встроить его в существующие процессы</p>
 </section>
 
 <section class="premium-cta-section" id="contact">
   <div class="premium-cta-shell reveal">
-    <div class="premium-cta-left">
-      <h3>ОБСУДИТЬ<br>ВНЕДРЕНИЕ</h3>
-      <ul class="premium-contact-list">
-        <li><a href="mailto:hello@aivion.agency">hello@aivion.agency</a></li>
-        <li><a href="tel:+79017609067">+7 (901) 760-90-67</a></li>
-        <li><a href="https://t.me/aivion_agency" target="_blank" rel="noopener noreferrer">@aivion_agency</a></li>
-      </ul>
-    </div>
+    <h2 class="premium-cta-heading">Обсудим вашу задачу</h2>
     <div class="premium-cta-right">
       <form class="premium-cta-form" action="#" method="post">
         <div class="premium-cta-grid">
@@ -1684,8 +1769,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <p class="footer-tagline">Внедряем ИИ и автоматизацию в бизнес. Первый результат — через 2–4 недели.</p>
       </div>
       <div class="footer-col"><p class="footer-col-title">Навигация</p><div class="footer-links"><a href="#portfolio">Кейсы</a><a href="#services">Услуги</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div></div>
-      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (901) 760-90-67</a></div></div>
-      <div class="footer-col"><p class="footer-col-title">Соцсети</p><div class="footer-links"><a href="#">Telegram</a><a href="#">LinkedIn</a><a href="#">Behance</a><a href="#">GitHub</a></div></div>
+      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">@aivion_agency_bot</a></div></div>
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 Aivion. Все права защищены.</p>
