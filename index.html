@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:wght@700&family=Raleway:wght@600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <style>
     :root {
       --bg:            #000000;
@@ -257,6 +257,152 @@
     .opening-actions {
       display:flex; flex-wrap:wrap; justify-content:flex-start; gap:14px; margin-bottom:48px;
     }
+
+    .roi-section {
+      background:#0D0D0D;
+      padding:80px 0;
+    }
+    .roi-heading {
+      margin-bottom:32px;
+      max-width:980px;
+    }
+    .roi-heading h2 {
+      font-family:"Onest","Space Grotesk","Montserrat",sans-serif;
+      font-size:clamp(30px,4.4vw,56px);
+      line-height:1.05;
+      margin-bottom:20px;
+      color:#fff;
+    }
+    .roi-heading p {
+      font-size:clamp(16px,2.2vw,20px);
+      line-height:1.55;
+      color:rgba(255,255,255,0.78);
+      max-width:840px;
+    }
+    .roi-layout {
+      display:grid;
+      grid-template-columns:minmax(260px,400px) minmax(0,1fr);
+      gap:32px;
+      align-items:stretch;
+    }
+    .roi-steps {
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:28px;
+    }
+    .roi-step {
+      position:relative;
+      display:grid;
+      grid-template-columns:38px 1fr;
+      gap:16px;
+      padding-bottom:24px;
+    }
+    .roi-step:last-child { padding-bottom:0; }
+    .roi-step:not(:last-child)::after{
+      content:"";
+      position:absolute;
+      left:17px;
+      top:42px;
+      bottom:8px;
+      width:1px;
+      background:rgba(255,255,255,0.2);
+    }
+    .roi-step__number {
+      display:flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      background:rgba(224,157,43,0.12); border:1px solid rgba(224,157,43,0.38);
+      color:#E09D2B;
+      font-size:15px;
+      font-weight:700;
+      line-height:1;
+    }
+    .roi-step__title {
+      font-family:"Onest","Space Grotesk","Montserrat",sans-serif;
+      font-size:20px;
+      margin-bottom:10px;
+      color:#fff;
+    }
+    .roi-step__text { color:rgba(255,255,255,0.76); line-height:1.58; }
+    .roi-case-card {
+      background:#1A1A1A;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:36px 40px 40px;
+      display:grid;
+      gap:0;
+    }
+    .roi-tag {
+      display:inline-block;
+      padding:5px 14px;
+      border:1px solid rgba(232,146,10,0.38);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:#E8920A;
+      margin-bottom:20px;
+      width:max-content;
+    }
+    .roi-case-title {
+      font-size:clamp(20px,3vw,28px);
+      font-weight:800;
+      letter-spacing:-.03em;
+      line-height:1.2;
+      color:#fff;
+      margin-bottom:16px;
+    }
+    .roi-case-intro {
+      font-size:14.5px;
+      line-height:1.85;
+      color:rgba(255,255,255,0.55);
+      margin-bottom:26px;
+      max-width:740px;
+    }
+    .roi-case-intro strong { color:#fff; font-weight:600; }
+    .roi-facts-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:26px; }
+    .roi-facts {
+      border-radius:12px;
+      padding:20px 22px;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .roi-facts.roi-facts--red { background:rgba(224,82,82,0.09); border:1px solid rgba(224,82,82,0.28); }
+    .roi-facts.roi-facts--green { background:rgba(76,190,138,0.09); border:1px solid rgba(76,190,138,0.30); }
+    .roi-facts .clabel { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .roi-facts--red .clabel { color:#e05252; }
+    .roi-facts--green .clabel { color:#4cbe8a; }
+    .roi-facts .cvalue { font-size:clamp(28px,3.8vw,38px); font-weight:800; letter-spacing:-.03em; line-height:1; }
+    .roi-facts--red .cvalue { color:#e05252; }
+    .roi-facts--green .cvalue { color:#4cbe8a; }
+    .roi-facts .cnote { font-size:12.5px; line-height:1.6; color:rgba(255,255,255,0.55); margin-top:3px; }
+    .roi-work { margin-bottom:26px; border:none; border-radius:0; padding:0; display:block; }
+    .roi-work h4 { font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#E8920A; margin-bottom:10px; }
+    .roi-work p { font-size:14.5px; line-height:1.85; color:rgba(255,255,255,0.55); }
+    .roi-work p + p { margin-top:10px; }
+    .roi-work strong { color:#fff; font-weight:600; }
+    .roi-result {
+      border-top:1px solid rgba(232,146,10,0.12);
+      padding-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px 36px;
+      align-items:center;
+    }
+    .roi-stat { display:flex; flex-direction:column; gap:2px; }
+    .roi-value { font-size:clamp(18px,2.4vw,22px); font-weight:800; letter-spacing:-.03em; color:#fff; }
+    .roi-label { font-size:11.5px; color:rgba(255,255,255,0.55); line-height:1.4; }
+    .roi-sep { width:1px; height:32px; background:rgba(255,255,255,0.11); flex-shrink:0; }
+    @media (max-width:980px){
+      .roi-layout { grid-template-columns:1fr; }
+    }
+    @media (max-width:700px){
+      .roi-case-card { padding:22px 18px 26px; }
+      .roi-facts-grid { grid-template-columns:1fr; }
+      .roi-sep { display:none; }
+      .roi-section { padding:80px 0; }
+    }
     .transform-card{
       position:relative;
       width:min(100%,510px);
@@ -471,7 +617,18 @@
     }
     .glass-card:hover .case-number { background:rgba(232,146,10,0.18); border-color:rgba(232,146,10,0.40); box-shadow:0 0 14px rgba(232,146,10,0.20); }
 
-    .section-action { margin-top:44px; display:flex; justify-content:center; }
+    .section-action { margin-top:44px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+    .btn-telegram {
+      background:linear-gradient(135deg,#2AABEE 0%,#229ED9 100%);
+      color:#ffffff;
+      border-color:rgba(112,201,249,0.65);
+      box-shadow:0 0 0 1px rgba(42,171,238,0.36),0 12px 30px rgba(34,158,217,0.34);
+    }
+
+    .btn-telegram:hover {
+      background:linear-gradient(135deg,#3CB9F7 0%,#2AABEE 100%);
+      box-shadow:0 0 0 1px rgba(112,201,249,0.8),0 16px 36px rgba(34,158,217,0.44);
+    }
 
     /* ═══ INTRO / TEAM ══════════════════════════════════════ */
     .intro { padding:110px 0 100px; position:relative; overflow:hidden; }
@@ -504,76 +661,241 @@
     }
     .promise-card { min-height:230px; display:flex; flex-direction:column; gap:16px; }
 
-    /* ═══ PORTFOLIO STACKING ════════════════════════════════ */
-    .portfolio-section { padding:100px 0 0; position:relative; }
-    .portfolio-stack { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-    .portfolio-card {
-      position:relative; margin-bottom:0;
-      display:flex; flex-direction:column; gap:18px;
-      min-height:100%;
-      transform-origin:center;
-      transition:box-shadow .3s var(--ease);
+    /* ═══ PORTFOLIO — fullwidth single-slide ════════════════════ */
+    .portfolio-section {
+      padding: 100px 0 0;
+      position: relative;
+      background: #050505;
     }
-    .portfolio-card__meta {
-      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+
+    /* Внешний контейнер слайдера — внутри section-inner */
+    .pf-slider-outer {
+      position: relative;
+      width: 100%;
     }
-    .portfolio-card__tag {
-      font-family:"Montserrat",sans-serif; font-size:10px; font-weight:600;
-      letter-spacing:0.12em; text-transform:uppercase;
-      color:var(--muted); border:1px solid var(--stroke);
-      padding:4px 12px; border-radius:999px;
+
+    /* Overflow wrapper */
+    .pf-slider-wrap {
+      overflow: hidden;
+      width: 100%;
     }
-    .portfolio-card h3 { max-width:680px; }
-    .portfolio-card__list {
-      list-style:none; display:flex; flex-direction:column; gap:7px;
+
+    /* Трек */
+    .pf-track {
+      display: flex;
+      transition: transform .6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
     }
-    .portfolio-card__list li {
-      font-size:14px; color:var(--muted); padding-left:18px; position:relative;
+
+    /* Одна карточка — ровно ширина контейнера */
+    .pf-card {
+      flex: 0 0 100%;
+      width: 100%;
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      min-height: 440px;
     }
-    .portfolio-card__list li::before {
-      content:"—"; position:absolute; left:0; color:var(--accent); font-size:12px;
+
+    /* Левый контент */
+    .pf-content {
+      flex: 1 1 58%;
+      padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
     }
-    .portfolio-card__link {
-      display:inline-flex; align-items:center; gap:6px;
-      color:var(--accent); font-family:"Montserrat",sans-serif;
-      font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-      text-decoration:none; margin-top:auto;
-      transition:opacity .2s;
+
+    /* Правая картинка */
+    .pf-img {
+      flex: 0 0 42%;
+      position: relative;
+      overflow: hidden;
     }
-    .portfolio-card__link:hover { opacity:0.7; }
-    .portfolio-card__link::after { content:"↗"; font-size:14px; }
+    .pf-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.80) saturate(0.90);
+      transition: transform .7s cubic-bezier(0.4,0,0.2,1), filter .5s;
+    }
+    /* Градиент — слева от картинки, чтобы плавно переходило */
+    .pf-img::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #111214 0%, transparent 30%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* 4-я карточка — TG */
+    .pf-card--tg {
+      background: linear-gradient(145deg, #b9e8ff 0%, #7dd3fc 52%, #38bdf8 100%);
+      border-color: rgba(42,171,238,0.18);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pf-card--tg:hover { border-color: rgba(42,171,238,0.40); }
+    .pf-tg-inner {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 24px; padding: 60px 40px;
+    }
+    .pf-tg-icon {
+      width: 80px; height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(3,105,161,0.35));
+    }
+    .pf-tg-title { font-size: 28px; font-weight: 800; color: #03263a; line-height: 1.2; }
+    .pf-tg-sub { font-size: 16px; color: rgba(3,38,58,0.78); line-height: 1.6; max-width: 360px; }
+    .pf-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg,#2AABEE,#229ED9);
+      color: #fff; font-size: 13px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 999px; text-decoration: none;
+      box-shadow: 0 8px 28px rgba(34,158,217,0.32);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .pf-tg-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(34,158,217,0.48); }
+
+    /* Мета */
+    .pf-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pf-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(232,146,10,0.12); border: 1px solid rgba(232,146,10,0.32);
+      color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .05em;
+    }
+    .pf-tag {
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid rgba(255,255,255,0.12);
+      padding: 5px 12px; border-radius: 999px;
+    }
+
+    /* Заголовок */
+    .pf-content h3 {
+      font-size: clamp(24px, 2.4vw, 38px);
+      font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+      color: #fff; margin: 0;
+    }
+
+    /* Описание */
+    .pf-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    /* Метрика */
+    .pf-metric {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(52px, 5.5vw, 80px);
+      font-weight: 900; letter-spacing: -.04em; line-height: 1;
+      color: var(--accent);
+    }
+    .pf-metric-sub { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.4; }
+
+    /* Было / Стало */
+    .pf-ba { display: flex; flex-direction: column; gap: 8px; }
+    .pf-before, .pf-after {
+      border-radius: 10px; padding: 10px 14px;
+      font-size: 13px; line-height: 1.5;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted-strong);
+    }
+    .pf-after { border-color: rgba(16,185,129,0.35); color: #5ce6aa; }
+
+    /* Кнопка «Подробнее» */
+    .pf-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      border-radius: 4px;
+      color: var(--accent);
+      font-size: 14px; font-weight: 700; letter-spacing: .03em;
+      text-decoration: none; align-self: flex-start; margin-top: 8px;
+      border: 1px solid var(--accent);
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .pf-link:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(232,146,10,0.40);
+    }
+
+    /* ── Нижняя полоса: стрелки по краям + точки по центру ── */
+    .pf-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap:16px;
+      padding: 28px 0 0;
+    }
+    .pf-arrow{
+      width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.2);
+      background:#111214;color:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s;
+    }
+    .pf-arrow:hover{border-color:var(--accent);color:var(--accent);}
+    .pf-dots {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .pf-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      border: none; cursor: pointer; padding: 0;
+      transition: background .25s, transform .25s, width .25s;
+    }
+    .pf-dot.is-active {
+      background: var(--accent);
+      width: 24px;
+      border-radius: 999px;
+      transform: none;
+    }
+
+    /* Адаптив */
+    @media (max-width: 720px) {
+      .pf-card { flex-direction: column; min-height: 380px; }
+      .pf-img { flex: 0 0 220px; height: 220px; }
+      .pf-img::before { background: linear-gradient(180deg, rgba(17,18,20,0.6) 0%, transparent 100%); }
+      .pf-content { padding: 28px 24px 32px; }
+    }
+
+    /* ── override старых правил ─────────────────────────────── */
+    .portfolio-stack { display:none !important; }
+    .portfolio-slider-controls { display:none !important; }
+    .portfolio-folder { display:none !important; }
+
+    /* result-main — для других секций */
+    .result-main {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 5vw, 80px);
+      letter-spacing: -0.04em; line-height: 0.95;
+      color: var(--accent);
+      text-shadow: 0 0 28px rgba(232,146,10,0.35);
+      margin: 4px 0 0;
+    }
 
     /* ═══ SERVICES ══════════════════════════════════════════ */
     .services-section { padding:100px 0; position:relative; }
-    .services-grid {
-      display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
-    }
-    .service-card {
-      display:flex; flex-direction:column; gap:18px;
-      opacity:0; transform:translate3d(0,28px,0);
-      transition:opacity .48s cubic-bezier(0.22,1,0.36,1),
-                 transform .48s cubic-bezier(0.22,1,0.36,1),
-                 border-color .35s var(--ease), background .35s var(--ease),
-                 box-shadow .35s var(--ease);
-    }
-    .service-card.is-visible { opacity:1; transform:translate3d(0,0,0); }
-    .service-list {
-      list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:4px;
-    }
-    .service-list li {
-      font-size:15px; color:var(--muted); padding-left:20px; position:relative; line-height:1.5;
-    }
-    .service-list li::before {
-      content:""; position:absolute; left:0; top:9px;
-      width:6px; height:6px; border-radius:50%;
-      background:var(--accent); opacity:0.7;
-    }
-    .service-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:none;}
-    .service-row:last-child{border-bottom:none;}
-    .service-row::before{content:"✦";color:var(--accent);font-size:12px;line-height:1.3;opacity:.9;margin-top:4px;}
-    .service-meta{margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
-    .service-meta-item span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
-    .service-meta-item strong{display:block;font-size:14px;margin-top:5px;}
+    .services-grid {font-family:"Space Grotesk","Montserrat",sans-serif;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:10px 0}
+    @media(max-width:520px){.services-grid{grid-template-columns:1fr}}
+    .service-card{background:#161616;border-radius:18px;border:1px solid rgba(255,255,255,0.07);padding:30px 30px 34px;display:flex;flex-direction:column;gap:0;transition:border-color .2s}
+    .service-card:hover{border-color:rgba(224,157,43,0.35)}
+    .service-card.active{background:#1E1A10;border:1px solid rgba(224,157,43,0.2)}
+    .service-card.active:hover{border-color:rgba(224,157,43,0.2)}
+    .card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .card-title{font-size:19px;font-weight:700;color:#fff}
+    .card-badge{font-size:10px;font-weight:500;letter-spacing:.1em;color:#E09D2B;border:1px solid rgba(224,157,43,0.35);border-radius:6px;padding:3px 8px}
+    .card-items{display:flex;flex-direction:column}
+    .item{display:flex;align-items:center;gap:13px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.06);cursor:default}
+    .item:last-child{border-bottom:none}
+    .item-icon{width:24px;height:24px;flex-shrink:0;font-size:20px;display:flex;align-items:center;justify-content:center}
+    .item-label{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.45}
 
     /* ═══ PROCESS ════════════════════════════════════════════ */
     .process-section { padding:100px 0; position:relative; overflow:hidden; }
@@ -755,6 +1077,81 @@
     }
 
     /* ═══ CONTACT MODAL ══════════════════════════════════════ */
+    .statement-section{
+      width:100%;
+      padding:clamp(88px,11vw,160px) 24px;
+      text-align:center;
+      background:#060606;
+    }
+    .statement-section p{
+      margin:0 auto;
+      max-width:980px;
+      font:500 clamp(28px,3.2vw,48px)/1.28 "Space Grotesk","Montserrat",sans-serif;
+      letter-spacing:-0.02em;
+      color:rgba(245,245,245,0.9);
+    }
+    .premium-cta-section {
+      width:100%;
+      background:#060606;
+      padding:clamp(56px,8vw,120px) 0 clamp(80px,9vw,140px);
+      position:relative;
+    }
+    .premium-cta-shell{
+      width:min(100% - 48px,620px);
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:32px;
+    }
+    .premium-cta-heading {
+      font:800 clamp(32px,4vw,52px)/1.05 "Space Grotesk","Montserrat",sans-serif;
+      letter-spacing:-0.03em;
+      color:#fff;
+    }
+    .premium-cta-form { display:grid; gap:14px; }
+    .premium-cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .premium-cta-form input,
+    .premium-cta-form textarea {
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.02);
+      color:var(--text);
+      padding:16px 18px;
+      font:500 15px/1.45 "Montserrat",sans-serif;
+      outline:none;
+      transition:border-color .22s ease, background .22s ease;
+    }
+    .premium-cta-form textarea { min-height:146px; resize:vertical; }
+    .premium-cta-form input:focus,
+    .premium-cta-form textarea:focus {
+      border-color:rgba(255,255,255,0.5);
+      background:rgba(255,255,255,0.045);
+    }
+    .premium-cta-legal {
+      display:flex; align-items:center; gap:10px;
+      font-size:13px; color:rgba(255,255,255,0.72);
+      line-height:1.55;
+      margin:4px 0 8px;
+    }
+    .premium-cta-legal input { margin-top:0; accent-color:#fff; flex-shrink:0; width:16px; height:16px; }
+    .premium-cta-legal span { transition:color .2s ease; }
+    .premium-cta-legal input:checked + span { color:#FFD060; }
+    .premium-cta-submit{
+      width:100%;
+      border:0;
+      border-radius:14px;
+      background:#f5f5f5;
+      color:#090909;
+      min-height:58px;
+      font:700 14px/1 "Montserrat",sans-serif;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+    /* (premium-cta-shell is now single-column, no media override needed) */
+
+
     .contact-modal {
       position:fixed; inset:0; z-index:300;
       opacity:0; pointer-events:none;
@@ -894,15 +1291,25 @@
     .opening-lead{max-width:680px;font-size:clamp(17px,1.5vw,20px);line-height:1.72;margin-top:28px;margin-bottom:4px;color:rgba(235,235,235,.78);}
     .opening-actions{margin-top:36px;margin-bottom:40px;gap:14px;}
     .btn{border-radius:10px;min-height:54px;padding:0 28px;font-size:14px;letter-spacing:.03em;}
-    .hero-stats-line{max-width:760px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+    .hero-stats-line{max-width:460px;border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
     .hero-metric strong{display:block;font-size:clamp(29px,3vw,37px);font-weight:800;color:var(--accent);line-height:1;}
     .hero-metric span{font-size:12px;color:rgba(235,235,235,.60);margin-top:3px;display:block;}
     .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:100px 0 0;}
     .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
-    .challenge-heading h2{font-size:36px;font-weight:800;line-height:1.15;}
+    .challenge-heading h2{font-size:48px;font-weight:800;line-height:1.15;}
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;}
+    .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
     .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
+    .challenge-card__num{
+      font-size:clamp(22px,2.2vw,30px);
+      line-height:1;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:8px;
+    }
+    .challenge-dots{display:none;justify-content:center;gap:10px;margin-top:18px;}
+    .challenge-dot{width:9px;height:9px;border-radius:999px;border:0;background:rgba(255,255,255,.28);transition:background-color .2s ease,transform .2s ease;cursor:pointer;padding:0;}
+    .challenge-dot.is-active{background:var(--accent);transform:scale(1.15);}
     .process-section{padding:100px 0 140px;}
     .process-list{margin-top:120px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;position:relative;align-items:start;width:100%;}
     .process-list::before{content:'';position:absolute;left:0;right:0;top:31px;height:1px;background:rgba(184,134,11,.72);}
@@ -916,7 +1323,7 @@
     .process-copy h3{font-size:clamp(36px,2.45vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:0;}
     .process-meta{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#B8860B;font-weight:600;}
     .process-copy p{font-size:clamp(18px,1.35vw,20px);line-height:1.6;color:rgba(255,255,255,.7);max-width:280px;}
-    .portfolio-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
+    /* .portfolio-stack overridden by new slider */
     .portfolio-card{min-height:0;padding:28px 30px;}
     .result-main{font-size:clamp(44px,4vw,64px);font-weight:900;color:var(--accent);line-height:1;margin-top:8px;}
     .before-after{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;}
@@ -924,16 +1331,20 @@
     .before-after .after{border-color:rgba(16,185,129,.4);color:#5ce6aa;}
     .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;}
     .service-meta{display:none;}
-    .why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:58px;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:58px;}
     .why-card{padding:34px;border-radius:20px;min-height:220px;display:flex;flex-direction:column;gap:16px;}
     .faq-wrap{max-width:1360px;display:grid;gap:18px;}
-    .faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}
+    .faq-entry{display:grid;gap:10px;}
+    .faq-item{width:100%;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;color:var(--text);cursor:pointer;transition:border-color .25s,background .25s;}.faq-icon{color:var(--accent);font-size:20px;font-weight:300;opacity:.8;transition:transform .2s ease;}
+    .faq-answer{display:none;padding:0 26px 12px;color:rgba(255,255,255,.78);line-height:1.6;}
+    .faq-entry.is-open .faq-answer{display:block;}
+    .faq-entry.is-open .faq-icon{transform:rotate(45deg);}
     .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
-    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
+    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
     .process-list{grid-template-columns:1fr 1fr;gap:48px 28px;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
-    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
+    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
     .process-list{grid-template-columns:1fr;margin-top:88px;padding-left:22px;gap:44px;}
     .process-list::before{left:30px;right:auto;top:0;bottom:0;width:1px;height:auto;}
     .process-step{display:grid;grid-template-columns:62px minmax(0,1fr);column-gap:22px;row-gap:0;align-items:start;text-align:left;}
@@ -942,6 +1353,113 @@
     .process-copy h3{font-size:clamp(30px,8vw,38px);}
     .process-meta{font-size:14px;}
     .process-copy p{max-width:360px;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
+
+    /* ═══ MOBILE IMPROVEMENTS (≤ 480px) ══════════════════════ */
+    @media (max-width:480px) {
+      :root { --header-h:64px; }
+
+      /* Opening */
+      .opening-inner {
+        grid-template-columns:1fr;
+        padding:0 16px;
+        width:100%;
+      }
+      .opening-title { font-size:clamp(36px,10vw,52px) !important; line-height:1.05; }
+      .opening-lead { font-size:16px !important; margin-top:16px; }
+      .opening-actions { gap:10px; }
+      .opening-actions .btn { min-height:48px; font-size:13px; padding:0 20px; }
+      .hero-stats-line {
+        grid-template-columns:1fr 1fr !important;
+        gap:0 !important;
+        border-top:1px solid rgba(255,255,255,.12);
+        padding-top:20px;
+        margin-top:24px;
+        max-width:100%;
+      }
+      .hero-metric strong { font-size:28px !important; }
+      .hero-metric span { font-size:11px; }
+
+      /* Section inner padding */
+      .section-inner { width:calc(100% - 32px) !important; }
+
+      /* ROI section */
+      .roi-section { padding:60px 0; }
+      .roi-layout { grid-template-columns:1fr !important; }
+      .roi-heading h2 { font-size:clamp(26px,7vw,38px); }
+      .roi-steps { padding:20px 16px; }
+      .roi-case-card { padding:20px 16px 24px !important; }
+      .roi-facts-grid { grid-template-columns:1fr !important; }
+      .roi-facts .cvalue { font-size:clamp(26px,7vw,36px); }
+
+      /* Challenge cards */
+      .challenge-grid {display:flex; gap:14px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
+      .challenge-grid::-webkit-scrollbar{display:none;}
+      .challenge-heading h2 { font-size:clamp(24px,7vw,34px) !important; }
+      .challenge-card { min-height:0 !important; padding:20px !important; min-width:86vw; flex:0 0 86vw; scroll-snap-align:start; }
+      .challenge-dots{display:flex;}
+
+      /* Portfolio slider */
+      .pf-card { flex-direction:column; min-height:380px; }
+      .pf-img { flex:0 0 180px; height:180px; }
+      .pf-content { padding:20px 16px 24px; }
+      .pf-metric { font-size:48px; }
+      .pf-tg-inner { padding:40px 20px; gap:16px; }
+      .pf-tg-title { font-size:22px; }
+
+      /* Services */
+      .services-grid { grid-template-columns:1fr !important; gap:16px; }
+
+      /* Process */
+      .process-list { margin-top:60px !important; padding-left:16px !important; gap:32px; }
+      .process-copy h3 { font-size:clamp(22px,6vw,30px) !important; }
+      .process-copy p { font-size:16px !important; }
+
+      /* FAQ */
+      .faq-item { font-size:15px !important; padding:16px 18px !important; }
+      .faq-wrap { gap:12px; }
+      .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:64px 0 0;}
+      .statement-section{padding:56px 16px;}
+      .premium-cta-section{padding:40px 0 68px;}
+
+      /* Statement */
+      .statement-section p { font-size:clamp(20px,5.5vw,28px); }
+
+      /* Form CTA */
+      .premium-cta-grid { grid-template-columns:1fr !important; }
+      .premium-cta-form input,
+      .premium-cta-form textarea { font-size:16px !important; }
+      .premium-cta-submit { min-height:52px; font-size:13px; }
+
+      /* Footer */
+      .footer-top { grid-template-columns:1fr !important; gap:28px; }
+      .footer-nav-group { grid-template-columns:1fr 1fr; }
+      .footer-bottom { flex-direction:column; align-items:flex-start; gap:10px; }
+
+      /* Hero panels */
+      .hero-copy { font-size:clamp(22px,7vw,38px); }
+
+      /* Buttons */
+      .btn { border-radius:10px; }
+
+      /* Sections padding */
+      .challenge-section,
+      .portfolio-section,
+      .services-section,
+      .process-section,
+      .why-section,
+      .faq-section { padding:64px 0 0 !important; }
+      .process-section { padding-bottom:80px !important; }
+    }
+
+    /* ═══ TABLET (481-860px) ═══════════════════════════════════ */
+    @media (min-width:481px) and (max-width:860px) {
+      .opening-inner { grid-template-columns:1fr; }
+      .opening-title { font-size:clamp(40px,8vw,64px) !important; }
+      .roi-layout { grid-template-columns:1fr !important; }
+      .challenge-grid { grid-template-columns:1fr 1fr; }
+      .services-grid { grid-template-columns:1fr 1fr; }
+      .premium-cta-grid { grid-template-columns:1fr 1fr; }
+    }
 
   </style>
 </head>
@@ -1002,120 +1520,188 @@
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
       <p class="opening-lead fade-up">Строим ИИ-системы, которые берут рутину на себя. Вы видите первый результат через 2–4 недели — а не через полгода.</p>
       <div class="opening-actions fade-up"><a class="btn btn-accent" href="#contact" data-open-form>Получить консультацию</a><a class="btn btn-ghost" href="#portfolio">Смотреть кейсы</a></div>
-      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>100%</strong><span>Окупившихся внедрений</span></div><div class="hero-metric"><strong>282%</strong><span>Средний ROI</span></div><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div></div>
+      <div class="hero-stats-line fade-up"><div class="hero-metric"><strong>3 месяца</strong><span>Средний срок окупаемости</span></div><div class="hero-metric"><strong>196%</strong><span>Средний ROI за 3-6 мес.</span></div></div>
     </div>
     
   </div>
 </section>
 
+<!-- ═══ HERO PANELS ════════════════════════════════════════════ -->
+<div class="panels-section" id="hero">
+  <div class="panels-sticky">
+    <article class="hero-panel" id="hp0">
+      <p class="hero-copy">Раньше под 9/10 задач приходилось нанимать людей</p>
+    </article>
+    <article class="hero-panel" id="hp1">
+      <p class="hero-copy">Но рынок поменялся. Теперь их может выполнять ИИ</p>
+    </article>
+    <article class="hero-panel" id="hp2">
+      <p class="hero-copy">Делая это быстрее и дешевле</p>
+    </article>
+  </div>
+</div>
+
+
 <section class="challenge-section">
   <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Если вы до сих пор делаете эти вещи руками <br><span class="title-accent">- вы теряете время и деньги</span></h2></div>
+    <div class="challenge-heading reveal"><h2>Как понять, что вашему бизнесу нужен AI</h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
-        <h3>Слишком много задач</h3>
-        <p>Таблицы, CRM, чаты и отчёты создают поток информации, который команда не успевает обрабатывать. Время уходит на поиск и проверку данных вместо роста компании</p>
+        <div class="challenge-card__num">01</div>
+        <h3>Менеджеры отвечают слишком долго</h3>
+        <p>Если сотрудники часами разбирают входящие заявки, отвечают на одинаковые вопросы и вручную квалифицируют клиентов — это один из первых процессов для автоматизации.</p>
       </article>
       <article class="glass-card challenge-card reveal">
-        <h3>Доходы падают, расходы на зарплаты растут</h3>
-        <p>Таблицы, CRM, чаты и отчёты создают поток информации, который команда не успевает обрабатывать. Время уходит на поиск и проверку данных вместо роста компании</p>
+        <div class="challenge-card__num">02</div>
+        <h3>Команда перегружена рутиной</h3>
+        <p>Договоры, отчёты, саммари встреч, поиск информации и перенос данных между сервисами — сигнал, что время уходит на операционку вместо основной работы.</p>
       </article>
       <article class="glass-card challenge-card reveal">
-        <h3>Всё держится на вас</h3>
-        <p>Новых людей долго вводить в контекст, ошибки стоят дорого, а потеря экспертизы тормозит всю команду. Хочется, чтобы лучшие практики работали автоматически</p>
+        <div class="challenge-card__num">03</div>
+        <h3>Поддержка отвечает на одни и те же вопросы</h3>
+        <p>Если большая часть обращений повторяется, AI способен закрывать значительную часть запросов без участия оператора.</p>
       </article>
       <article class="glass-card challenge-card reveal">
-        <h3>Информация разбросана</h3>
-        <p>Чаты, таблицы, CRM и документы живут отдельно друг от друга. Из-за этого процессы сложно контролировать, а нужная информация постоянно теряется</p>
+        <div class="challenge-card__num">04</div>
+        <h3>Лиды теряются вне рабочего времени</h3>
+        <p>Когда компания отвечает только в рабочие часы, часть клиентов уходит раньше, чем получает ответ. AI может принимать обращения 24/7.</p>
       </article>
+      <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">05</div>
+        <h3>Внутри компании сложно найти информацию</h3>
+        <p>Если знания разбросаны по чатам, таблицам и документам, сотрудники начинают зависеть друг от друга вместо системы.</p>
+      </article>
+    </div>
+    <div class="pf-dots challenge-dots" id="challengeDots" aria-label="Навигация по карточкам">
+      <button class="pf-dot challenge-dot is-active" type="button" data-idx="0" aria-label="Карточка 1"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="1" aria-label="Карточка 2"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="2" aria-label="Карточка 3"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="3" aria-label="Карточка 4"></button>
+      <button class="pf-dot challenge-dot" type="button" data-idx="4" aria-label="Карточка 5"></button>
     </div>
   </div>
 </section>
 
-<!-- ═══ PORTFOLIO STACKING ════════════════════════════════════ -->
+<!-- ═══ PORTFOLIO SLIDER — fullwidth one-up ═══════════════════ -->
 <section class="portfolio-section" id="portfolio">
   <div class="section-inner">
     <div class="section-heading">
       <p class="eyebrow reveal">Кейсы</p>
-      <h2 class="reveal">Примеры экономии</h2>
-      <p class="section-text reveal">
-        Наши собственные решения и продукты: от корпоративных платформ до полноценных ИИ-Сотрудников
-      </p>
+      <h2 class="reveal">Примеры внедрений</h2>
+      <p class="section-text reveal">Наши собственные решения: от корпоративных платформ до полноценных ИИ-Сотрудников</p>
     </div>
-    <div class="portfolio-stack" id="portfolioStack">
-      <article class="portfolio-card glass-card reveal">
-        <div class="portfolio-card__meta">
-          <span class="case-number">01</span>
-          <span class="portfolio-card__tag">AI / Call Center</span>
+
+    <!-- Слайдер внутри контейнера -->
+    <div class="pf-slider-outer">
+      <div class="pf-slider-wrap">
+        <div class="pf-track" id="pfTrack">
+
+          <!-- Карточка 1 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/call-center-preview.jpg" alt="Авторазбор звонков">
+              </div>
+              <h3>Авторазбор телефонных звонков</h3>
+              <p class="pf-desc">AI-Микросервис для обработки звонков и контроля работы операторов.</p>
+              <div class="pf-metric">-83%</div>
+              <p class="pf-metric-sub">Ошибок в CRM после автоматического разбора звонков.</p>
+              <a class="pf-link" href="call-center-case.html">Подробнее</a>
+            </div>
+            
+          </article>
+
+          <!-- Карточка 2 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
+              </div>
+              <h3>AI-составитель ТЗ</h3>
+              <p class="pf-desc">ИИ-помощник, который пишет документацию по шаблону и снимает проблему «чистого листа».</p>
+              <div class="pf-metric">16x</div>
+              <p class="pf-metric-sub">Скорость подготовки спецификаций.</p>
+              <a class="pf-link" href="tz-generator-case.html">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Карточка 3 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <div class="pf-img">
+                <img src="assets/content-zavod.jpg" alt="Контент-завод">
+              </div>
+              <h3>Контент-завод</h3>
+              <p class="pf-desc">Связка из ИИ-Агентов, создающая посты для социальных сетей.</p>
+              <div class="pf-metric">20x</div>
+              <p class="pf-metric-sub">Скорость производства контента.</p>
+              <a class="pf-link" href="smm-case.html">Подробнее</a>
+            </div>
+            
+          </article>
+
+          <!-- Карточка 4 — TG -->
+          <a class="pf-card pf-card--tg" href="https://t.me/aivion_agency_bot" target="_blank" rel="noopener noreferrer">
+            <div class="pf-tg-inner">
+              <img class="pf-tg-icon" src="assets/tg.logo" alt="Логотип Telegram">
+              <div class="pf-tg-title">Больше кейсов<br>в Telegram</div>
+              <p class="pf-tg-sub">Разборы, демо и подробности<br>по каждому проекту</p>
+              <span class="pf-tg-btn">Перейти в канал →</span>
+            </div>
+          </a>
+
+        </div><!-- /pf-track -->
+      </div><!-- /pf-slider-wrap -->
+
+      <!-- Нижняя панель: стрелка ← | точки | стрелка → -->
+      <div class="pf-controls">
+        <button class="pf-arrow" id="pfPrev" type="button" aria-label="Предыдущий кейс">←</button>
+        <div class="pf-dots" id="pfDots">
+          <button class="pf-dot is-active" data-idx="0"></button>
+          <button class="pf-dot" data-idx="1"></button>
+          <button class="pf-dot" data-idx="2"></button>
+          <button class="pf-dot" data-idx="3"></button>
         </div>
-        <h3>Авторазбор телефонных звонков</h3>
-        <p>AI-Микросервис для обработки звонков и контроля операторов</p>
-        <div class="result-main">-83%</div><p>снижение ошибок в CRM после автоматического разбора звонков</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 минуты ручной проверки одного звонка.</div><div class="after"><strong>СТАЛО:</strong> 30 секунд и автоматический отчёт по качеству.</div></div>
-        <a class="portfolio-card__link" href="call-center-case.html">Открыть кейс</a>
-      </article>
+        <button class="pf-arrow" id="pfNext" type="button" aria-label="Следующий кейс">→</button>
+      </div>
+    </div><!-- /pf-slider-outer -->
 
-      <article class="portfolio-card glass-card reveal">
-        <div class="portfolio-card__meta">
-          <span class="case-number">02</span>
-          <span class="portfolio-card__tag">AI Assistant / Design Specs</span>
-        </div>
-        <h3>AI-составитель ТЗ</h3>
-        <p>ИИ-помощник, который превращает абстрактные идеи в понятное ТЗ и снимает проблему "чистого листа"</p>
-        <div class="result-main">16x</div><p>ускорение подготовки ТЗ для продуктовой команды</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 дня на сбор и структурирование требований.</div><div class="after"><strong>СТАЛО:</strong> 2 часа и единый формат спецификаций.</div></div>
-        <a class="portfolio-card__link" href="tz-generator-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card reveal">
-        <div class="portfolio-card__meta">
-          <span class="case-number">03</span>
-          <span class="portfolio-card__tag">Multi-Agent / Telegram</span>
-        </div>
-        <h3>Контент-завод</h3>
-        <p>Связка из ИИ-Агентов, создающая посты для социальных сетей</p>
-        <div class="result-main">20x</div><p>быстрее производство контента с мульти-агентным пайплайном</p><div class="before-after"><div class="before"><strong>БЫЛО:</strong> 40 минут на один пост вручную.</div><div class="after"><strong>СТАЛО:</strong> 2 минуты и стабильная контент-матрица.</div></div>
-        <a class="portfolio-card__link" href="smm-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card reveal">
-        <div class="portfolio-card__meta">
-          <span class="case-number">04</span>
-          <span class="portfolio-card__tag">Ops / Corporate System</span>
-        </div>
-        <h3>Корпоративная система для ИТ-отдела</h3>
-        <p>Внутренний контур для контроля проектов, ролевого доступа и надёжного резервирования</p>
-        <ul class="portfolio-card__list">
-          <li>Быстрый поиск по материалам и документам</li>
-          <li>Ролевой доступ и прозрачный контроль по журналу действий</li>
-          <li>Резервное копирование и стабильность данных</li>
-        </ul>
-        <a class="portfolio-card__link" href="pbms-case.html">Открыть кейс</a>
-      </article>
-
-      <article class="portfolio-card glass-card reveal">
-        <div class="portfolio-card__meta">
-          <span class="case-number">05</span>
-          <span class="portfolio-card__tag">LLM / Prompt Engineering</span>
-        </div>
-        <h3>Платформа для работы с локальным ИИ</h3>
-        <p>Инженерная среда для настройки локальных LLM</p>
-        <ul class="portfolio-card__list">
-          <li>х10 Быстрее проверка одной гипотезы</li>
-          <li>-90% Кликов</li>
-          <li>Полная приватность</li>
-        </ul>
-        <a class="portfolio-card__link" href="promptlab-case.html">Открыть кейс</a>
-      </article>
-
-
-
-    </div>
-    <div class="section-action" style="padding-bottom:100px;">
-      <a class="btn btn-accent" href="#contact" data-open-form>Обсудить проект</a>
+    <div class="section-action" style="padding-bottom:100px; margin-top:32px;">
+      <a class="btn btn-ghost" href="#contact" data-open-form>Обсудить проект</a>
     </div>
   </div>
 </section>
 
-
+<section class="roi-section" id="roi-approach">
+  <div class="section-inner">
+    <div class="roi-heading">
+      <h2>Почему эти внедрения окупились</h2>
+      <p>Перед запуском изучаем процессы, считаем экономику и только потом предлагаем решение.</p>
+    </div>
+    <div class="roi-layout">
+      <div class="roi-steps">
+        <article class="roi-step"><div class="roi-step__number">1</div><div><h3 class="roi-step__title">Погружаемся в бизнес</h3><p class="roi-step__text">После заявки направляем короткий опросник, чтобы понять специфику Вашего бизнеса и предметно подготовиться к аудиту</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">2</div><div><h3 class="roi-step__title">Разбираем процессы</h3><p class="roi-step__text">Созваниваеся и смотрим, что работает неэффективно, - ищем точки роста</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">3</div><div><h3 class="roi-step__title">Считаем экономику</h3><p class="roi-step__text">Сопоставляем стоимость разработки и поддержки с ожидаемой выгодой по времени, качеству и управляемости, чтобы понять реальный срок окупаемости</p></div></article>
+        <article class="roi-step"><div class="roi-step__number">4</div><div><h3 class="roi-step__title">Предлагаем решение</h3><p class="roi-step__text">Не усложняем архитектуру: оставляем только то, что даёт эффект в операционке сейчас и может безболезненно масштабироваться дальше.</p></div></article>
+      </div>
+      <article class="roi-case-card">
+        <span class="roi-tag">Пример из практики</span>
+        <h3 class="roi-case-title">Кейс: Как спасли клиента от убытков<br></h3>
+        <p class="roi-case-intro">Маркетинговое агентство (NDA) перевело копирайтеров и аналитиков на локальную LLM — ради приватности данных. Но работа через терминал оказалась неподъёмной для нетехнических специалистов: <strong>менять конфиги, выставлять температуру, управлять параметрами вручную</strong> — не их профиль. Клиент пришёл с идеей поставить поверх модели AI-ассистента, который обучал бы команду с ней работать. Мы посчитали, во что это выйдет — и предложили другое.</p>
+        <div class="roi-facts-grid">
+          <div class="roi-facts roi-facts--red"><span class="clabel">Доп. расходы с ассистентом</span><span class="cvalue">+800 000 ₽</span><span class="cnote">Отдельный GPU, инфраструктура и обслуживание второй модели поверх основной</span></div>
+          <div class="roi-facts roi-facts--green"><span class="clabel">Доп. расходы с интерфейсом</span><span class="cvalue">0 ₽</span><span class="cnote">Работает поверх той же модели — никакого дополнительного железа</span></div>
+        </div>
+        <div class="roi-work">
+          <h4>Что мы увидели</h4>
+          <p>Клиент планировал решить проблему интерфейса ещё одной моделью без интерфейса. <strong>AI-ассистент поверх локальной LLM потребовал бы отдельного GPU</strong> — и при этом всё равно не устранил бы исходное узкое место: сотрудникам по-прежнему пришлось бы разбираться в терминале.</p>
+          <p>Мы предложили веб-интерфейс поверх уже работающей модели: управление параметрами, пакетные запросы, история сессий — всё без терминала и без дополнительного железа. Команда обучилась за две сессии и вошла в рабочий ритм быстрее, чем планировала с ассистентом.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ SERVICES ══════════════════════════════════════════════ -->
 <section class="services-section section-pad" id="services"
@@ -1124,27 +1710,35 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 <div class="section-inner" style="position:relative;z-index:2;">
   <div class="section-heading">
     <p class="eyebrow reveal">УСЛУГИ</p>
-      <h2 class="reveal" style="max-width:1360px;">Что мы делаем</h2>
+      <h2 class="reveal" style="max-width:1360px;">Какие решение мы реализуем</h2>
   </div>
   <div class="services-grid">
-    <article class="glass-card service-card">
-      <h3>AI и автоматизация</h3>
-      <ul class="service-list">
-        <li class="service-row">AI-ассистенты для команд и отделов</li>
-        <li class="service-row">автоматизация обработки заявок и документов</li>
-        <li class="service-row">разбор диалогов, брифов и входящих обращений</li>
-        <li class="service-row">контентные и аналитические AI-сценарии</li>
-      </ul>
-      </article>
-    <article class="glass-card service-card">
-      <h3>Системы и интерфейсы</h3>
-      <ul class="service-list">
-        <li class="service-row">сайты и landing pages с сильной подачей</li>
-        <li class="service-row">внутренние кабинеты, CRM и панели</li>
-        <li class="service-row">Telegram-боты и операционные интеграции</li>
-        <li class="service-row">архитектура данных, ролей и сценариев доступа</li>
-      </ul>
-      </article>
+    <article class="service-card active">
+      <div class="card-header">
+        <div class="card-title">Внедрение ИИ</div>
+        <div class="card-badge">AI</div>
+      </div>
+      <div class="card-items">
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">AI-ассистенты для бизнеса</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Анализ и обработка документов</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Прогнозирование и аналитика</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Voice и chat боты</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние AI-инструменты</div></div>
+      </div>
+    </article>
+    <article class="service-card">
+      <div class="card-header">
+        <div class="card-title">IT-инфраструктура</div>
+        <div class="card-badge">IT</div>
+      </div>
+      <div class="card-items">
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">CRM / ERP / 1С интеграции</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние сервисы и порталы</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Cloud & Security</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">IT-аудит инфраструктуры</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Custom development</div></div>
+      </div>
+    </article>
   </div>
 </div>
 </section>
@@ -1154,36 +1748,39 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 
 
-<section class="why-section section-pad" id="why"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">Почему <span class="title-accent">Aivion</span></h2></div><div class="why-grid"><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Считаем окупаемость до запуска</h3><p>До начала разработки показываем, как автоматизация повлияет на расходы, скорость работы и прибыль.
 
-  Например: если менеджер тратит 30–40 минут в день на ручную обработку заявок, AI может сократить это время до 5–10 минут.
-  При команде из 10 человек это экономит до 100–150 рабочих часов в месяц.
-  Даже при средней ставке 900 ₽/час это 90–135 тыс. ₽ экономии ежемесячно.
-  
-  Вы заранее понимаете сроки окупаемости, KPI и финансовый эффект проекта.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Скорость работы</h3><p>Работаем компактной командой без длинных цепочек согласований и потери информации между менеджерами.
 
-    Вы общаетесь напрямую с разработчиками и архитекторами системы, поэтому решения принимаются быстро, а внедрение занимает недели, а не месяцы.
-    
-    Меньше бюрократии — быстрее запуск и дешевле разработка.</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Делаем на вырост</h3><p>Сразу проектируем систему так, чтобы её можно было масштабировать без полной переделки проекта.
 
-      Например: сначала AI обрабатывает только входящие заявки с сайта.
-      Позже к той же системе можно подключить Telegram, WhatsApp, CRM, внутреннюю базу знаний, аналитику и поддержку клиентов — без разработки “с нуля”.
-      
-      Система растёт вместе с бизнесом, а не превращается в набор несвязанных сервисов</p></article><article class="glass-card why-card"><div class="challenge-icon">✦</div><h3>Не навязываем AI</h3><p>Если задачу дешевле и надёжнее решить без нейросети — так и скажем.
-
-        Например: клиент хотел AI-систему, которая будет “анализировать переписки сотрудников”, понимать контекст диалогов и автоматически контролировать качество работы менеджеров.
-        
-        После анализа оказалось, что в 80% случаев проблема решается намного проще:
-        через структуру CRM-полей, обязательные этапы воронки, шаблоны ответов и точечные проверки только рискованных диалогов.
-        
-        Без постоянных запросов к AI-моделям, сложной инфраструктуры и высоких ежемесячных расходов.
-        
-        В итоге клиент получил тот же управленческий результат — дешевле, стабильнее и быстрее во внедрении.</p></article></div></div></section>
-<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-item"><span>Сколько занимает первое внедрение?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Первый рабочий пилот — за 2–4 недели. Полное внедрение с регламентами и обучением команды — 1–3 месяца в зависимости от масштаба задачи.</div><div class="faq-item"><span>Можно ли интегрироваться в текущую CRM?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да. Подключаемся к текущей CRM и другим системам через API, вебхуки и безопасные интеграционные слои без слома текущих процессов.</div><div class="faq-item"><span>Как считается экономический эффект?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Считаем эффект по времени, стоимости операций, скорости цикла и качеству. До старта фиксируем baseline и целевые KPI, после запуска сравниваем фактические метрики.</div><div class="faq-item"><span>Работаете ли вы с NDA и закрытым контуром?</span><span style="color:var(--accent);font-size:20px;font-weight:300;opacity:0.8;">+</span></div><div class="faq-answer">Да, работаем с NDA, политиками ИБ и закрытыми контурами. Настраиваем роли доступа, аудит действий и безопасное хранение данных.</div></div></div></section>
+<section class="faq-section section-pad" id="faq"><div class="section-inner"><div class="section-heading process-heading"><h2 class="reveal">FAQ</h2></div><div class="faq-wrap"><div class="faq-entry"><button class="faq-item" type="button"><span>Сколько стоят услуги?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Стоимость зависит от сложности проекта и количества интеграций. Простые AI-ассистенты в Telegram на базе знаний обычно стартуют от 150 тыс. ₽. Если нужен полноценный AI-ассистент с подключением CRM, внутренних БД, автоматизацией процессов и интеграциями — такие проекты обычно начинаются от 700 тыс. ₽ и выше.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Сколько времени занимает внедрение?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Сроки также зависят от объёма задач. Базовые решения обычно внедряются за 1–3 недели. Более сложные проекты с интеграциями, внутренними системами и кастомной логикой — в среднем от 1 до 3 месяцев.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>С чего начать в моем бизнесе?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Лучший ROI — в процессах, которые повторяются по одному сценарию и напрямую влияют на выручку:<br><br>Квалификация входящих лидов — AI отвечает мгновенно, квалифицирует по скрипту, передаёт готовый лид в CRM. Первое, с чего начинаем в большинстве проектов.<br>Поддержка клиентов — AI закрывает 60–80% типовых запросов без оператора. Подходит для магазинов, школ, агентств.<br>Входящие звонки — AI принимает звонок 24/7, квалифицирует, записывает данные в CRM.<br>Внутренние операции — саммари встреч, GPT-ассистент по регламентам. Сокращает рутину на 20–40%.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Можно ли доверять ИИ корпоративные данные?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Да, но здесь важно правильно выстроить архитектуру и учитывать требования 152-ФЗ о персональных данных. Для большинства задач можно безопасно использовать облачные AI-сервисы, но если речь идёт о чувствительных данных, коммерческой тайне или персональных данных — мы настаиваем на локальных нейросетях в закрытом контуре компании. В этом случае данные не уходят во внешние сервисы, но потребуется отдельная инфраструктура и серверное оборудование. По требованиям и ограничениям обычно консультируем отдельно под конкретный кейс.</div></div><div class="faq-entry"><button class="faq-item" type="button"><span>Что будет, если зарубежные AI-сервисы ограничат или заблокируют в РФ?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Сейчас это один из главных рисков для бизнеса, поэтому многие компании сразу закладывают возможность перехода на локальные или альтернативные модели. Мы обычно строим решения так, чтобы AI-модель можно было заменить без полной переработки системы — например, перейти с OpenAI на локальную Llama, DeepSeek или российские решения. Нужно понимать, что локальные модели дают больше контроля и безопасности, но требуют более мощного железа и отдельной поддержки инфраструктуры.</div></div></div></div></section>
 
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
-<footer class="site-footer" id="contact">
+
+<section class="statement-section">
+  <p>Вопрос уже не в том, нужен ли AI, а как встроить его в существующие процессы</p>
+</section>
+
+<section class="premium-cta-section" id="contact">
+  <div class="premium-cta-shell reveal">
+    <h2 class="premium-cta-heading">Обсудим вашу задачу</h2>
+    <div class="premium-cta-right">
+      <form class="premium-cta-form" action="#" method="post">
+        <div class="premium-cta-grid">
+          <input id="cta-name" name="name" type="text" placeholder="Ваше имя" required/>
+          <input id="cta-contact" name="contact" type="text" placeholder="Email или Телефон" required/>
+        </div>
+        <textarea id="cta-brief" name="brief" placeholder="Ваш вопрос" required></textarea>
+        <label class="premium-cta-legal" for="cta-consent">
+          <input id="cta-consent" type="checkbox" required/>
+          <span>Я даю согласие на обработку персональных данных.</span>
+        </label>
+        <button class="premium-cta-submit" type="submit">ОТПРАВИТЬ ЗАПРОС</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer-contact">
   <div class="section-inner">
     <div class="footer-top">
       <div class="footer-brand">
@@ -1191,8 +1788,7 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <p class="footer-tagline">Внедряем ИИ и автоматизацию в бизнес. Первый результат — через 2–4 недели.</p>
       </div>
       <div class="footer-col"><p class="footer-col-title">Навигация</p><div class="footer-links"><a href="#portfolio">Кейсы</a><a href="#services">Услуги</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div></div>
-      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">+7 (901) 760-90-67</a></div></div>
-      <div class="footer-col"><p class="footer-col-title">Соцсети</p><div class="footer-links"><a href="#">Telegram</a><a href="#">LinkedIn</a><a href="#">Behance</a><a href="#">GitHub</a></div></div>
+      <div class="footer-col"><p class="footer-col-title">Контакты</p><div class="footer-links"><a href="mailto:hello@aivion.agency">hello@aivion.agency</a><a href="tel:+79990000000">@aivion_agency_bot</a></div></div>
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 Aivion. Все права защищены.</p>
@@ -1211,6 +1807,16 @@ const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => {
   hdr.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive:true });
+
+
+/* ═══ FAQ ACCORDION ═════════════════════════════════════════ */
+document.querySelectorAll('.faq-entry .faq-item').forEach((button) => {
+  button.addEventListener('click', () => {
+    const entry = button.closest('.faq-entry');
+    if (!entry) return;
+    entry.classList.toggle('is-open');
+  });
+});
 
 /* ═══ OPENING FADE-UP ════════════════════════════════════= */
 document.querySelectorAll('.fade-up').forEach(el => {
@@ -1575,27 +2181,90 @@ createDotGrid(document.getElementById('servicesDotGrid'));
 
 /* Services and process cards reveal through the shared IntersectionObserver above. */
 
-/* ═══ PORTFOLIO STACKING CARDS (ADAPTIVE VERSION) ═════════════════════════════ */
-(function() {
-  const stack = document.getElementById('portfolioStack');
-  if(!stack) return;
-  const cards = Array.from(stack.querySelectorAll('.portfolio-card'));
+/* ═══ CHALLENGE HORIZONTAL SCROLL TRACKING ═════════════════ */
+(function () {
+  const grid = document.querySelector('.challenge-grid');
+  const cards = Array.from(document.querySelectorAll('.challenge-card'));
+  const dots = Array.from(document.querySelectorAll('.challenge-dot'));
+  if (!grid || !cards.length || !dots.length) return;
+  const mq = window.matchMedia('(max-width: 480px)');
 
-  function layout() {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    const header = isMobile ? 0 : 80;
-    const gap = 18;
-    cards.forEach((card, i) => {
-      card.style.top = isMobile ? '' : (header + i * gap) + 'px';
-      card.style.zIndex = String(i + 1);
-      card.style.transform = '';
-      card.style.filter = '';
-      card.style.opacity = '';
-    });
+  let activeIdx = 0;
+
+  function setActive(idx) {
+    activeIdx = Math.max(0, Math.min(idx, cards.length - 1));
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === activeIdx));
   }
 
-  layout();
-  window.addEventListener('resize', layout);
+  function getClosestCardIndex() {
+    const left = grid.scrollLeft;
+    let bestIdx = 0;
+    let bestDist = Infinity;
+    cards.forEach((card, idx) => {
+      const dist = Math.abs(card.offsetLeft - left);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestIdx = idx;
+      }
+    });
+    return bestIdx;
+  }
+
+  function onScroll() {
+    if (!mq.matches) return;
+    setActive(getClosestCardIndex());
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      if (!mq.matches) return;
+      const idx = Number(dot.dataset.idx) || 0;
+      cards[idx]?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      setActive(idx);
+    });
+  });
+
+  grid.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  if (mq.matches) onScroll();
+})();
+
+/* ═══ PORTFOLIO SLIDER (fullwidth) ══════════════════════════ */
+(function () {
+  const track = document.getElementById('pfTrack');
+  const prevBtn = document.getElementById('pfPrev');
+  const nextBtn = document.getElementById('pfNext');
+  const dots = Array.from(document.querySelectorAll('.pf-dot'));
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.pf-card'));
+  const total = cards.length;
+  let current = 0;
+
+  function getSlideWidth() {
+    return track.parentElement.offsetWidth;
+  }
+
+  function goTo(idx) {
+    current = ((idx % total) + total) % total;
+    track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+  window.addEventListener('resize', () => goTo(current));
+
+  // Swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+
+  goTo(0);
 })();
 
 </script>
