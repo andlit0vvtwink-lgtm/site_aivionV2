@@ -324,65 +324,80 @@
       background:#1A1A1A;
       border:1px solid rgba(255,255,255,0.08);
       border-radius:16px;
-      padding:28px;
+      padding:36px 40px 40px;
       display:grid;
-      gap:24px;
+      gap:0;
     }
     .roi-tag {
-      display:inline-flex;
-      width:max-content;
-      font-size:13px;
-      color:#E09D2B;
-      border:1px solid rgba(224,157,43,0.5);
+      display:inline-block;
+      padding:5px 14px;
+      border:1px solid rgba(232,146,10,0.38);
       border-radius:999px;
-      padding:8px 12px;
-      letter-spacing:0.03em;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:#E8920A;
+      margin-bottom:20px;
+      width:max-content;
     }
-    .roi-case-title { font-size:30px; line-height:1.2; margin-bottom:12px; color:#fff; }
-    .roi-case-intro { color:rgba(255,255,255,0.78); line-height:1.6; }
-    .roi-facts-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .roi-case-title {
+      font-size:clamp(20px,3vw,28px);
+      font-weight:800;
+      letter-spacing:-.03em;
+      line-height:1.2;
+      color:#fff;
+      margin-bottom:16px;
+    }
+    .roi-case-intro {
+      font-size:14.5px;
+      line-height:1.85;
+      color:rgba(255,255,255,0.55);
+      margin-bottom:26px;
+      max-width:740px;
+    }
+    .roi-case-intro strong { color:#fff; font-weight:600; }
+    .roi-facts-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:26px; }
     .roi-facts {
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:16px;
-      padding:20px;
-      display:grid;
-      gap:14px;
-    }
-    .roi-fact {
+      border-radius:12px;
+      padding:20px 22px;
       display:flex;
-      gap:10px;
-      color:rgba(255,255,255,0.84);
-      line-height:1.45;
+      flex-direction:column;
+      gap:5px;
     }
-    .roi-fact__emoji { color:#E09D2B; font-size:24px; line-height:1; }
-    .roi-work {
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:16px;
-      padding:20px;
-      display:grid;
-      gap:14px;
-    }
-    .roi-work h4 { font-size:18px; color:#fff; margin-bottom:6px; }
+    .roi-facts.roi-facts--red { background:rgba(224,82,82,0.09); border:1px solid rgba(224,82,82,0.28); }
+    .roi-facts.roi-facts--green { background:rgba(76,190,138,0.09); border:1px solid rgba(76,190,138,0.30); }
+    .roi-facts .clabel { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .roi-facts--red .clabel { color:#e05252; }
+    .roi-facts--green .clabel { color:#4cbe8a; }
+    .roi-facts .cvalue { font-size:clamp(28px,3.8vw,38px); font-weight:800; letter-spacing:-.03em; line-height:1; }
+    .roi-facts--red .cvalue { color:#e05252; }
+    .roi-facts--green .cvalue { color:#4cbe8a; }
+    .roi-facts .cnote { font-size:12.5px; line-height:1.6; color:rgba(255,255,255,0.55); margin-top:3px; }
+    .roi-work { margin-bottom:26px; border:none; border-radius:0; padding:0; display:block; }
+    .roi-work h4 { font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#E8920A; margin-bottom:10px; }
+    .roi-work p { font-size:14.5px; line-height:1.85; color:rgba(255,255,255,0.55); }
+    .roi-work p + p { margin-top:10px; }
+    .roi-work strong { color:#fff; font-weight:600; }
     .roi-result {
+      border-top:1px solid rgba(232,146,10,0.12);
+      padding-top:20px;
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
-    }
-    .roi-chip {
-      border:1px solid rgba(224,157,43,0.55);
-      color:#fff;
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:14px;
-      display:inline-flex;
+      gap:20px 36px;
       align-items:center;
-      gap:8px;
     }
+    .roi-stat { display:flex; flex-direction:column; gap:2px; }
+    .roi-value { font-size:clamp(18px,2.4vw,22px); font-weight:800; letter-spacing:-.03em; color:#fff; }
+    .roi-label { font-size:11.5px; color:rgba(255,255,255,0.55); line-height:1.4; }
+    .roi-sep { width:1px; height:32px; background:rgba(255,255,255,0.11); flex-shrink:0; }
     @media (max-width:980px){
       .roi-layout { grid-template-columns:1fr; }
     }
     @media (max-width:700px){
+      .roi-case-card { padding:22px 18px 26px; }
       .roi-facts-grid { grid-template-columns:1fr; }
+      .roi-sep { display:none; }
       .roi-section { padding:80px 0; }
     }
     .transform-card{
@@ -1487,29 +1502,24 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
       </div>
       <article class="roi-case-card">
         <span class="roi-tag">Пример из практики</span>
-        <div><h3 class="roi-case-title">Как сократили потери заявок в отделе продаж</h3><p class="roi-case-intro">Компания получала стабильный поток лидов, но часть заявок зависала между этапами CRM и не доходила до оплаты. Мы начали с диагностики процесса, посчитали влияние на выручку и запустили точечный сценарий автоматизации без лишней сложности.</p></div>
+        <h3 class="roi-case-title">Как не потратили лишнее на то,<br>что уже было решено иначе</h3>
+        <p class="roi-case-intro">Маркетинговое агентство перевело копирайтеров и аналитиков на локальную LLM — ради приватности данных. Но работа через терминал оказалась неподъёмной для нетехнических специалистов: <strong>менять конфиги, выставлять температуру, управлять параметрами вручную</strong> — не их профиль. Клиент пришёл с идеей поставить поверх модели AI-ассистента, который обучал бы команду с ней работать. Мы посчитали, во что это выйдет — и предложили другое.</p>
         <div class="roi-facts-grid">
-          <div class="roi-facts">
-            <p class="roi-fact"><span class="roi-fact__emoji">🔍</span><span>Изучили воронку CRM и путь заявки от первого касания до оплаты.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">📉</span><span>Нашли провалы между статусами, где менеджеры теряли контекст по клиенту.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">🧩</span><span>Собрали карту ручных действий и проверили, какие из них действительно критичны.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">📊</span><span>Оценили стоимость задержек на каждом этапе и влияние на итоговую конверсию.</span></p>
-          </div>
-          <div class="roi-facts">
-            <p class="roi-fact"><span class="roi-fact__emoji">⏱️</span><span>Увидели, что ответы клиентам часто уходили позже рабочего окна.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">🛑</span><span>Часть заявок останавливалась из-за неполных карточек и пропущенных полей.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">📬</span><span>Уведомления о «зависших» лидах приходили слишком поздно и без приоритета.</span></p>
-            <p class="roi-fact"><span class="roi-fact__emoji">💬</span><span>Скрипты менеджеров отличались по качеству, что влияло на скорость закрытия.</span></p>
-          </div>
+          <div class="roi-facts roi-facts--red"><span class="clabel">Доп. расходы с ассистентом</span><span class="cvalue">+[X] ₽/мес</span><span class="cnote">Отдельный GPU, инфраструктура и обслуживание второй модели поверх основной</span></div>
+          <div class="roi-facts roi-facts--green"><span class="clabel">Доп. расходы с интерфейсом</span><span class="cvalue">0 ₽</span><span class="cnote">Работает поверх той же модели — никакого дополнительного железа</span></div>
         </div>
         <div class="roi-work">
-          <h4>Что сделали</h4>
-          <p class="roi-fact"><span class="roi-fact__emoji">⚙️</span><span>Перестроили статусы воронки, добавили обязательные поля и автоматические проверки полноты карточек.</span></p>
-          <p class="roi-fact"><span class="roi-fact__emoji">🤖</span><span>Подключили AI-подсказки по следующим шагам для менеджеров и контроль критичных задержек в заявках.</span></p>
-          <p class="roi-fact"><span class="roi-fact__emoji">📣</span><span>Настроили приоритетные триггеры и уведомления руководителю по рисковым сделкам в реальном времени.</span></p>
-          <p class="roi-fact"><span class="roi-fact__emoji">🧠</span><span>Собрали единый регламент обработки лидов и закрепили его прямо в CRM-интерфейсе команды.</span></p>
+          <h4>Что мы увидели</h4>
+          <p>Клиент планировал решить проблему интерфейса ещё одной моделью без интерфейса. <strong>AI-ассистент поверх локальной LLM потребовал бы отдельного GPU</strong> — и при этом всё равно не устранил бы исходное узкое место: сотрудникам по-прежнему пришлось бы разбираться в терминале.</p>
+          <p>Мы предложили веб-интерфейс поверх уже работающей модели: управление параметрами, пакетные запросы, история сессий — всё без терминала и без дополнительного железа. Команда обучилась за две сессии и вошла в рабочий ритм быстрее, чем планировала с ассистентом.</p>
         </div>
-        <div class="roi-result"><span class="roi-chip">🚀 Быстрее внедрение</span><span class="roi-chip">📈 Выше конверсия</span><span class="roi-chip">🧭 Прозрачный процесс</span><span class="roi-chip">💸 Понятная окупаемость</span></div>
+        <div class="roi-result">
+          <div class="roi-stat"><span class="roi-value">[Y] ₽</span><span class="roi-label">сэкономлено на инфраструктуре</span></div>
+          <div class="roi-sep" aria-hidden="true"></div>
+          <div class="roi-stat"><span class="roi-value">3 недели</span><span class="roi-label">от старта до запуска</span></div>
+          <div class="roi-sep" aria-hidden="true"></div>
+          <div class="roi-stat"><span class="roi-value">2 сессии</span><span class="roi-label">на обучение всей команды</span></div>
+        </div>
       </article>
     </div>
   </div>
