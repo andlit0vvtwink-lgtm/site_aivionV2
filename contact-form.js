@@ -6,10 +6,14 @@
     .contact-modal{position:fixed;inset:0;z-index:300;opacity:0;pointer-events:none;transition:opacity .35s ease}
     .contact-modal.is-open{opacity:1;pointer-events:all}
     .contact-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(12px)}
-    .contact-modal__dialog{position:absolute;inset:0;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,60px) clamp(16px,4vw,40px)}
-    .contact-modal__content{position:relative;z-index:1;width:min(100%,680px);background:rgba(10,5,0,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:18px;overflow:hidden}
+    .contact-modal__dialog{position:absolute;inset:0;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,5vw,60px) clamp(16px,4vw,40px)}
+    .contact-modal__content{position:relative;z-index:1;width:min(100%,900px);background:rgba(10,5,0,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1.4fr}
     .contact-modal__close{position:absolute;top:20px;right:20px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);color:rgba(107,114,128,1);font-size:20px;line-height:1;display:grid;place-items:center;cursor:pointer;transform:rotate(45deg);transition:background .2s,color .2s}
     .contact-modal__close:hover{background:rgba(255,255,255,0.12);color:#fff}
+    .cf-side{background:rgba(232,146,10,0.04);border-right:1px solid rgba(255,255,255,0.12);padding:44px 36px;display:flex;flex-direction:column;gap:20px}
+    .cf-side h2{font-size:clamp(24px,2.5vw,34px);line-height:1.1}
+    .cf-side p{font-size:14px;line-height:1.6;color:rgba(235,235,235,0.72)}
+    .cf-side ul{padding-left:18px;display:grid;gap:10px;font-size:14px;line-height:1.45;color:rgba(235,235,235,0.82)}
     .cf-main{padding:44px 36px}
     .cf-form{display:flex;flex-direction:column;gap:18px}
     .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -33,6 +37,7 @@
     .cf-submit{display:inline-flex;align-items:center;justify-content:center;padding:13px 26px;border-radius:999px;border:none;background:#E8920A;color:#1a0800;font-weight:700;font-family:"Montserrat",sans-serif;font-size:14px;cursor:pointer;transition:background .2s,transform .2s}
     .cf-submit:hover{background:#F5A822;transform:translateY(-1px)}
     .cf-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    @media(max-width:900px){.contact-modal__content{grid-template-columns:1fr}.cf-side{border-right:none;border-bottom:1px solid rgba(255,255,255,0.12)}}
     @media(max-width:620px){.cf-grid{grid-template-columns:1fr}}
   `;
   document.head.appendChild(style);
@@ -43,6 +48,15 @@
     <div class="contact-modal__dialog">
       <div class="contact-modal__content">
         <button class="contact-modal__close" type="button" aria-label="Закрыть" data-close-form>+</button>
+        <aside class="cf-side">
+          <h2>Обсудим вашу задачу</h2>
+          <p>Заполните форму — мы вернёмся с предложением по решению, срокам и ближайшим шагам.</p>
+          <ul>
+            <li>Первичный разбор задачи и текущих процессов.</li>
+            <li>Рекомендация по стеку и этапам внедрения.</li>
+            <li>Оценка сроков и формата запуска пилота.</li>
+          </ul>
+        </aside>
         <div class="cf-main">
           <form class="cf-form" id="cfForm">
             <div class="cf-grid">
@@ -50,7 +64,7 @@
                 <span class="cf-label-text">Ваше имя</span>
                 <input class="cf-input" type="text" name="firstName" autocomplete="given-name" required/>
               </label>
-              <label class="cf-consent">
+              <label class="cf-label">
                 <span class="cf-label-text">С чем связана задача?</span>
                 <select class="cf-input" name="topic" required>
                   <option value="" selected disabled>Выберите вариант</option>
