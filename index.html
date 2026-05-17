@@ -1086,62 +1086,89 @@
     }
 
     /* ═══ CONTACT MODAL ══════════════════════════════════════ */
-    .premium-cta-section { padding:110px 0 70px; position:relative; }
-    .premium-cta-wrap {
+    .statement-section{
+      width:100%;
+      padding:clamp(88px,11vw,160px) 24px;
+      text-align:center;
+      background:#060606;
+    }
+    .statement-section p{
+      margin:0 auto;
+      max-width:980px;
+      font:500 clamp(28px,3.2vw,48px)/1.28 "Space Grotesk","Montserrat",sans-serif;
+      letter-spacing:-0.02em;
+      color:rgba(245,245,245,0.9);
+    }
+    .premium-cta-section {
+      width:100%;
+      background:#060606;
+      padding:clamp(56px,8vw,120px) 0 clamp(80px,9vw,140px);
       position:relative;
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:30px;
-      background:linear-gradient(145deg, rgba(14,14,14,0.94), rgba(6,6,6,0.98));
-      box-shadow:0 30px 90px rgba(0,0,0,0.58), inset 0 0 0 1px rgba(255,255,255,0.02), 0 0 60px rgba(232,146,10,0.12);
-      overflow:hidden;
+    }
+    .premium-cta-shell{
+      width:min(100% - 80px,1360px);
+      margin:0 auto;
       display:grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
-      gap:0;
+      grid-template-columns:minmax(320px,1fr) minmax(340px,560px);
+      gap:clamp(40px,7vw,130px);
+      align-items:start;
     }
-    .premium-cta-wrap::before {
-      content:"";
-      position:absolute;
-      inset:-20% 45% 20% -10%;
-      background:radial-gradient(circle, rgba(232,146,10,0.18) 0%, rgba(232,146,10,0.02) 60%, transparent 78%);
-      filter:blur(34px);
-      pointer-events:none;
+    .premium-cta-left{display:flex;flex-direction:column;gap:34px;}
+    .premium-cta-left h3{
+      font:800 clamp(44px,6vw,88px)/0.93 "Space Grotesk","Montserrat",sans-serif;
+      letter-spacing:-0.04em;
     }
-    .premium-cta-left, .premium-cta-right { position:relative; z-index:1; padding:56px clamp(24px,4vw,56px); }
-    .premium-cta-left { border-right:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:24px; }
-    .premium-cta-left h3 { font-family:"Space Grotesk","Montserrat",sans-serif; font-size:clamp(32px,4.4vw,56px); line-height:1.02; letter-spacing:-0.04em; }
-    .premium-cta-left p { color:var(--muted-strong); max-width:520px; line-height:1.65; }
-    .premium-contact-list { list-style:none; display:grid; gap:10px; }
-    .premium-contact-list a { color:var(--text); text-decoration:none; border-bottom:1px solid transparent; width:max-content; transition:border-color .25s var(--ease), color .25s var(--ease); }
-    .premium-contact-list a:hover { color:var(--accent-strong); border-color:rgba(232,146,10,0.5); }
-    .premium-telegram-btn { width:max-content; }
+    .premium-contact-list{list-style:none;display:grid;gap:14px;}
+    .premium-contact-list a{
+      color:rgba(255,255,255,0.82);
+      text-decoration:none;
+      font-size:clamp(16px,1.45vw,22px);
+      letter-spacing:0.01em;
+      transition:color .2s ease;
+    }
+    .premium-contact-list a:hover{color:#fff;}
     .premium-cta-form { display:grid; gap:14px; }
-    .premium-cta-form .field label { font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
-    .premium-cta-form .field input,
-    .premium-cta-form .field select,
-    .premium-cta-form .field textarea {
+    .premium-cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .premium-cta-form input,
+    .premium-cta-form textarea {
       width:100%;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.02);
       color:var(--text);
-      padding:14px 16px;
-      font:500 14px/1.45 "Montserrat",sans-serif;
-      transition:border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+      padding:16px 18px;
+      font:500 15px/1.45 "Montserrat",sans-serif;
       outline:none;
+      transition:border-color .22s ease, background .22s ease;
     }
-    .premium-cta-form .field textarea { min-height:120px; resize:vertical; }
-    .premium-cta-form .field input:focus,
-    .premium-cta-form .field select:focus,
-    .premium-cta-form .field textarea:focus {
-      border-color:rgba(232,146,10,0.55);
-      box-shadow:0 0 0 4px rgba(232,146,10,0.13), 0 0 32px rgba(232,146,10,0.18);
-      background:rgba(255,255,255,0.05);
+    .premium-cta-form textarea { min-height:146px; resize:vertical; }
+    .premium-cta-form input:focus,
+    .premium-cta-form textarea:focus {
+      border-color:rgba(255,255,255,0.5);
+      background:rgba(255,255,255,0.045);
     }
-    .premium-cta-legal { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted-strong); margin:2px 0 4px; }
-    .premium-cta-legal input { margin-top:3px; accent-color:var(--accent); }
+    .premium-cta-legal {
+      display:flex; align-items:flex-start; gap:10px;
+      font-size:13px; color:rgba(255,255,255,0.72);
+      line-height:1.55;
+      margin:4px 0 8px;
+    }
+    .premium-cta-legal input { margin-top:3px; accent-color:#fff; }
+    .premium-cta-submit{
+      width:100%;
+      border:0;
+      border-radius:14px;
+      background:#f5f5f5;
+      color:#090909;
+      min-height:58px;
+      font:700 14px/1 "Montserrat",sans-serif;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
     @media (max-width:980px) {
-      .premium-cta-wrap { grid-template-columns:1fr; }
-      .premium-cta-left { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); }
+      .premium-cta-shell { grid-template-columns:1fr; gap:44px; width:min(100% - 40px,1360px); }
+      .premium-cta-grid { grid-template-columns:1fr; }
     }
 
 
@@ -1618,35 +1645,33 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 
+<section class="statement-section">
+  <p>«Вопрос уже не в том, нужен ли AI, а как встроить его в существующие процессы.»</p>
+</section>
+
 <section class="premium-cta-section" id="contact">
-  <div class="section-inner">
-    <div class="premium-cta-wrap reveal">
-      <div class="premium-cta-left">
-        <p class="eyebrow">Next-step automation</p>
-        <h3>Связаться с нами</h3>
-        <p>Проектируем и внедряем цифровые контуры под ваши процессы: от клиентских коммуникаций до внутренних аналитических сервисов и автоматизации принятия решений.</p>
-        
-      </div>
-      <div class="premium-cta-right">
-        <form class="premium-cta-form" action="#" method="post">
-          <div class="field"><label for="cta-name">Ваше имя</label><input id="cta-name" name="name" type="text" placeholder="Иван" required/></div>
-          <div class="field"><label for="cta-topic">С чем связана задача?</label><select id="cta-topic" name="topic" required><option value="" selected disabled>Выберите вариант</option><option>Клиенты и коммуникация</option><option>Документы и отчёты</option><option>Сбор и обработка данных</option><option>Автоматизация рутинных задач</option><option>AI-инструмент или сервис</option><option>Другое</option></select></div>
-          <div class="field"><label for="cta-brief">Кратко опишите задачу</label><textarea id="cta-brief" name="brief" placeholder="Например: ERP-система с AI-поиском и аналитикой" required></textarea></div>
-          <div class="field"><label for="cta-contact">Telegram / Телефон</label><input id="cta-contact" name="contact" type="text" placeholder="@username или +7 XXX-XXX-XX-XX" required/></div>
-          <div class="cf-consents">
-            <label class="cf-consent" for="cta-policy">
-              <input id="cta-policy" type="checkbox" required/>
-              <span>Я ознакомился(ась) с <a href="/privacy" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span>
-            </label>
-            <label class="cf-consent" for="cta-consent">
-              <input id="cta-consent" type="checkbox" required/>
-              <span>Даю согласие на обработку моих персональных данных в соответствии с <a href="/consent" target="_blank" rel="noopener noreferrer">текстом согласия</a>.</span>
-            </label>
-          </div>
-          <p class="cf-legal">Если вы не дадите согласие на обработку данных, мы не сможем обработать заявку.</p>
-          <button class="btn btn-accent" type="submit">Отправить запрос</button>
-        </form>
-      </div>
+  <div class="premium-cta-shell reveal">
+    <div class="premium-cta-left">
+      <h3>ОБСУДИТЬ<br>ВНЕДРЕНИЕ</h3>
+      <ul class="premium-contact-list">
+        <li><a href="mailto:hello@aivion.agency">hello@aivion.agency</a></li>
+        <li><a href="tel:+79017609067">+7 (901) 760-90-67</a></li>
+        <li><a href="https://t.me/aivion_agency" target="_blank" rel="noopener noreferrer">@aivion_agency</a></li>
+      </ul>
+    </div>
+    <div class="premium-cta-right">
+      <form class="premium-cta-form" action="#" method="post">
+        <div class="premium-cta-grid">
+          <input id="cta-name" name="name" type="text" placeholder="Ваше имя" required/>
+          <input id="cta-contact" name="contact" type="text" placeholder="Email или Телефон" required/>
+        </div>
+        <textarea id="cta-brief" name="brief" placeholder="Ваш вопрос" required></textarea>
+        <label class="premium-cta-legal" for="cta-consent">
+          <input id="cta-consent" type="checkbox" required/>
+          <span>Я даю согласие на обработку персональных данных.</span>
+        </label>
+        <button class="premium-cta-submit" type="submit">ОТПРАВИТЬ ЗАПРОС</button>
+      </form>
     </div>
   </div>
 </section>
