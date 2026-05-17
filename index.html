@@ -736,7 +736,7 @@
 
     /* 4-я карточка — TG */
     .pf-card--tg {
-      background: linear-gradient(145deg, #0d1a2e 0%, #080f1a 100%);
+      background: linear-gradient(145deg, #b9e8ff 0%, #7dd3fc 52%, #38bdf8 100%);
       border-color: rgba(42,171,238,0.18);
       justify-content: center;
       align-items: center;
@@ -751,14 +751,12 @@
       gap: 24px; padding: 60px 40px;
     }
     .pf-tg-icon {
-      width: 80px; height: 80px; border-radius: 50%;
-      background: linear-gradient(135deg,#2AABEE,#229ED9);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 36px;
-      box-shadow: 0 16px 40px rgba(34,158,217,0.38);
+      width: 80px; height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(3,105,161,0.35));
     }
-    .pf-tg-title { font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; }
-    .pf-tg-sub { font-size: 16px; color: rgba(235,235,235,0.50); line-height: 1.6; max-width: 360px; }
+    .pf-tg-title { font-size: 28px; font-weight: 800; color: #03263a; line-height: 1.2; }
+    .pf-tg-sub { font-size: 16px; color: rgba(3,38,58,0.78); line-height: 1.6; max-width: 360px; }
     .pf-tg-btn {
       display: inline-flex; align-items: center; gap: 8px;
       background: linear-gradient(135deg,#2AABEE,#229ED9);
@@ -1306,8 +1304,31 @@
     .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
     .challenge-heading h2{font-size:48px;font-weight:800;line-height:1.15;}
     .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;}
-    .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
+    .challenge-grid{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding-bottom:8px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .challenge-grid::-webkit-scrollbar{height:6px;}
+    .challenge-grid::-webkit-scrollbar-thumb{background:rgba(232,146,10,.45);border-radius:999px;}
+    .challenge-card{
+      min-height:240px;
+      padding:28px 32px;
+      border-radius:18px;
+      min-width:min(420px,82vw);
+      flex:0 0 min(420px,82vw);
+      scroll-snap-align:start;
+    }
+    .challenge-card__num{
+      font-size:clamp(22px,2.2vw,30px);
+      line-height:1;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:8px;
+    }
     .process-section{padding:100px 0 140px;}
     .process-list{margin-top:120px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;position:relative;align-items:start;width:100%;}
     .process-list::before{content:'';position:absolute;left:0;right:0;top:31px;height:1px;background:rgba(184,134,11,.72);}
@@ -1340,9 +1361,9 @@
     .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
-    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
+    @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
     .process-list{grid-template-columns:1fr 1fr;gap:48px 28px;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
-    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .challenge-grid,.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
+    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
     .process-list{grid-template-columns:1fr;margin-top:88px;padding-left:22px;gap:44px;}
     .process-list::before{left:30px;right:auto;top:0;bottom:0;width:1px;height:auto;}
     .process-step{display:grid;grid-template-columns:62px minmax(0,1fr);column-gap:22px;row-gap:0;align-items:start;text-align:left;}
@@ -1390,9 +1411,9 @@
       .roi-facts .cvalue { font-size:clamp(26px,7vw,36px); }
 
       /* Challenge cards */
-      .challenge-grid { grid-template-columns:1fr !important; gap:16px; }
+      .challenge-grid { gap:14px; }
       .challenge-heading h2 { font-size:clamp(24px,7vw,34px) !important; }
-      .challenge-card { min-height:0 !important; padding:20px !important; }
+      .challenge-card { min-height:0 !important; padding:20px !important; min-width:86vw; flex-basis:86vw; }
 
       /* Portfolio slider */
       .pf-card { flex-direction:column; min-height:auto; }
@@ -1413,6 +1434,9 @@
       /* FAQ */
       .faq-item { font-size:15px !important; padding:16px 18px !important; }
       .faq-wrap { gap:12px; }
+      .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:64px 0 0;}
+      .statement-section{padding:56px 16px;}
+      .premium-cta-section{padding:40px 0 68px;}
 
       /* Statement */
       .statement-section p { font-size:clamp(20px,5.5vw,28px); }
@@ -1540,22 +1564,27 @@
     <div class="challenge-heading reveal"><h2>Как понять, что вашему бизнесу нужен AI</h2></div>
     <div class="challenge-grid">
       <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">01</div>
         <h3>Менеджеры отвечают слишком долго</h3>
         <p>Если сотрудники часами разбирают входящие заявки, отвечают на одинаковые вопросы и вручную квалифицируют клиентов — это один из первых процессов для автоматизации.</p>
       </article>
       <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">02</div>
         <h3>Команда перегружена рутиной</h3>
         <p>Договоры, отчёты, саммари встреч, поиск информации и перенос данных между сервисами — сигнал, что время уходит на операционку вместо основной работы.</p>
       </article>
       <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">03</div>
         <h3>Поддержка отвечает на одни и те же вопросы</h3>
         <p>Если большая часть обращений повторяется, AI способен закрывать значительную часть запросов без участия оператора.</p>
       </article>
       <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">04</div>
         <h3>Лиды теряются вне рабочего времени</h3>
         <p>Когда компания отвечает только в рабочие часы, часть клиентов уходит раньше, чем получает ответ. AI может принимать обращения 24/7.</p>
       </article>
       <article class="glass-card challenge-card reveal">
+        <div class="challenge-card__num">05</div>
         <h3>Внутри компании сложно найти информацию</h3>
         <p>Если знания разбросаны по чатам, таблицам и документам, сотрудники начинают зависеть друг от друга вместо системы.</p>
       </article>
@@ -1624,7 +1653,7 @@
           <!-- Карточка 4 — TG -->
           <a class="pf-card pf-card--tg" href="https://t.me/aivion_agency_bot" target="_blank" rel="noopener noreferrer">
             <div class="pf-tg-inner">
-              <div class="pf-tg-icon">✈</div>
+              <img class="pf-tg-icon" src="assets/tg.logo" alt="Логотип Telegram">
               <div class="pf-tg-title">Больше кейсов<br>в Telegram</div>
               <p class="pf-tg-sub">Разборы, демо и подробности<br>по каждому проекту</p>
               <span class="pf-tg-btn">Перейти в канал →</span>
