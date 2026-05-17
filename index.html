@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -658,240 +659,234 @@
     }
     .promise-card { min-height:230px; display:flex; flex-direction:column; gap:16px; }
 
-    /* ═══ PORTFOLIO FOLDER STACK ═════════════════════════════ */
-    .portfolio-section { padding:100px 0 0; position:relative; background:#050505; }
-    .portfolio-stack {
-      position:relative; display:grid; grid-auto-flow:column; grid-auto-columns:minmax(86%, 980px); gap:16px;
-      overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory;
-      padding-bottom:16px; isolation:isolate;
-      scrollbar-width:thin; scrollbar-color:rgba(232,146,10,.45) rgba(255,255,255,.08);
-    }
-    .portfolio-stack::-webkit-scrollbar{height:10px;}
-    .portfolio-stack::-webkit-scrollbar-thumb{background:rgba(232,146,10,.45);border-radius:999px;}
-    .portfolio-stack::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:999px;}
-    .portfolio-folder {
-      position: sticky; /* sticky оставляем — его использует JS-анимация */
-      border-radius: 28px;
-      background: linear-gradient(155deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 35px 90px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.12);
-      backdrop-filter: blur(16px);
-      overflow: hidden;
-      transform-origin: 50% 0%;
-      display: grid;                          /* ← горизонтальный layout */
-      grid-template-columns: 1fr 1fr;        /* ← изображение и контент рядом */
-      min-height: 420px;
-      scroll-snap-align:start;
+    /* ═══ PORTFOLIO — fullwidth single-slide ════════════════════ */
+    .portfolio-section {
+      padding: 100px 0 0;
+      position: relative;
+      background: #050505;
     }
 
-    /* Убрать вложенный padding-контейнер .portfolio-hero */
-    .portfolio-hero {
+    /* Внешний контейнер слайдера — внутри section-inner */
+    .pf-slider-outer {
       position: relative;
-      border-radius: 20px 0 0 20px;          /* скругление только слева */
+      width: 100%;
+    }
+
+    /* Overflow wrapper */
+    .pf-slider-wrap {
       overflow: hidden;
-      height: 100%;
+      width: 100%;
+    }
+
+    /* Трек */
+    .pf-track {
+      display: flex;
+      transition: transform .6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    /* Одна карточка — ровно ширина контейнера */
+    .pf-card {
+      flex: 0 0 100%;
+      width: 100%;
+      background: #111214;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
       min-height: 380px;
     }
 
-    .portfolio-hero img {
+    /* Левый контент */
+    .pf-content {
+      flex: 1 1 58%;
+      padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* Правая картинка */
+    .pf-img {
+      flex: 0 0 42%;
+      position: relative;
+      overflow: hidden;
+    }
+    .pf-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;                     /* ← cover вместо contain, заполняет зону */
+      object-fit: cover;
       display: block;
-      transition: transform .65s var(--ease), filter .55s var(--ease);
-      filter: brightness(0.72) saturate(0.85);
+      filter: brightness(0.80) saturate(0.90);
+      transition: transform .7s cubic-bezier(0.4,0,0.2,1), filter .5s;
     }
-
-    .portfolio-folder:hover .portfolio-hero img {
-      transform: scale(1.04);
-      filter: brightness(0.88) saturate(1);
-    }
-
-    /* Градиент поверх картинки — тонкий оверлей справа, чтобы перетекало в контент */
-    .portfolio-hero::after {
+    /* Градиент — слева от картинки, чтобы плавно переходило */
+    .pf-img::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent 55%, rgba(5,5,5,0.85) 100%),
-                  linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.45) 100%);
+      background: linear-gradient(90deg, #111214 0%, transparent 30%);
+      z-index: 1;
       pointer-events: none;
     }
 
-    /* Правая панель с контентом */
-    .portfolio-content {
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    /* 4-я карточка — TG */
+    .pf-card--tg {
+      background: linear-gradient(145deg, #0d1a2e 0%, #080f1a 100%);
+      border-color: rgba(42,171,238,0.18);
       justify-content: center;
-      background: rgba(8,5,2,0.72);
-      position: relative;
-    }
-
-    /* Шапка карточки: тег + номер */
-    .portfolio-card__meta {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pf-card--tg:hover { border-color: rgba(42,171,238,0.40); }
+    .pf-tg-inner {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 24px; padding: 60px 40px;
+    }
+    .pf-tg-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg,#2AABEE,#229ED9);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 16px 40px rgba(34,158,217,0.38);
+    }
+    .pf-tg-title { font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .pf-tg-sub { font-size: 16px; color: rgba(235,235,235,0.50); line-height: 1.6; max-width: 360px; }
+    .pf-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg,#2AABEE,#229ED9);
+      color: #fff; font-size: 13px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 999px; text-decoration: none;
+      box-shadow: 0 8px 28px rgba(34,158,217,0.32);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .pf-tg-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(34,158,217,0.48); }
+
+    /* Мета */
+    .pf-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pf-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(232,146,10,0.12); border: 1px solid rgba(232,146,10,0.32);
+      color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .05em;
+    }
+    .pf-tag {
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid rgba(255,255,255,0.12);
+      padding: 5px 12px; border-radius: 999px;
     }
 
-    .portfolio-card__tag {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--stroke);
-      padding: 5px 10px;
-      border-radius: 999px;
-    }
-
-    /* Заголовок кейса — меньше чем был (т.к. нужно в колонку) */
-    .portfolio-content h3 {
-      font-size: clamp(22px, 2.4vw, 36px);
-      letter-spacing: -0.04em;
-      line-height: 1.12;
-      color: #fff;
-      margin: 0;
+    /* Заголовок */
+    .pf-content h3 {
+      font-size: clamp(24px, 2.4vw, 38px);
+      font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+      color: #fff; margin: 0;
     }
 
     /* Описание */
-    .portfolio-content > p {
-      color: var(--muted-strong);
-      line-height: 1.65;
-      font-size: 15px;
-      margin: 0;
-    }
+    .pf-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
 
-    /* Главная метрика */
-    .result-main {
+    /* Метрика */
+    .pf-metric {
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(48px, 5vw, 80px);
-      letter-spacing: -0.04em;
-      line-height: 0.95;
+      font-size: clamp(52px, 5.5vw, 80px);
+      font-weight: 900; letter-spacing: -.04em; line-height: 1;
       color: var(--accent);
-      text-shadow: 0 0 28px rgba(232,146,10,0.35);
-      margin: 4px 0 0;
+      text-shadow: 0 0 32px rgba(232,146,10,0.32);
     }
+    .pf-metric-sub { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.4; }
 
-    /* Подпись под метрикой */
-    .result-main + p {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* Было / Стало — горизонтально в колонку */
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .before, .after {
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 13px;
-      line-height: 1.5;
-      background: rgba(255,255,255,0.03);
+    /* Было / Стало */
+    .pf-ba { display: flex; flex-direction: column; gap: 8px; }
+    .pf-before, .pf-after {
+      border-radius: 10px; padding: 10px 14px;
+      font-size: 13px; line-height: 1.5;
       border: 1px solid rgba(255,255,255,0.08);
       color: var(--muted-strong);
     }
+    .pf-after { border-color: rgba(16,185,129,0.35); color: #5ce6aa; }
 
-    .after {
-      border-color: rgba(16,185,129,0.35);
-      color: #5ce6aa;
+    /* Кнопка «Подробнее» */
+    .pf-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      background: var(--accent); color: #1b0c00;
+      font-size: 14px; font-weight: 700; letter-spacing: .03em;
+      text-decoration: none; align-self: flex-start; margin-top: 8px;
+      box-shadow: 0 8px 24px rgba(232,146,10,0.28);
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .pf-link:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(232,146,10,0.40);
     }
 
-    /* Кнопки */
-    .portfolio-actions {
+    /* ── Нижняя полоса: стрелки по краям + точки по центру ── */
+    .pf-controls {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
       align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 0;
     }
-
-    /* Кнопка "Открыть кейс" → иконка-стрелка в углу */
-    .portfolio-card__link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #1b0c00;
-      font-size: 20px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(232,146,10,0.32);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    .pf-arrow {
+      width: 52px; height: 52px; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.04);
+      color: #fff; font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, border-color .2s, transform .2s;
       flex-shrink: 0;
     }
-
-    .portfolio-card__link::after {
-      content: "↗";
+    .pf-arrow:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.36);
+      transform: scale(1.05);
     }
-
-    .portfolio-card__link:hover {
-      transform: translateY(-2px) scale(1.08);
-      box-shadow: 0 14px 32px rgba(232,146,10,0.45);
+    .pf-dots {
+      display: flex; align-items: center; gap: 10px;
     }
-
-    .portfolio-card__download {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0 18px;
-      height: 44px;
+    .pf-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      border: none; cursor: pointer; padding: 0;
+      transition: background .25s, transform .25s, width .25s;
+    }
+    .pf-dot.is-active {
+      background: var(--accent);
+      width: 24px;
       border-radius: 999px;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.04);
-      font-size: 12px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .25s, border-color .25s;
+      transform: none;
     }
 
-    .portfolio-card__download:hover {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.28);
+    /* Адаптив */
+    @media (max-width: 720px) {
+      .pf-card { flex-direction: column; min-height: auto; }
+      .pf-img { flex: 0 0 220px; height: 220px; }
+      .pf-img::before { background: linear-gradient(180deg, rgba(17,18,20,0.6) 0%, transparent 100%); }
+      .pf-content { padding: 28px 24px 32px; }
     }
 
-    /* Адаптив: на планшете и мобильном — вертикально */
-    @media (max-width: 860px) {
-      .portfolio-folder {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      .portfolio-hero {
-        border-radius: 20px 20px 0 0;
-        min-height: 260px;
-        height: 260px;
-      }
-      .portfolio-hero::after {
-        background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.85) 100%);
-      }
-      .portfolio-content {
-        padding: 28px 24px 32px;
-      }
-    }
+    /* ── override старых правил ─────────────────────────────── */
+    .portfolio-stack { display:none !important; }
+    .portfolio-slider-controls { display:none !important; }
+    .portfolio-folder { display:none !important; }
 
-    @media (max-width: 560px) {
-      .portfolio-hero { min-height: 200px; height: 200px; }
-      .portfolio-content { padding: 22px 18px 26px; }
-      .result-main { font-size: 52px; }
-    }
-    .portfolio-slider-controls{
-      display:flex;justify-content:flex-end;gap:10px;margin:8px 0 18px;
-    }
-    .portfolio-slider-btn{
-      width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.24);
-      background:rgba(255,255,255,.05);color:#fff;font-size:18px;cursor:pointer;
+    /* result-main — для других секций */
+    .result-main {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 5vw, 80px);
+      letter-spacing: -0.04em; line-height: 0.95;
+      color: var(--accent);
+      text-shadow: 0 0 28px rgba(232,146,10,0.35);
+      margin: 4px 0 0;
     }
 
     /* ═══ SERVICES ══════════════════════════════════════════ */
@@ -1091,75 +1086,62 @@
     }
 
     /* ═══ CONTACT MODAL ══════════════════════════════════════ */
-    .premium-cta-section { padding:96px 0 70px; position:relative; }
+    .premium-cta-section { padding:110px 0 70px; position:relative; }
     .premium-cta-wrap {
-      background:#0d0d0d;
-      border:1px solid rgba(255,255,255,0.10);
-      border-radius:20px;
-      padding:44px 42px;
-      font-family:var(--font-sans);
-      max-width:860px;
-      margin:0 auto;
-      box-shadow:0 24px 60px rgba(0,0,0,0.36);
-    }
-    .premium-cta-top { margin-bottom:28px; text-align:center; }
-    .premium-cta-top .eyebrow { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#8e8e8e; margin-bottom:14px; }
-    .premium-cta-top h3 { font-size:clamp(28px,3vw,36px); font-weight:700; color:#fff; line-height:1.15; margin-bottom:10px; }
-    .premium-cta-top p { font-size:14px; color:#9f9f9f; line-height:1.6; max-width:560px; margin:0 auto; }
-    .premium-cta-form {
+      position:relative;
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:30px;
+      background:linear-gradient(145deg, rgba(14,14,14,0.94), rgba(6,6,6,0.98));
+      box-shadow:0 30px 90px rgba(0,0,0,0.58), inset 0 0 0 1px rgba(255,255,255,0.02), 0 0 60px rgba(232,146,10,0.12);
+      overflow:hidden;
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,320px));
-      justify-content:center;
-      gap:14px 16px;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+      gap:0;
     }
-    .premium-cta-form .field { display:flex; flex-direction:column; gap:6px; }
-    .premium-cta-form .field.full { grid-column:1 / -1; }
-    .premium-cta-form .field label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:#7e7e7e; }
+    .premium-cta-wrap::before {
+      content:"";
+      position:absolute;
+      inset:-20% 45% 20% -10%;
+      background:radial-gradient(circle, rgba(232,146,10,0.18) 0%, rgba(232,146,10,0.02) 60%, transparent 78%);
+      filter:blur(34px);
+      pointer-events:none;
+    }
+    .premium-cta-left, .premium-cta-right { position:relative; z-index:1; padding:56px clamp(24px,4vw,56px); }
+    .premium-cta-left { border-right:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; gap:24px; }
+    .premium-cta-left h3 { font-family:"Space Grotesk","Montserrat",sans-serif; font-size:clamp(32px,4.4vw,56px); line-height:1.02; letter-spacing:-0.04em; }
+    .premium-cta-left p { color:var(--muted-strong); max-width:520px; line-height:1.65; }
+    .premium-contact-list { list-style:none; display:grid; gap:10px; }
+    .premium-contact-list a { color:var(--text); text-decoration:none; border-bottom:1px solid transparent; width:max-content; transition:border-color .25s var(--ease), color .25s var(--ease); }
+    .premium-contact-list a:hover { color:var(--accent-strong); border-color:rgba(232,146,10,0.5); }
+    .premium-telegram-btn { width:max-content; }
+    .premium-cta-form { display:grid; gap:14px; }
+    .premium-cta-form .field label { font-size:11px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:block; }
     .premium-cta-form .field input,
     .premium-cta-form .field select,
     .premium-cta-form .field textarea {
-      background:#141414;
-      border:1px solid #2e2e2e;
-      border-radius:10px;
-      color:#e2e2e2;
-      font-size:14px;
-      padding:10px 12px;
-      outline:none;
-      font-family:inherit;
-      transition:border-color .15s;
-      -webkit-appearance:none;
       width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.03);
+      color:var(--text);
+      padding:14px 16px;
+      font:500 14px/1.45 "Montserrat",sans-serif;
+      transition:border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+      outline:none;
     }
-    .premium-cta-form .field input::placeholder,
-    .premium-cta-form .field textarea::placeholder { color:#656565; }
+    .premium-cta-form .field textarea { min-height:120px; resize:vertical; }
     .premium-cta-form .field input:focus,
     .premium-cta-form .field select:focus,
-    .premium-cta-form .field textarea:focus { border-color:#555; }
-    .premium-cta-form .field textarea { resize:vertical; min-height:88px; max-height:180px; line-height:1.5; }
-    .premium-cta-form .field select {
-      cursor:pointer;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-      background-repeat:no-repeat;
-      background-position:right 12px center;
-      padding-right:34px;
+    .premium-cta-form .field textarea:focus {
+      border-color:rgba(232,146,10,0.55);
+      box-shadow:0 0 0 4px rgba(232,146,10,0.13), 0 0 32px rgba(232,146,10,0.18);
+      background:rgba(255,255,255,0.05);
     }
-    .premium-cta-form .field select option { background:#111; }
-    .premium-cta-consent { grid-column:1 / -1; display:flex; align-items:center; gap:10px; }
-    .premium-cta-consent input[type=checkbox] { width:14px; height:14px; accent-color:#e6a817; flex-shrink:0; cursor:pointer; }
-    .premium-cta-consent span { font-size:13px; color:#848484; }
-    .premium-cta-submit {
-      grid-column:1 / -1;
-      width:min(100%,280px);
-      justify-self:center;
-      background:#e6a817; color:#111; font-size:15px; font-weight:600;
-      padding:13px 20px; border:none; border-radius:10px; cursor:pointer;
-      transition:background .15s, transform .15s;
-    }
-    .premium-cta-submit:hover { background:#f0b820; }
-    .premium-cta-submit:active { transform:translateY(1px); }
+    .premium-cta-legal { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted-strong); margin:2px 0 4px; }
+    .premium-cta-legal input { margin-top:3px; accent-color:var(--accent); }
     @media (max-width:980px) {
-      .premium-cta-wrap { padding:32px 22px; }
-      .premium-cta-form { grid-template-columns:minmax(0,520px); }
+      .premium-cta-wrap { grid-template-columns:1fr; }
+      .premium-cta-left { border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); }
     }
 
 
@@ -1324,7 +1306,7 @@
     .process-copy h3{font-size:clamp(36px,2.45vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:0;}
     .process-meta{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#B8860B;font-weight:600;}
     .process-copy p{font-size:clamp(18px,1.35vw,20px);line-height:1.6;color:rgba(255,255,255,.7);max-width:280px;}
-    .portfolio-stack{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;}
+    /* .portfolio-stack overridden by new slider */
     .portfolio-card{min-height:0;padding:28px 30px;}
     .result-main{font-size:clamp(44px,4vw,64px);font-weight:900;color:var(--accent);line-height:1;margin-top:8px;}
     .before-after{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;}
@@ -1456,7 +1438,7 @@
   </div>
 </section>
 
-<!-- ═══ PORTFOLIO STACKING ════════════════════════════════════ -->
+<!-- ═══ PORTFOLIO SLIDER — fullwidth one-up ═══════════════════ -->
 <section class="portfolio-section" id="portfolio">
   <div class="section-inner">
     <div class="section-heading">
@@ -1464,50 +1446,81 @@
       <h2 class="reveal">Реальные примеры</h2>
       <p class="section-text reveal">Наши собственные решения: от корпоративных платформ до полноценных ИИ-Сотрудников</p>
     </div>
-    <div class="portfolio-slider-controls" aria-label="Навигация по кейсам">
-      <button class="portfolio-slider-btn" id="portfolioPrev" type="button" aria-label="Предыдущий кейс">←</button>
-      <button class="portfolio-slider-btn" id="portfolioNext" type="button" aria-label="Следующий кейс">→</button>
-    </div>
-    <div class="portfolio-stack" id="portfolioStack">
-      <article class="portfolio-card portfolio-folder reveal">
-        <div class="portfolio-hero"><img src="assets/call-center-preview.jpg" alt="Превью кейса call center"></div>
-        <div class="portfolio-content">
-          <div class="portfolio-card__meta"><span class="case-number">01</span><span class="portfolio-card__tag">AI / Call Center</span></div>
-          <h3>Авторазбор телефонных звонков</h3>
-          <p>AI-Микросервис для обработки звонков и контроля работы операторов.</p>
-          <div class="result-main">-83%</div>
-          <p>Ошибок в CRM после автоматического разбора звонков.</p>
-          <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 минуты ручной проверки одного звонка.</div><div class="after"><strong>СТАЛО:</strong> 30 секунд и автоматический отчёт по качеству.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="call-center-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
+
+    <!-- Слайдер внутри контейнера -->
+    <div class="pf-slider-outer">
+      <div class="pf-slider-wrap">
+        <div class="pf-track" id="pfTrack">
+
+          <!-- Карточка 1 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <h3>Авторазбор телефонных звонков</h3>
+              <p class="pf-desc">AI-Микросервис для обработки звонков и контроля работы операторов.</p>
+              <div class="pf-metric">-83%</div>
+              <p class="pf-metric-sub">Ошибок в CRM после автоматического разбора звонков.</p>
+              <a class="pf-link" href="call-center-case.html">Подробнее</a>
+            </div>
+            <div class="pf-img">
+              <img src="assets/call-center-preview.jpg" alt="Авторазбор звонков">
+            </div>
+          </article>
+
+          <!-- Карточка 2 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <h3>AI-составитель ТЗ</h3>
+              <p class="pf-desc">ИИ-помощник, который пишет документацию по шаблону и снимает проблему «чистого листа».</p>
+              <div class="pf-metric">16x</div>
+              <p class="pf-metric-sub">Скорость подготовки спецификаций.</p>
+              <a class="pf-link" href="tz-generator-case.html">Подробнее</a>
+            </div>
+            <div class="pf-img">
+              <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
+            </div>
+          </article>
+
+          <!-- Карточка 3 -->
+          <article class="pf-card">
+            <div class="pf-content">
+              <h3>Контент-завод</h3>
+              <p class="pf-desc">Связка из ИИ-Агентов, создающая посты для социальных сетей.</p>
+              <div class="pf-metric">20x</div>
+              <p class="pf-metric-sub">Скорость производства контента.</p>
+              <a class="pf-link" href="smm-case.html">Подробнее</a>
+            </div>
+            <div class="pf-img">
+              <img src="assets/content-zavod.jpg" alt="Контент-завод">
+            </div>
+          </article>
+
+          <!-- Карточка 4 — TG -->
+          <a class="pf-card pf-card--tg" href="https://t.me/aivion_agency_bot" target="_blank" rel="noopener noreferrer">
+            <div class="pf-tg-inner">
+              <div class="pf-tg-icon">✈</div>
+              <div class="pf-tg-title">Больше кейсов<br>в Telegram</div>
+              <p class="pf-tg-sub">Разборы, демо и подробности<br>по каждому проекту</p>
+              <span class="pf-tg-btn">Перейти в канал →</span>
+            </div>
+          </a>
+
+        </div><!-- /pf-track -->
+      </div><!-- /pf-slider-wrap -->
+
+      <!-- Нижняя панель: стрелка ← | точки | стрелка → -->
+      <div class="pf-controls">
+        <button class="pf-arrow" id="pfPrev" type="button" aria-label="Назад">←</button>
+        <div class="pf-dots" id="pfDots">
+          <button class="pf-dot is-active" data-idx="0"></button>
+          <button class="pf-dot" data-idx="1"></button>
+          <button class="pf-dot" data-idx="2"></button>
+          <button class="pf-dot" data-idx="3"></button>
         </div>
-      </article>
-      <article class="portfolio-card portfolio-folder reveal">
-        <div class="portfolio-hero"><img src="assets/tz.jpg" alt="Превью кейса составитель ТЗ"></div>
-        <div class="portfolio-content">
-          <div class="portfolio-card__meta"><span class="case-number">02</span><span class="portfolio-card__tag">AI Assistant / Design Specs</span></div>
-          <h3>AI-составитель ТЗ</h3>
-          <p>ИИ-помощник, который пишет документацию по шаблону и снимает проблему «чистого листа».</p>
-          <div class="result-main">16x</div>
-          <p>Скорость подготовки спецификаций.</p>
-          <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 2 дня на сбор и структурирование требований.</div><div class="after"><strong>СТАЛО:</strong> 2 часа и единый формат спецификаций.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="tz-generator-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
-        </div>
-      </article>
-      <article class="portfolio-card portfolio-folder reveal">
-        <div class="portfolio-hero"><img src="assets/content-zavod.jpg" alt="Превью кейса контент-завод"></div>
-        <div class="portfolio-content">
-          <div class="portfolio-card__meta"><span class="case-number">03</span><span class="portfolio-card__tag">Multi-Agent / Telegram</span></div>
-          <h3>Контент-завод</h3>
-          <p>Связка из ИИ-Агентов, создающая посты для социальных сетей.</p>
-          <div class="result-main">20x</div>
-          <p>Скорость производства контента.</p>
-          <div class="before-after"><div class="before"><strong>БЫЛО:</strong> 40 минут на один пост вручную.</div><div class="after"><strong>СТАЛО:</strong> 2 минуты и единый стиль постов.</div></div>
-          <div class="portfolio-actions"><a class="portfolio-card__link" href="smm-case.html"></a><a class="portfolio-card__download" href="assets/Пример_ТЗ_LLMProgger.docx" download="LLM-Progger.docx">Скачать пример</a></div>
-        </div>
-      </article>
-    </div>
-    <div class="section-action" style="padding-bottom:100px;">
-      <a class="btn btn-telegram" href="https://t.me/aivion_agency_bot" target="_blank" rel="noopener noreferrer">Смотреть все кейсы в TG</a>
+        <button class="pf-arrow" id="pfNext" type="button" aria-label="Вперёд">→</button>
+      </div>
+    </div><!-- /pf-slider-outer -->
+
+    <div class="section-action" style="padding-bottom:100px; margin-top:32px;">
       <a class="btn btn-ghost" href="#contact" data-open-form>Обсудить проект</a>
     </div>
   </div>
@@ -1574,8 +1587,8 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
       </div>
       <article class="roi-case-card">
         <span class="roi-tag">Пример из практики</span>
-        <h3 class="roi-case-title">Как не потратили лишнее на то,<br>что уже было решено иначе</h3>
-        <p class="roi-case-intro">Маркетинговое агентство перевело копирайтеров и аналитиков на локальную LLM — ради приватности данных. Но работа через терминал оказалась неподъёмной для нетехнических специалистов: <strong>менять конфиги, выставлять температуру, управлять параметрами вручную</strong> — не их профиль. Клиент пришёл с идеей поставить поверх модели AI-ассистента, который обучал бы команду с ней работать. Мы посчитали, во что это выйдет — и предложили другое.</p>
+        <h3 class="roi-case-title">Кейс: Как спасли клиента от убытков<br></h3>
+        <p class="roi-case-intro">Маркетинговое агентство (NDA) перевело копирайтеров и аналитиков на локальную LLM — ради приватности данных. Но работа через терминал оказалась неподъёмной для нетехнических специалистов: <strong>менять конфиги, выставлять температуру, управлять параметрами вручную</strong> — не их профиль. Клиент пришёл с идеей поставить поверх модели AI-ассистента, который обучал бы команду с ней работать. Мы посчитали, во что это выйдет — и предложили другое.</p>
         <div class="roi-facts-grid">
           <div class="roi-facts roi-facts--red"><span class="clabel">Доп. расходы с ассистентом</span><span class="cvalue">+800 000 ₽</span><span class="cnote">Отдельный GPU, инфраструктура и обслуживание второй модели поверх основной</span></div>
           <div class="roi-facts roi-facts--green"><span class="clabel">Доп. расходы с интерфейсом</span><span class="cvalue">0 ₽</span><span class="cnote">Работает поверх той же модели — никакого дополнительного железа</span></div>
@@ -1599,36 +1612,32 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 <section class="premium-cta-section" id="contact">
   <div class="section-inner">
     <div class="premium-cta-wrap reveal">
-      <div class="premium-cta-top">
-        <p class="eyebrow">Next-Step Automation</p>
+      <div class="premium-cta-left">
+        <p class="eyebrow">Next-step automation</p>
         <h3>Связаться с нами</h3>
         <p>Проектируем и внедряем цифровые контуры под ваши процессы: от клиентских коммуникаций до внутренних аналитических сервисов и автоматизации принятия решений.</p>
+        
       </div>
-      <form class="premium-cta-form" action="#" method="post">
-        <div class="field">
-          <label for="cta-name">Ваше имя</label>
-          <input id="cta-name" name="name" type="text" placeholder="Иван" required/>
-        </div>
-        <div class="field">
-          <label for="cta-contact">Telegram / Телефон</label>
-          <input id="cta-contact" name="contact" type="text" placeholder="@username или +7 XXX XXX XX XX" required/>
-        </div>
-        <div class="field full">
-          <label for="cta-topic">С чем связана задача?</label>
-          <select id="cta-topic" name="topic" required>
-            <option>Клиенты и коммуникация</option><option>Внутренняя аналитика</option><option>Автоматизация процессов</option><option>Другое</option>
-          </select>
-        </div>
-        <div class="field full">
-          <label for="cta-brief">Кратко опишите задачу</label>
-          <textarea id="cta-brief" name="brief" placeholder="Например: ERP-система с AI-поиском и аналитикой" required></textarea>
-        </div>
-        <label class="premium-cta-consent" for="cta-consent">
-          <input id="cta-consent" type="checkbox" required/>
-          <span>Я согласен(а) на обработку персональных данных.</span>
-        </label>
-        <button class="premium-cta-submit" type="submit">Отправить запрос</button>
-      </form>
+      <div class="premium-cta-right">
+        <form class="premium-cta-form" action="#" method="post">
+          <div class="field"><label for="cta-name">Ваше имя</label><input id="cta-name" name="name" type="text" placeholder="Иван" required/></div>
+          <div class="field"><label for="cta-topic">С чем связана задача?</label><select id="cta-topic" name="topic" required><option value="" selected disabled>Выберите вариант</option><option>Клиенты и коммуникация</option><option>Документы и отчёты</option><option>Сбор и обработка данных</option><option>Автоматизация рутинных задач</option><option>AI-инструмент или сервис</option><option>Другое</option></select></div>
+          <div class="field"><label for="cta-brief">Кратко опишите задачу</label><textarea id="cta-brief" name="brief" placeholder="Например: ERP-система с AI-поиском и аналитикой" required></textarea></div>
+          <div class="field"><label for="cta-contact">Telegram / Телефон</label><input id="cta-contact" name="contact" type="text" placeholder="@username или +7 XXX-XXX-XX-XX" required/></div>
+          <div class="cf-consents">
+            <label class="cf-consent" for="cta-policy">
+              <input id="cta-policy" type="checkbox" required/>
+              <span>Я ознакомился(ась) с <a href="/privacy" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span>
+            </label>
+            <label class="cf-consent" for="cta-consent">
+              <input id="cta-consent" type="checkbox" required/>
+              <span>Даю согласие на обработку моих персональных данных в соответствии с <a href="/consent" target="_blank" rel="noopener noreferrer">текстом согласия</a>.</span>
+            </label>
+          </div>
+          <p class="cf-legal">Если вы не дадите согласие на обработку данных, мы не сможем обработать заявку.</p>
+          <button class="btn btn-accent" type="submit">Отправить запрос</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -2025,39 +2034,39 @@ createDotGrid(document.getElementById('servicesDotGrid'));
 
 /* Services and process cards reveal through the shared IntersectionObserver above. */
 
-/* ═══ PORTFOLIO DYNAMIC SLIDER ═════════════════════════════ */
+/* ═══ PORTFOLIO SLIDER (fullwidth) ══════════════════════════ */
 (function () {
-  const stack = document.getElementById('portfolioStack');
-  if (!stack) return;
-  const cards = Array.from(stack.querySelectorAll('.portfolio-folder'));
-  const prevBtn = document.getElementById('portfolioPrev');
-  const nextBtn = document.getElementById('portfolioNext');
-  if (!cards.length) return;
+  const track = document.getElementById('pfTrack');
+  const prevBtn = document.getElementById('pfPrev');
+  const nextBtn = document.getElementById('pfNext');
+  const dots = Array.from(document.querySelectorAll('.pf-dot'));
+  if (!track) return;
 
+  const cards = Array.from(track.querySelectorAll('.pf-card'));
+  const total = cards.length;
   let current = 0;
-  const goTo = (index) => {
-    current = Math.max(0, Math.min(index, cards.length - 1));
-    cards[current].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-    cards.forEach((card, i) => card.classList.toggle('is-active', i === current));
-  };
+
+  function getSlideWidth() {
+    return track.parentElement.offsetWidth;
+  }
+
+  function goTo(idx) {
+    current = ((idx % total) + total) % total;
+    track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
 
   prevBtn?.addEventListener('click', () => goTo(current - 1));
   nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+  window.addEventListener('resize', () => goTo(current));
 
-  stack.addEventListener('scroll', () => {
-    const center = stack.scrollLeft + stack.clientWidth / 2;
-    let nearest = 0;
-    let minDistance = Number.POSITIVE_INFINITY;
-    cards.forEach((card, i) => {
-      const cardCenter = card.offsetLeft + card.clientWidth / 2;
-      const distance = Math.abs(center - cardCenter);
-      if (distance < minDistance) {
-        minDistance = distance;
-        nearest = i;
-      }
-    });
-    current = nearest;
-    cards.forEach((card, i) => card.classList.toggle('is-active', i === current));
+  // Swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
   }, { passive: true });
 
   goTo(0);
