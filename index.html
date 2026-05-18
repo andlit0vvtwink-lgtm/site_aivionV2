@@ -12,11 +12,11 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <style>
     :root {
-      --bg:            #000000;
-      --accent:        #E8920A;
-      --accent-strong: #F5A822;
-      --accent-soft:   rgba(232,146,10,0.10);
-      --stroke-accent: rgba(232,146,10,0.22);
+      --bg:            #05030d;
+      --accent:        #9B6DFF;
+      --accent-strong: #B48FFF;
+      --accent-soft:   rgba(155,109,255,0.10);
+      --stroke-accent: rgba(155,109,255,0.22);
       --text:          #ebebeb;
       --muted:         rgba(235,235,235,0.52);
       --muted-strong:  rgba(235,235,235,0.70);
@@ -94,12 +94,12 @@
     }
     nav a:hover { color:var(--text); }
     .nav-cta {
-      background:var(--accent); color:#1a0800 !important;
+      background:var(--accent); color:#ffffff !important;
       font-weight:700; padding:10px 20px; border-radius:4px;
-      box-shadow:0 0 0 1px rgba(232,146,10,0.15),0 8px 24px rgba(232,146,10,0.20);
+      box-shadow:0 0 0 1px rgba(155,109,255,0.15),0 8px 24px rgba(155,109,255,0.22);
       transition:background .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease) !important;
     }
-    .nav-cta:hover { background:var(--accent-strong) !important; transform:translateY(-1px); box-shadow:0 0 0 1px rgba(232,146,10,0.25),0 12px 32px rgba(232,146,10,0.28) !important; }
+    .nav-cta:hover { background:var(--accent-strong) !important; transform:translateY(-1px); box-shadow:0 0 0 1px rgba(155,109,255,0.25),0 12px 32px rgba(155,109,255,0.30) !important; }
 
     /* Mobile menu toggle */
     .menu-toggle {
@@ -132,7 +132,7 @@
       transition:color .2s;
     }
     .mobile-nav a:hover { color:var(--text); }
-    .mobile-nav .nav-cta { color:#1a0800 !important; font-size:14px; }
+    .mobile-nav .nav-cta { color:#ffffff !important; font-size:14px; }
 
 
     /* ═══ АДАПТИВ И БУРГЕР ════════════════════════════════════ */
@@ -202,21 +202,21 @@
     .orb-1 {
       width:42%; height:42%;
       right:-18%; top:-18%;
-      background:radial-gradient(circle, rgba(232,146,10,0.28) 0%, rgba(200,90,0,0.10) 50%, transparent 72%);
+      background:radial-gradient(circle, rgba(155,109,255,0.20) 0%, rgba(100,60,200,0.08) 50%, transparent 72%);
       filter:blur(88px);
       animation-duration:20s;
     }
     .orb-2 {
       width:22%; height:22%;
       right:8%; top:-8%;
-      background:radial-gradient(circle, rgba(245,168,34,0.22) 0%, transparent 68%);
+      background:radial-gradient(circle, rgba(180,143,255,0.16) 0%, transparent 68%);
       filter:blur(60px);
       animation-duration:16s; animation-direction:reverse;
     }
     .orb-3 {
       width:44%; height:44%;
       left:-14%; bottom:-18%;
-      background:radial-gradient(circle, rgba(30,80,200,0.28) 0%, rgba(10,40,140,0.10) 50%, transparent 72%);
+      background:radial-gradient(circle, rgba(80,40,180,0.20) 0%, rgba(50,20,140,0.08) 50%, transparent 72%);
       filter:blur(100px);
       animation-duration:26s;
     }
@@ -245,9 +245,9 @@
       letter-spacing:-0.055em; line-height:0.95; margin-bottom:24px;
     }
     .title-accent {
-      background:linear-gradient(135deg,var(--accent) 0%,var(--accent-strong) 50%,#FFD060 100%);
+      background:linear-gradient(135deg,var(--accent) 0%,var(--accent-strong) 50%,#d4b8ff 100%);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-      filter:drop-shadow(0 0 28px rgba(232,146,10,0.38));
+      filter:drop-shadow(0 0 28px rgba(155,109,255,0.38));
     }
     .opening-lead {
       max-width:620px; margin-bottom:38px;
@@ -310,8 +310,8 @@
     .roi-step__number {
       display:flex; align-items:center; justify-content:center;
       width:36px; height:36px; border-radius:50%; flex-shrink:0;
-      background:rgba(224,157,43,0.12); border:1px solid rgba(224,157,43,0.38);
-      color:#E09D2B;
+      background:rgba(155,109,255,0.12); border:1px solid rgba(155,109,255,0.38);
+      color:#9B6DFF;
       font-size:15px;
       font-weight:700;
       line-height:1;
@@ -334,13 +334,13 @@
     .roi-tag {
       display:inline-block;
       padding:5px 14px;
-      border:1px solid rgba(232,146,10,0.38);
+      border:1px solid rgba(155,109,255,0.38);
       border-radius:999px;
       font-size:12px;
       font-weight:600;
       letter-spacing:.06em;
       text-transform:uppercase;
-      color:#E8920A;
+      color:#9B6DFF;
       margin-bottom:20px;
       width:max-content;
     }
@@ -378,12 +378,12 @@
     .roi-facts--green .cvalue { color:#4cbe8a; }
     .roi-facts .cnote { font-size:12.5px; line-height:1.6; color:rgba(255,255,255,0.55); margin-top:3px; }
     .roi-work { margin-bottom:26px; border:none; border-radius:0; padding:0; display:block; }
-    .roi-work h4 { font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#E8920A; margin-bottom:10px; }
+    .roi-work h4 { font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#9B6DFF; margin-bottom:10px; }
     .roi-work p { font-size:14.5px; line-height:1.85; color:rgba(255,255,255,0.55); }
     .roi-work p + p { margin-top:10px; }
     .roi-work strong { color:#fff; font-weight:600; }
     .roi-result {
-      border-top:1px solid rgba(232,146,10,0.12);
+      border-top:1px solid rgba(155,109,255,0.12);
       padding-top:20px;
       display:flex;
       flex-wrap:wrap;
@@ -438,7 +438,7 @@
     .transform-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
     .transform-list li{font-size:15px;line-height:1.4;color:rgba(236,239,242,.93);padding-left:16px;position:relative;}
     .transform-list li::before{content:"";position:absolute;left:0;top:.56em;width:6px;height:6px;border-radius:50%;}
-    .transform-list--before li{color:rgba(255,210,193,.88);} .transform-list--before li::before{background:#f18b58;box-shadow:0 0 10px rgba(241,139,88,.42);} 
+    .transform-list--before li{color:rgba(255,210,193,.88);} .transform-list--before li::before{background:#c47aff;box-shadow:0 0 10px rgba(155,109,255,.42);} 
     .transform-list--after li{color:rgba(215,255,235,.95);} .transform-list--after li::before{background:#6EE7A0;box-shadow:0 0 10px rgba(110,231,160,.45);} 
     .transform-flow{display:grid;place-items:center;gap:10px;margin:20px 0 18px;}
     .transform-gear{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;color:#f9fde9;font-size:27px;font-weight:700;background:radial-gradient(circle at 32% 30%,rgba(164,255,215,.5),rgba(24,140,107,.72));box-shadow:0 0 0 1px rgba(164,255,215,.3),0 0 30px rgba(74,224,168,.35),0 0 80px rgba(74,224,168,.2);animation:aiPulse 4s ease-in-out infinite;}
@@ -446,7 +446,7 @@
     .transform-ai{font-size:12px;letter-spacing:.28em;color:#c5ccd5;text-transform:uppercase;}
     .transform-metrics{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
     .transform-metric{padding:10px 8px 8px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);}
-    .transform-metric strong{display:block;font-size:20px;line-height:1;color:#f5b065;}
+    .transform-metric strong{display:block;font-size:20px;line-height:1;color:#b48fff;}
     .transform-metric span{display:block;font-size:11px;color:#99a3af;line-height:1.2;margin-top:6px;}
     @keyframes transformCardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
     @keyframes aiScan{0%{transform:translateY(-34%);opacity:0;}14%{opacity:.2;}50%{opacity:.34;}86%{opacity:.16;}100%{transform:translateY(310%);opacity:0;}}
@@ -460,10 +460,10 @@
     }
     .btn:hover { transform:translateY(-2px); }
     .btn-accent {
-      background:var(--accent); color:#0f0600;
-      box-shadow:0 0 0 1px rgba(232,146,10,0.14),0 10px 28px rgba(232,146,10,0.22);
+      background:var(--accent); color:#ffffff;
+      box-shadow:0 0 0 1px rgba(155,109,255,0.14),0 10px 28px rgba(155,109,255,0.28);
     }
-    .btn-accent:hover { background:var(--accent-strong); box-shadow:0 0 0 1px rgba(232,146,10,0.22),0 14px 36px rgba(232,146,10,0.30); }
+    .btn-accent:hover { background:var(--accent-strong); box-shadow:0 0 0 1px rgba(155,109,255,0.22),0 14px 36px rgba(155,109,255,0.36); }
     .btn-ghost {
       border-color:rgba(255,255,255,0.12); background:rgba(255,255,255,0.04); color:var(--text);
     }
@@ -482,10 +482,10 @@
     }
     .hero-stat::before {
       content:""; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(232,146,10,0.07),transparent 55%);
+      background:linear-gradient(135deg,rgba(155,109,255,0.07),transparent 55%);
       pointer-events:none;
     }
-    .hero-stat:hover { border-color:rgba(232,146,10,0.25); background:rgba(232,146,10,0.04); }
+    .hero-stat:hover { border-color:rgba(155,109,255,0.25); background:rgba(155,109,255,0.04); }
     .stat-label {
       font-family:"Montserrat",sans-serif; font-size:10px; font-weight:600;
       letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);
@@ -508,7 +508,7 @@
     .opening-inner .fade-up:nth-child(5) { transition-delay:0.45s; }
 
     /* ═══ HERO PANELS ════════════════════════════════════════ */
-    .panels-section { position:relative; height:340svh; background:var(--bg); }
+    .panels-section { position:relative; height:340svh;}
     .panels-sticky { position:sticky; top:0; height:100svh; overflow:hidden; }
     .hero-panel {
       position:absolute; inset:0; height:100svh;
@@ -523,15 +523,7 @@
       font-weight:700; letter-spacing:-0.055em;
     }
     /* ═══ AMBIENT BG LAYER ══════════════════════════════════ */
-    #ambientBg {
-      position:fixed; inset:0; z-index:-1; pointer-events:none;
-      width:100%; max-width:100%; overflow:hidden; contain:paint;
-      background:
-        radial-gradient(ellipse 80vw 60vh at 10% 35%, rgba(232,146,10,0.055) 0%, transparent 60%),
-        radial-gradient(ellipse 60vw 70vh at 92% 65%, rgba(180,80,5,0.04) 0%, transparent 55%),
-        radial-gradient(ellipse 100vw 40vh at 50% 5%,  rgba(232,146,10,0.03) 0%, transparent 50%),
-        radial-gradient(ellipse 70vw 50vh at 70% 90%,  rgba(232,120,10,0.045) 0%, transparent 55%);
-    }
+    
     @keyframes ambientShift {
       0%   { opacity:.85; transform:scale(1) translate(0,0); }
       33%  { opacity:1;   transform:scale(1.04) translate(-1%,1%); }
@@ -542,7 +534,7 @@
     /* ═══ SHARED SECTIONS WRAPPER ════════════════════════════ */
     .shared-wrap {
       position:relative;
-      background:linear-gradient(180deg,transparent 0%,rgba(4,2,0,0.6) 20%,rgba(10,5,0,0.85) 50%,rgba(20,9,0,0.95) 80%,rgba(26,13,0,0.98) 100%);
+      background:linear-gradient(180deg,transparent 0%,rgba(2,1,8,0.6) 20%,rgba(5,3,15,0.85) 50%,rgba(8,4,20,0.95) 80%,rgba(10,5,25,0.98) 100%);
     }
 
     /* Dot grid canvas (shared background) */
@@ -553,7 +545,7 @@
 
     /* ═══ SECTION COMMON ════════════════════════════════════ */
     .section-inner {
-      width:min(100% - 32px,1240px); margin:0 auto; margin-bottom: 100px;
+      width:min(100% - 32px,1240px); margin:0 auto;
       position:relative; z-index:2;
     }
     .section-pad { padding:110px 0 100px; position:relative; }
@@ -599,10 +591,10 @@
     }
     .glass-card::after {
       content:""; position:absolute; inset:0; border-radius:inherit;
-      background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(232,146,10,0.14),transparent 70%);
+      background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(155,109,255,0.14),transparent 70%);
       opacity:0; pointer-events:none; transition:opacity .45s var(--ease);
     }
-    .glass-card:hover { transform:translateY(-6px); border-color:rgba(232,146,10,0.35); background:rgba(232,146,10,0.04); box-shadow:0 0 0 1px rgba(232,146,10,0.10),0 20px 60px rgba(0,0,0,0.55),0 0 40px rgba(232,146,10,0.08); }
+    .glass-card:hover { transform:translateY(-6px); border-color:rgba(155,109,255,0.35); background:rgba(155,109,255,0.04); box-shadow:0 0 0 1px rgba(155,109,255,0.10),0 20px 60px rgba(0,0,0,0.55),0 0 40px rgba(155,109,255,0.08); }
     .glass-card:hover::after { opacity:1; }
     .glass-card p { color:var(--muted); line-height:1.65; font-size:15px; margin-top:0; }
     .glass-card:hover p { color:var(--muted-strong); }
@@ -615,7 +607,7 @@
       font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase;
       transition:background .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
     }
-    .glass-card:hover .case-number { background:rgba(232,146,10,0.18); border-color:rgba(232,146,10,0.40); box-shadow:0 0 14px rgba(232,146,10,0.20); }
+    .glass-card:hover .case-number { background:rgba(155,109,255,0.18); border-color:rgba(155,109,255,0.40); box-shadow:0 0 14px rgba(155,109,255,0.20); }
 
     .section-action { margin-top:44px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
     .btn-telegram {
@@ -640,16 +632,16 @@
     .intro-grid {
       position:absolute; inset:0; pointer-events:none; z-index:0;
       background-image:
-        linear-gradient(rgba(232,146,10,0.030) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(232,146,10,0.030) 1px,transparent 1px);
+        linear-gradient(rgba(155,109,255,0.030) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(155,109,255,0.030) 1px,transparent 1px);
       background-size:60px 60px;
       mask-image:linear-gradient(180deg,transparent 0%,transparent 28%,rgba(0,0,0,0.45) 62%,black 100%);
     }
     .mesh { position:absolute; border-radius:50%; pointer-events:none; z-index:0; animation:meshDrift 22s ease-in-out infinite alternate; }
-    .mesh-a { bottom:-15%; left:-8%; width:58vw; height:58vw; background:radial-gradient(circle,rgba(232,146,10,0.18) 0%,rgba(200,100,5,0.07) 45%,transparent 70%); filter:blur(90px); }
+    .mesh-a { bottom:-15%; left:-8%; width:58vw; height:58vw; background:radial-gradient(circle,rgba(155,109,255,0.18) 0%,rgba(110,70,220,0.07) 45%,transparent 70%); filter:blur(90px); }
     .mesh-b { bottom:-12%; right:-6%; width:46vw; height:46vw; background:radial-gradient(circle,rgba(16,185,129,0.13) 0%,transparent 65%); filter:blur(110px); animation-duration:30s; animation-direction:reverse; }
-    .mesh-center { position:absolute; border-radius:50%; pointer-events:none; z-index:0; bottom:-5%; left:25%; right:25%; width:50vw; height:30vw; background:radial-gradient(ellipse,rgba(245,168,34,0.12) 0%,rgba(232,146,10,0.05) 50%,transparent 75%); filter:blur(80px); animation:meshDrift 28s ease-in-out infinite alternate-reverse; }
-    .mesh-horizon { position:absolute; pointer-events:none; z-index:1; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(232,146,10,0.22) 30%,rgba(245,168,34,0.36) 50%,rgba(232,146,10,0.22) 70%,transparent 100%); }
+    .mesh-center { position:absolute; border-radius:50%; pointer-events:none; z-index:0; bottom:-5%; left:25%; right:25%; width:50vw; height:30vw; background:radial-gradient(ellipse,rgba(180,143,255,0.12) 0%,rgba(155,109,255,0.05) 50%,transparent 75%); filter:blur(80px); animation:meshDrift 28s ease-in-out infinite alternate-reverse; }
+    .mesh-horizon { position:absolute; pointer-events:none; z-index:1; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(155,109,255,0.22) 30%,rgba(180,143,255,0.36) 50%,rgba(155,109,255,0.22) 70%,transparent 100%); }
     @keyframes meshDrift { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,-3%) scale(1.06);} }
 
     .intro-center { display:grid; justify-items:center; }
@@ -702,8 +694,8 @@
 
     /* Левый контент */
     .pf-content {
-      flex: 1 1 58%;
-      padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 56px);
+      flex: 0 0 40%;
+      padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 52px);
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -712,7 +704,7 @@
 
     /* Правая картинка */
     .pf-img {
-      flex: 0 0 42%;
+      flex: 1 1 60%;
       position: relative;
       overflow: hidden;
     }
@@ -773,7 +765,7 @@
     .pf-num {
       display: inline-flex; align-items: center; justify-content: center;
       min-width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(232,146,10,0.12); border: 1px solid rgba(232,146,10,0.32);
+      background: rgba(155,109,255,0.12); border: 1px solid rgba(155,109,255,0.32);
       color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .05em;
     }
     .pf-tag {
@@ -825,24 +817,25 @@
     .pf-link:hover {
       background: var(--accent-strong);
       transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(232,146,10,0.40);
+      box-shadow: 0 14px 32px rgba(155,109,255,0.40);
     }
 
     /* ── Нижняя полоса: стрелки по краям + точки по центру ── */
     .pf-controls {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: center;
-      gap:16px;
+      gap: 16px;
       padding: 28px 0 0;
     }
     .pf-arrow{
-      width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.2);
-      background:#111214;color:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s;
+      width:56px;height:56px;border-radius:8px;border:1px solid rgba(255,255,255,.2);
+      background:var(--bg);color:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s;
+      font-size:18px;
     }
     .pf-arrow:hover{border-color:var(--accent);color:var(--accent);}
     .pf-dots {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
     }
     .pf-dot {
       width: 8px; height: 8px; border-radius: 50%;
@@ -856,10 +849,20 @@
       border-radius: 999px;
       transform: none;
     }
+    /* Challenge dots (mobile only) */
+    .challenge-dots { display:none; justify-content:center; gap:10px; margin-top:18px; }
+    .challenge-dot { width:9px;height:9px;border-radius:999px;border:0;background:rgba(255,255,255,.28);transition:background-color .2s ease,transform .2s ease;cursor:pointer;padding:0; }
+    .challenge-dot.is-active { background:var(--accent);transform:scale(1.15); }
+
+    /* Mobile: hide slider arrows */
+    @media (max-width: 720px) {
+      .pf-arrow { display: none; }
+      .pf-controls { grid-template-columns: 1fr; justify-items: center; }
+    }
 
     /* Адаптив */
     @media (max-width: 720px) {
-      .pf-card { flex-direction: column; min-height: 380px; }
+      .pf-card { flex-direction: column-reverse; min-height: 380px; }
       .pf-img { flex: 0 0 220px; height: 220px; }
       .pf-img::before { background: linear-gradient(180deg, rgba(17,18,20,0.6) 0%, transparent 100%); }
       .pf-content { padding: 28px 24px 32px; }
@@ -876,7 +879,7 @@
       font-size: clamp(48px, 5vw, 80px);
       letter-spacing: -0.04em; line-height: 0.95;
       color: var(--accent);
-      text-shadow: 0 0 28px rgba(232,146,10,0.35);
+      text-shadow: 0 0 28px rgba(155,109,255,0.35);
       margin: 4px 0 0;
     }
 
@@ -885,16 +888,16 @@
     .services-grid {font-family:"Space Grotesk","Montserrat",sans-serif;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:10px 0}
     @media(max-width:520px){.services-grid{grid-template-columns:1fr}}
     .service-card{background:#161616;border-radius:18px;border:1px solid rgba(255,255,255,0.07);padding:30px 30px 34px;display:flex;flex-direction:column;gap:0;transition:border-color .2s}
-    .service-card:hover{border-color:rgba(224,157,43,0.35)}
-    .service-card.active{background:#1E1A10;border:1px solid rgba(224,157,43,0.2)}
-    .service-card.active:hover{border-color:rgba(224,157,43,0.2)}
+    .service-card:hover{border-color:rgba(155,109,255,0.35)}
+    .service-card.active{background:#1E1A10;border:1px solid rgba(155,109,255,0.2)}
+    .service-card.active:hover{border-color:rgba(155,109,255,0.2)}
     .card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
     .card-title{font-size:19px;font-weight:700;color:#fff}
-    .card-badge{font-size:10px;font-weight:500;letter-spacing:.1em;color:#E09D2B;border:1px solid rgba(224,157,43,0.35);border-radius:6px;padding:3px 8px}
+    .card-badge{font-size:10px;font-weight:500;letter-spacing:.1em;color:#9B6DFF;border:1px solid rgba(155,109,255,0.35);border-radius:6px;padding:3px 8px}
     .card-items{display:flex;flex-direction:column}
     .item{display:flex;align-items:center;gap:13px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.06);cursor:default}
     .item:last-child{border-bottom:none}
-    .item-icon{width:24px;height:24px;flex-shrink:0;font-size:20px;display:flex;align-items:center;justify-content:center}
+    .item-icon{width:24px;height:24px;flex-shrink:0;font-size:20px;display:flex;align-items:center;justify-content:center;filter:sepia(1) saturate(4) hue-rotate(5deg) brightness(0.95);}
     .item-label{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.45}
 
     /* ═══ PROCESS ════════════════════════════════════════════ */
@@ -905,7 +908,7 @@
     }
     .process-list::before {
       content:""; position:absolute; left:2%; right:2%; top:60px; height:1px;
-      background:linear-gradient(90deg,transparent,rgba(232,146,10,0.35) 8%,rgba(232,146,10,0.35) 92%,transparent);
+      background:linear-gradient(90deg,transparent,rgba(155,109,255,0.35) 8%,rgba(155,109,255,0.35) 92%,transparent);
       pointer-events:none; z-index:0;
     }
     .process-step {
@@ -927,13 +930,13 @@
     .process-step::after {
       content:""; position:absolute; inset:0; border-radius:inherit;
       background:
-        linear-gradient(135deg,rgba(232,146,10,0.10),transparent 42%),
-        radial-gradient(circle at 85% 18%,rgba(245,168,34,0.16),transparent 34%);
+        linear-gradient(135deg,rgba(155,109,255,0.10),transparent 42%),
+        radial-gradient(circle at 85% 18%,rgba(180,143,255,0.16),transparent 34%);
       opacity:0; pointer-events:none;
       transition:opacity .35s var(--ease);
     }
     .process-step:first-child { border-top:none; }
-    .process-step:hover { background:rgba(232,146,10,0.025); box-shadow:0 18px 42px rgba(0,0,0,0.18); }
+    .process-step:hover { background:rgba(155,109,255,0.025); box-shadow:0 18px 42px rgba(0,0,0,0.18); }
     .process-step:hover::after { opacity:1; }
     .process-step:hover .process-step-inner-border {
       opacity:1;
@@ -948,8 +951,8 @@
     }
     .process-step:hover .process-icon {
       border-color:var(--accent);
-      background:rgba(232,146,10,0.20);
-      box-shadow:0 0 18px rgba(232,146,10,0.28), 0 0 0 1px rgba(232,146,10,0.15);
+      background:rgba(155,109,255,0.20);
+      box-shadow:0 0 18px rgba(155,109,255,0.28), 0 0 0 1px rgba(155,109,255,0.15);
       transform:scale(1.12) rotate(4deg);
     }
     .process-icon svg {
@@ -958,7 +961,7 @@
       transition:filter .35s var(--ease);
     }
     .process-step:hover .process-icon svg {
-      filter:drop-shadow(0 0 6px rgba(232,146,10,0.7));
+      filter:drop-shadow(0 0 6px rgba(155,109,255,0.7));
     }
     .process-number {
       font-family:"Montserrat",sans-serif; font-size:11px; font-weight:700;
@@ -968,7 +971,7 @@
     }
     .process-step:hover .process-number {
       color:var(--accent-strong);
-      text-shadow:0 0 14px rgba(232,146,10,0.5);
+      text-shadow:0 0 14px rgba(155,109,255,0.5);
     }
     .process-copy { display:flex; flex-direction:column; gap:8px; padding-top:2px; }
     .process-copy h3 {
@@ -976,7 +979,7 @@
       transition:color .3s var(--ease);
     }
     .process-step:hover .process-copy h3 { color:#fff; }
-    .process-step--primary{border-color:rgba(232,146,10,.28);background:linear-gradient(145deg,rgba(232,146,10,.08),rgba(255,255,255,.02));}
+    .process-step--primary{border-color:rgba(155,109,255,.28);background:linear-gradient(145deg,rgba(155,109,255,.08),rgba(255,255,255,.02));}
     .process-step--primary .process-number{opacity:1;}
     .process-copy p {
       font-size:15px; color:var(--muted); line-height:1.65;
@@ -987,21 +990,86 @@
     .process-dot {
       position:absolute; left:50%; top:30px; transform:translateX(-50%);
       width:14px; height:14px; border-radius:50%;
-      background:var(--bg); border:1px solid rgba(232,146,10,0.35);
+      background:var(--bg); border:1px solid rgba(155,109,255,0.35);
       transition:background .35s, border-color .35s, box-shadow .35s, transform .35s cubic-bezier(0.34,1.56,0.64,1);
       z-index:3;
     }
     .process-step:hover .process-dot {
       background:var(--accent);
       border-color:var(--accent-strong);
-      box-shadow:0 0 12px rgba(232,146,10,0.55);
+      box-shadow:0 0 12px rgba(155,109,255,0.55);
       transform:translateX(-50%) scale(1.35);
     }
-    .challenge-section{padding:90px 0 40px;}
-    .challenge-heading{text-align:left;max-width:1280px;margin-bottom:40px;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
-    .challenge-card{min-height:220px;display:flex;flex-direction:column;gap:16px;}
-    .challenge-icon{width:40px;height:40px;border-radius:10px;border:1px solid var(--stroke-accent);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;}
+    .challenge-section { padding: 0; }
+    /* Full-width container with small side padding (no section-inner) */
+    .challenge-outer {
+      width: 100%;
+      padding: 100px clamp(20px, 3vw, 48px) 80px;
+    }
+    .challenge-heading { text-align:left; margin-bottom: 0; }
+    .challenge-title {
+      font-family: "Space Grotesk","Montserrat",sans-serif;
+      font-size: clamp(38px, 5.5vw, 80px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.0;
+      color: #fff;
+      text-wrap: balance;
+    }
+    /* 2-col card grid */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+      margin-top: 240px;
+    }
+    .challenge-card {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 28px 32px 32px;
+    }
+    .challenge-card__icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: grid; place-items: center;
+      color: rgba(235,235,235,0.55);
+      margin-bottom: 20px;
+    }
+    .challenge-card__title {
+      font-family: "Space Grotesk","Montserrat",sans-serif;
+      font-size: clamp(16px,1.4vw,20px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .challenge-card__desc {
+      font-size: 14.5px;
+      line-height: 1.70;
+      color: rgba(235,235,235,0.55);
+      margin: 0;
+    }
+    .challenge-icon { display: none; }
+
+    /* ── CHALLENGE desktop sticky layout ── */
+    @media (min-width:520px) {
+      .challenge-layout {
+        display: grid;
+        grid-template-columns: minmax(760px, 360px) 1fr;
+        gap: clamp(10px, 6vw, 100px);
+        align-items: start;
+      }
+      .challenge-sticky {
+        position: sticky;
+        top: calc(var(--header-h) + 32px);
+      }
+      .challenge-heading { margin-bottom: 0; }
+      .challenge-dots { display: none !important; }
+    }
 
     /* ═══ QUOTE BREAK ═══════════════════════════════════════ */
     .quote-break {
@@ -1020,9 +1088,9 @@
     }
     .quote-break__text em {
       font-style:normal;
-      background:linear-gradient(135deg,var(--accent) 0%,var(--accent-strong) 50%,#FFD060 100%);
+      background:linear-gradient(135deg,var(--accent) 0%,var(--accent-strong) 50%,#d4b8ff 100%);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-      filter:drop-shadow(0 0 18px rgba(232,146,10,0.28));
+      filter:drop-shadow(0 0 18px rgba(155,109,255,0.28));
     }
     /* ═══ FOOTER ════════════════════════════════════════════ */
     .site-footer {
@@ -1085,7 +1153,7 @@
     }
     .statement-section p{
       margin:0 auto;
-      max-width:980px;
+      max-width:1080px;
       font:500 clamp(28px,3.2vw,48px)/1.28 "Space Grotesk","Montserrat",sans-serif;
       letter-spacing:-0.02em;
       color:rgba(245,245,245,0.9);
@@ -1093,63 +1161,142 @@
     .premium-cta-section {
       width:100%;
       background:#060606;
-      padding:clamp(56px,8vw,120px) 0 clamp(80px,9vw,140px);
+      padding:clamp(64px,8vw,100px) 0;
       position:relative;
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
     .premium-cta-shell{
-      width:min(100% - 48px,620px);
+      width:min(100% - 80px,1860px);
       margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:32px;
+      display:grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap:80px;
+      align-items:center;
+    }
+    .premium-cta-left {
+      display:flex; flex-direction:column; gap:32px;
     }
     .premium-cta-heading {
-      font:800 clamp(32px,4vw,52px)/1.05 "Space Grotesk","Montserrat",sans-serif;
+      font:900 clamp(44px,6vw,86px)/0.95 "Space Grotesk","Montserrat",sans-serif;
       letter-spacing:-0.03em;
       color:#fff;
+      text-transform:uppercase;
     }
-    .premium-cta-form { display:grid; gap:14px; }
-    .premium-cta-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .premium-cta-form input,
-    .premium-cta-form textarea {
+    .premium-cta-contacts {
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .premium-cta-contacts a {
+      font-size:clamp(14px,1.4vw,17px);
+      color:rgba(235,235,235,0.65);
+      text-decoration:none;
+      transition:color .2s;
+      font-family:"Montserrat",sans-serif;
+    }
+    .premium-cta-contacts a:hover { color:#fff; }
+    .premium-cta-right { display:flex; flex-direction:column; }
+    .premium-cta-form { display:flex; flex-direction:column; gap:14px; }
+    .premium-cta-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .premium-cta-field { display:flex; flex-direction:column; gap:0; }
+    .premium-cta-input {
       width:100%;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,0.2);
-      background:rgba(255,255,255,0.02);
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.04);
       color:var(--text);
-      padding:16px 18px;
+      padding:14px 18px;
       font:500 15px/1.45 "Montserrat",sans-serif;
       outline:none;
       transition:border-color .22s ease, background .22s ease;
     }
-    .premium-cta-form textarea { min-height:146px; resize:vertical; }
-    .premium-cta-form input:focus,
-    .premium-cta-form textarea:focus {
-      border-color:rgba(255,255,255,0.5);
-      background:rgba(255,255,255,0.045);
+    .premium-cta-input::placeholder { color:rgba(255,255,255,0.30); }
+    textarea.premium-cta-input { min-height:110px; resize:vertical; }
+    .premium-cta-input:focus {
+      border-color:rgba(235,235,235,0.30);
+      background:rgba(255,255,255,0.06);
     }
+    /* Consents */
+    .premium-cta-consents { display:flex; flex-direction:column; gap:10px; margin-top:2px; }
     .premium-cta-legal {
       display:flex; align-items:center; gap:10px;
-      font-size:13px; color:rgba(255,255,255,0.72);
-      line-height:1.55;
-      margin:4px 0 8px;
+      font-size:11px; color:rgba(255,255,255,0.40);
+      letter-spacing:0.08em; text-transform:uppercase;
+      line-height:1.5; cursor:pointer;
+      font-family:"Montserrat",sans-serif; font-weight:600;
     }
-    .premium-cta-legal input { margin-top:0; accent-color:#fff; flex-shrink:0; width:16px; height:16px; }
-    .premium-cta-legal span { transition:color .2s ease; }
-    .premium-cta-legal input:checked + span { color:#FFD060; }
+    .premium-cta-legal input {
+      accent-color:var(--accent);
+      flex-shrink:0; width:15px; height:15px;
+      border-radius:3px;
+    }
+    .premium-cta-legal a { color:var(--accent); text-decoration:none; }
+    /* Footer */
+    .premium-cta-footer { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:4px; }
+    .premium-cta-status { font-size:13px; font-family:"Montserrat",sans-serif; }
+    .premium-cta-status.is-success { color:#34d399; }
+    .premium-cta-status.is-error { color:#f87171; }
+    .premium-cta-trap { display:none !important; }
+    /* Label above form fields */
+    .premium-cta-label {
+      display:block;
+      font-family:"Montserrat",sans-serif;
+      font-size:12px; font-weight:600;
+      letter-spacing:0.08em; text-transform:uppercase;
+      color:rgba(235,235,235,0.55);
+      margin-bottom:8px;
+    }
+    /* Chips container */
+    .premium-cta-chips {
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    /* Individual chip */
+    .cta-chip {
+      display:inline-flex; align-items:center;
+      cursor:pointer;
+    }
+    .cta-chip input { display:none; }
+    .cta-chip span {
+      font-family:"Montserrat",sans-serif;
+      font-size:12px; font-weight:600;
+      letter-spacing:0.05em; text-transform:uppercase;
+      padding:8px 16px; border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.12);
+      color:rgba(235,235,235,0.55);
+      transition:all .2s var(--ease);
+      white-space:nowrap;
+    }
+    .cta-chip input:checked + span {
+      background:rgba(155,109,255,0.12);
+      border-color:rgba(155,109,255,0.40);
+      color:var(--accent);
+    }
+    .cta-chip:hover span {
+      border-color:rgba(255,255,255,0.25);
+      color:var(--text);
+    }
     .premium-cta-submit{
+      display:flex; align-items:center; justify-content:center;
       width:100%;
-      border:0;
-      border-radius:14px;
-      background:#f5f5f5;
-      color:#090909;
-      min-height:58px;
-      font:700 14px/1 "Montserrat",sans-serif;
+      padding:18px 28px;
+      border:none; border-radius:999px;
+      background:#ffffff; color:#000;
+      font:700 13px/1 "Montserrat",sans-serif;
       letter-spacing:0.12em;
       text-transform:uppercase;
       cursor:pointer;
+      transition:background .2s, transform .2s, box-shadow .2s;
     }
-    /* (premium-cta-shell is now single-column, no media override needed) */
+    .premium-cta-submit:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
+    .premium-cta-submit:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
+    @media (max-width:860px) {
+      .premium-cta-shell { grid-template-columns:1fr; gap:40px; }
+      .premium-cta-heading { font-size:clamp(40px,10vw,68px); }
+    }
+    @media (max-width:540px) {
+      .premium-cta-shell { width:min(100% - 32px,1360px); }
+      .premium-cta-row { grid-template-columns:1fr; }
+      .premium-cta-heading { font-size:clamp(36px,12vw,56px); }
+    }
 
 
     .contact-modal {
@@ -1172,7 +1319,6 @@
       width:min(100%,900px);
       background:rgba(10,5,0,0.92); border:1px solid var(--stroke);
       border-radius:var(--radius); overflow:hidden;
-      display:grid; grid-template-columns:1fr 1.4fr; gap:0;
     }
     .contact-modal__close {
       position:absolute; top:20px; right:20px; z-index:10;
@@ -1184,7 +1330,7 @@
     }
     .contact-modal__close:hover { background:rgba(255,255,255,0.12); color:var(--text); }
     .contact-side {
-      background:rgba(232,146,10,0.04); border-right:1px solid var(--stroke);
+      background:rgba(155,109,255,0.04); border-right:1px solid var(--stroke);
       padding:44px 36px; display:flex; flex-direction:column; gap:20px;
     }
     .contact-side h2 { font-size:clamp(24px,2.5vw,34px); }
@@ -1206,7 +1352,7 @@
       outline:none; width:100%;
     }
     .field input:focus, .field select:focus, .field textarea:focus {
-      border-color:rgba(232,146,10,0.45);
+      border-color:rgba(155,109,255,0.45);
     }
     .field textarea { min-height:100px; resize:vertical; }
     .field select option { background:#0a0500; color:var(--text); }
@@ -1295,10 +1441,8 @@
     .hero-metric strong{display:block;font-size:clamp(29px,3vw,37px);font-weight:800;color:var(--accent);line-height:1;}
     .hero-metric span{font-size:12px;color:rgba(235,235,235,.60);margin-top:3px;display:block;}
     .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:100px 0 0;}
-    .challenge-heading{text-align:center;max-width:1080px;margin:0 auto 64px;}
-    .challenge-heading h2{font-size:48px;font-weight:800;line-height:1.15;}
-    .deco-line{display:block;width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:20px auto;}
-    .challenge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    .challenge-heading{text-align:left;max-width:none;margin:0 0 28px;}
+    .deco-line{display:block;width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:16px 0;}
     .challenge-card{min-height:240px;padding:28px 32px;border-radius:18px;}
     .challenge-card__num{
       font-size:clamp(22px,2.2vw,30px);
@@ -1339,7 +1483,6 @@
     .faq-answer{display:none;padding:0 26px 12px;color:rgba(255,255,255,.78);line-height:1.6;}
     .faq-entry.is-open .faq-answer{display:block;}
     .faq-entry.is-open .faq-icon{transform:rotate(45deg);}
-    .site-footer{margin-top:80px;padding-top:64px;}
     .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
     .footer-col{display:flex;flex-direction:column;gap:12px;}
     @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
@@ -1392,14 +1535,17 @@
       .roi-facts .cvalue { font-size:clamp(26px,7vw,36px); }
 
       /* Challenge cards */
-      .challenge-grid {display:flex; gap:14px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
+      .challenge-layout { display: block !important; }
+      .challenge-outer { padding: 64px 16px 48px; }
+      .challenge-title { font-size: clamp(28px,8vw,40px) !important; }
+      .challenge-grid {display:flex !important; flex-direction:row !important; gap:14px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none; }
       .challenge-grid::-webkit-scrollbar{display:none;}
-      .challenge-heading h2 { font-size:clamp(24px,7vw,34px) !important; }
+      .challenge-heading { margin-bottom: 24px; }
       .challenge-card { min-height:0 !important; padding:20px !important; min-width:86vw; flex:0 0 86vw; scroll-snap-align:start; }
-      .challenge-dots{display:flex;}
+      .challenge-dots{display:flex !important;}
 
       /* Portfolio slider */
-      .pf-card { flex-direction:column; min-height:380px; }
+      .pf-card { flex-direction: column-reverse; min-height: 380px; }
       .pf-img { flex:0 0 180px; height:180px; }
       .pf-content { padding:20px 16px 24px; }
       .pf-metric { font-size:48px; }
@@ -1419,16 +1565,12 @@
       .faq-wrap { gap:12px; }
       .challenge-section,.portfolio-section,.services-section,.process-section,.why-section,.faq-section{padding:64px 0 0;}
       .statement-section{padding:56px 16px;}
-      .premium-cta-section{padding:40px 0 68px;}
-
+      .premium-cta-section{padding:40px 0 60px;}
       /* Statement */
       .statement-section p { font-size:clamp(20px,5.5vw,28px); }
-
-      /* Form CTA */
-      .premium-cta-grid { grid-template-columns:1fr !important; }
-      .premium-cta-form input,
-      .premium-cta-form textarea { font-size:16px !important; }
-      .premium-cta-submit { min-height:52px; font-size:13px; }
+      .premium-cta-input, textarea.premium-cta-input { font-size:16px !important; }
+      .premium-cta-submit { min-height:52px; font-size:12px; }
+      .premium-cta-row { grid-template-columns:1fr !important; }
 
       /* Footer */
       .footer-top { grid-template-columns:1fr !important; gap:28px; }
@@ -1458,13 +1600,12 @@
       .roi-layout { grid-template-columns:1fr !important; }
       .challenge-grid { grid-template-columns:1fr 1fr; }
       .services-grid { grid-template-columns:1fr 1fr; }
-      .premium-cta-grid { grid-template-columns:1fr 1fr; }
+      .premium-cta-shell { grid-template-columns:1fr; gap:36px; }
     }
 
   </style>
 </head>
 <body>
-<div id="ambientBg" aria-hidden="true"></div>
 
 <!-- ═══ HEADER ══════════════════════════════════════════════ -->
 <header id="hdr">
@@ -1490,31 +1631,13 @@
 
 <!-- ═══ OPENING SCREEN ════════════════════════════════════════ -->
 <section class="opening-screen" id="welcome">
-  <div class="grid-base" id="gridBase" aria-hidden="true">
-    <svg id="svgBase">
-      <defs>
-        <pattern id="grid-base-pattern" width="44" height="44" patternUnits="userSpaceOnUse">
-          <path d="M 44 0 L 0 0 0 44" fill="none" stroke="rgba(200,110,10,1)" stroke-width="0.8"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid-base-pattern)"/>
-    </svg>
-  </div>
-  <div class="grid-reveal" id="gridReveal" aria-hidden="true">
-    <svg id="svgReveal">
-      <defs>
-        <pattern id="grid-reveal-pattern" width="44" height="44" patternUnits="userSpaceOnUse">
-          <path d="M 44 0 L 0 0 0 44" fill="none" stroke="rgba(232,146,10,1)" stroke-width="1.2"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid-reveal-pattern)"/>
-    </svg>
-  </div>
-  <div class="orbs" aria-hidden="true">
+  <canvas id="neuralCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"></canvas>
+  <div class="orbs" style="z-index:2;">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
+
   <div class="opening-inner">
     <div class="opening-content">
       <h1 class="opening-title fade-up">Внедряем <span class="title-accent">ИИ</span> <br> в бизнес</h1>
@@ -1543,41 +1666,64 @@
 
 
 <section class="challenge-section">
-  <div class="section-inner">
-    <div class="challenge-heading reveal"><h2>Как понять, что вашему бизнесу нужен AI</h2></div>
-    <div class="challenge-grid">
-      <article class="glass-card challenge-card reveal">
-        <div class="challenge-card__num">01</div>
-        <h3>Менеджеры отвечают слишком долго</h3>
-        <p>Если сотрудники часами разбирают входящие заявки, отвечают на одинаковые вопросы и вручную квалифицируют клиентов — это один из первых процессов для автоматизации.</p>
-      </article>
-      <article class="glass-card challenge-card reveal">
-        <div class="challenge-card__num">02</div>
-        <h3>Команда перегружена рутиной</h3>
-        <p>Договоры, отчёты, саммари встреч, поиск информации и перенос данных между сервисами — сигнал, что время уходит на операционку вместо основной работы.</p>
-      </article>
-      <article class="glass-card challenge-card reveal">
-        <div class="challenge-card__num">03</div>
-        <h3>Поддержка отвечает на одни и те же вопросы</h3>
-        <p>Если большая часть обращений повторяется, AI способен закрывать значительную часть запросов без участия оператора.</p>
-      </article>
-      <article class="glass-card challenge-card reveal">
-        <div class="challenge-card__num">04</div>
-        <h3>Лиды теряются вне рабочего времени</h3>
-        <p>Когда компания отвечает только в рабочие часы, часть клиентов уходит раньше, чем получает ответ. AI может принимать обращения 24/7.</p>
-      </article>
-      <article class="glass-card challenge-card reveal">
-        <div class="challenge-card__num">05</div>
-        <h3>Внутри компании сложно найти информацию</h3>
-        <p>Если знания разбросаны по чатам, таблицам и документам, сотрудники начинают зависеть друг от друга вместо системы.</p>
-      </article>
-    </div>
-    <div class="pf-dots challenge-dots" id="challengeDots" aria-label="Навигация по карточкам">
-      <button class="pf-dot challenge-dot is-active" type="button" data-idx="0" aria-label="Карточка 1"></button>
-      <button class="pf-dot challenge-dot" type="button" data-idx="1" aria-label="Карточка 2"></button>
-      <button class="pf-dot challenge-dot" type="button" data-idx="2" aria-label="Карточка 3"></button>
-      <button class="pf-dot challenge-dot" type="button" data-idx="3" aria-label="Карточка 4"></button>
-      <button class="pf-dot challenge-dot" type="button" data-idx="4" aria-label="Карточка 5"></button>
+  <div class="challenge-outer">
+    <div class="challenge-layout">
+      <!-- Sticky left column -->
+      <div class="challenge-sticky">
+        <div class="challenge-heading reveal">
+          <p class="eyebrow">Признаки</p>
+          <h1 class="challenge-title">Как понять, что вам нужен AI</h1>
+        </div>
+      </div>
+
+      <!-- Right column: 2×2 grid of cards -->
+      <div>
+        <div class="challenge-grid">
+          <article class="glass-card challenge-card reveal">
+            <div class="challenge-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="challenge-card__title">Менеджеры отвечают слишком долго</h3>
+            <p class="challenge-card__desc">Если сотрудники часами разбирают входящие заявки, отвечают на одинаковые вопросы и вручную квалифицируют клиентов — это один из первых процессов для автоматизации.</p>
+          </article>
+          <article class="glass-card challenge-card reveal">
+            <div class="challenge-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 class="challenge-card__title">Команда перегружена рутиной</h3>
+            <p class="challenge-card__desc">Договоры, отчёты, саммари встреч, поиск информации и перенос данных между сервисами — сигнал, что время уходит на операционку вместо основной работы.</p>
+          </article>
+          <article class="glass-card challenge-card reveal">
+            <div class="challenge-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="challenge-card__title">Поддержка отвечает на одни и те же вопросы</h3>
+            <p class="challenge-card__desc">Если большая часть обращений повторяется, AI способен закрывать значительную часть запросов без участия оператора.</p>
+          </article>
+          <article class="glass-card challenge-card reveal">
+            <div class="challenge-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="challenge-card__title">Лиды теряются вне рабочего времени</h3>
+            <p class="challenge-card__desc">Когда компания отвечает только в рабочие часы, часть клиентов уходит раньше, чем получает ответ. AI может принимать обращения 24/7.</p>
+          </article>
+          <article class="glass-card challenge-card reveal">
+            <div class="challenge-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 class="challenge-card__title">Внутри компании сложно найти информацию</h3>
+            <p class="challenge-card__desc">Если знания разбросаны по чатам, таблицам и документам, сотрудники начинают зависеть друг от друга вместо системы.</p>
+          </article>
+        </div>
+        <!-- Mobile dots -->
+        <div class="challenge-dots" id="challengeDots" aria-label="Навигация по карточкам">
+          <button class="challenge-dot is-active" type="button" data-idx="0" aria-label="Карточка 1"></button>
+          <button class="challenge-dot" type="button" data-idx="1" aria-label="Карточка 2"></button>
+          <button class="challenge-dot" type="button" data-idx="2" aria-label="Карточка 3"></button>
+          <button class="challenge-dot" type="button" data-idx="3" aria-label="Карточка 4"></button>
+          <button class="challenge-dot" type="button" data-idx="4" aria-label="Карточка 5"></button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1599,54 +1745,52 @@
           <!-- Карточка 1 -->
           <article class="pf-card">
             <div class="pf-content">
-              <div class="pf-img">
-                <img src="assets/call-center-preview.jpg" alt="Авторазбор звонков">
-              </div>
               <h3>Авторазбор телефонных звонков</h3>
               <p class="pf-desc">AI-Микросервис для обработки звонков и контроля работы операторов.</p>
               <div class="pf-metric">-83%</div>
               <p class="pf-metric-sub">Ошибок в CRM после автоматического разбора звонков.</p>
               <a class="pf-link" href="call-center-case.html">Подробнее</a>
             </div>
-            
+            <div class="pf-img">
+              <img src="assets/call-center-preview.png" alt="Авторазбор звонков">
+            </div>
           </article>
 
           <!-- Карточка 2 -->
           <article class="pf-card">
             <div class="pf-content">
-              <div class="pf-img">
-                <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
-              </div>
               <h3>AI-составитель ТЗ</h3>
               <p class="pf-desc">ИИ-помощник, который пишет документацию по шаблону и снимает проблему «чистого листа».</p>
               <div class="pf-metric">16x</div>
               <p class="pf-metric-sub">Скорость подготовки спецификаций.</p>
               <a class="pf-link" href="tz-generator-case.html">Подробнее</a>
             </div>
+            <div class="pf-img">
+              <img src="assets/tz.jpg" alt="AI-составитель ТЗ">
+            </div>
           </article>
 
           <!-- Карточка 3 -->
           <article class="pf-card">
             <div class="pf-content">
-              <div class="pf-img">
-                <img src="assets/content-zavod.jpg" alt="Контент-завод">
-              </div>
               <h3>Контент-завод</h3>
               <p class="pf-desc">Связка из ИИ-Агентов, создающая посты для социальных сетей.</p>
               <div class="pf-metric">20x</div>
               <p class="pf-metric-sub">Скорость производства контента.</p>
               <a class="pf-link" href="smm-case.html">Подробнее</a>
             </div>
-            
+            <div class="pf-img">
+              <img src="assets/content-zavod.jpg" alt="Контент-завод">
+            </div>
           </article>
 
           <!-- Карточка 4 — TG -->
           <a class="pf-card pf-card--tg" href="https://t.me/aivion_agency_bot" target="_blank" rel="noopener noreferrer">
             <div class="pf-tg-inner">
-              <img class="pf-tg-icon" src="assets/tg.logo" alt="Логотип Telegram">
+              <img class="pf-tg-icon" src="assets/tg_logo.png" alt="Логотип Telegram">
               <div class="pf-tg-title">Больше кейсов<br>в Telegram</div>
               <p class="pf-tg-sub">Разборы, демо и подробности<br>по каждому проекту</p>
-              <span class="pf-tg-btn">Перейти в канал →</span>
+              <span class="pf-tg-btn">Перейти в бота →</span>
             </div>
           </a>
 
@@ -1704,8 +1848,7 @@
 </section>
 
 <!-- ═══ SERVICES ══════════════════════════════════════════════ -->
-<section class="services-section section-pad" id="services"
-style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 60%,rgba(0,0,0,0.9) 100%); padding-bottom: 50px;">
+<section class="services-section section-pad" id="services">
 <canvas class="dot-grid-canvas" id="servicesDotGrid" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.5;"></canvas>
 <div class="section-inner" style="position:relative;z-index:2;">
   <div class="section-heading">
@@ -1719,11 +1862,11 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <div class="card-badge">AI</div>
       </div>
       <div class="card-items">
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">AI-ассистенты для бизнеса</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Анализ и обработка документов</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Прогнозирование и аналитика</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Voice и chat боты</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние AI-инструменты</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">🤖</div><div class="item-label">AI-ассистенты для бизнеса</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">📄</div><div class="item-label">Анализ и обработка документов</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">📊</div><div class="item-label">Прогнозирование и аналитика</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">🎙️</div><div class="item-label">Voice и chat боты</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">⚙️</div><div class="item-label">Внутренние AI-инструменты</div></div>
       </div>
     </article>
     <article class="service-card">
@@ -1732,11 +1875,11 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
         <div class="card-badge">IT</div>
       </div>
       <div class="card-items">
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">CRM / ERP / 1С интеграции</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Внутренние сервисы и порталы</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Cloud & Security</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">IT-аудит инфраструктуры</div></div>
-        <div class="item"><div class="item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#E8920A" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#E8920A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-label">Custom development</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">🔗</div><div class="item-label">CRM / ERP / 1С интеграции</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">🖥️</div><div class="item-label">Внутренние сервисы и порталы</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">☁️</div><div class="item-label">Cloud & Security</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">🔍</div><div class="item-label">IT-аудит инфраструктуры</div></div>
+        <div class="item"><div class="item-icon" aria-hidden="true">💻</div><div class="item-label">Custom development</div></div>
       </div>
     </article>
   </div>
@@ -1761,21 +1904,67 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 </section>
 
 <section class="premium-cta-section" id="contact">
-  <div class="premium-cta-shell reveal">
-    <h2 class="premium-cta-heading">Обсудим вашу задачу</h2>
-    <div class="premium-cta-right">
-      <form class="premium-cta-form" action="#" method="post">
-        <div class="premium-cta-grid">
-          <input id="cta-name" name="name" type="text" placeholder="Ваше имя" required/>
-          <input id="cta-contact" name="contact" type="text" placeholder="Email или Телефон" required/>
+  <div class="challenge-outer">
+    <div class="premium-cta-shell reveal">
+      <div class="premium-cta-left">
+        <h2 class="premium-cta-heading">ОБСУДИТЬ<br>ВНЕДРЕНИЕ</h2>
+        <div class="premium-cta-contacts">
+          <a href="mailto:hello@aivion.agency">hello@aivion.agency</a>
+          <a href="https://t.me/aivion_agency_bot">@aivion_agency_bot</a>
         </div>
-        <textarea id="cta-brief" name="brief" placeholder="Ваш вопрос" required></textarea>
-        <label class="premium-cta-legal" for="cta-consent">
-          <input id="cta-consent" type="checkbox" required/>
-          <span>Я даю согласие на обработку персональных данных.</span>
-        </label>
-        <button class="premium-cta-submit" type="submit">ОТПРАВИТЬ ЗАПРОС</button>
+      </div>
+      <div class="premium-cta-right">
+      <form class="premium-cta-form" id="ctaForm" action="#" method="post">
+
+        <div class="premium-cta-field">
+          <label class="premium-cta-label" for="cta-name">Ваше имя *</label>
+          <input id="cta-name" class="premium-cta-input" name="name" type="text" placeholder="Введите ваше имя" required/>
+        </div>
+
+        <div class="premium-cta-field">
+          <label class="premium-cta-label">Что хотите улучшить?</label>
+          <div class="premium-cta-chips" id="ctaChips">
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Коммуникацию с клиентами"/><span>Коммуникацию с клиентами</span></label>
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Скорость внутренних процессов"/><span>Скорость внутренних процессов</span></label>
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Работу с документами"/><span>Работу с документами</span></label>
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Обработку и использование данных"/><span>Обработку и использование данных</span></label>
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Аналитику и прогнозирование"/><span>Аналитику и прогнозирование</span></label>
+            <label class="cta-chip"><input type="checkbox" name="improve" value="Другое"/><span>Другое</span></label>
+          </div>
+        </div>
+
+        <div class="premium-cta-field">
+          <label class="premium-cta-label" for="cta-brief">Кратко опишите задачу *</label>
+          <textarea id="cta-brief" class="premium-cta-input" name="brief" placeholder="Например: AI-ассистент для подготовки КП, парсинг конкурентов, генерация писем клиентам, обработка заявок или др." required></textarea>
+        </div>
+
+        <div class="premium-cta-field">
+          <label class="premium-cta-label" for="cta-contact">Telegram / телефон *</label>
+          <input id="cta-contact" class="premium-cta-input" name="contact" type="text" placeholder="@username или +7..." required/>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="premium-cta-trap" aria-hidden="true">
+          <input name="website" type="text" tabindex="-1" autocomplete="off"/>
+        </div>
+
+        <div class="premium-cta-consents">
+          <label class="premium-cta-legal">
+            <input id="cta-policy" type="checkbox" name="policyAccepted" value="yes" required/>
+            <span>Я ознакомился(ась) с <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span>
+          </label>
+          <label class="premium-cta-legal">
+            <input id="cta-consent" type="checkbox" name="consentAccepted" value="yes" required/>
+            <span>Даю согласие на обработку моих персональных данных в соответствии с <a href="/consent.html" target="_blank" rel="noopener noreferrer">текстом согласия</a>.</span>
+          </label>
+        </div>
+
+        <div class="premium-cta-footer">
+          <button class="premium-cta-submit" type="submit" id="ctaSubmitBtn">ОТПРАВИТЬ ЗАПРОС</button>
+          <p class="premium-cta-status" id="ctaStatus" aria-live="polite"></p>
+        </div>
       </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1802,6 +1991,90 @@ style="background:linear-gradient(180deg,rgba(28,13,0,0.7) 0%,rgba(10,5,0,0.85) 
 
 <script src="site-content.js"></script>
 <script>
+/* ═══ NEURAL NETWORK HERO CANVAS ══════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('neuralCanvas');
+  if(!canvas) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes, t = 0, rafId, running = false;
+  const NODE_COUNT = window.innerWidth < 600 ? 38 : 60;
+  const LINK_DIST = window.innerWidth < 600 ? 110 : 150;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.offsetWidth; H = canvas.offsetHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if(!nodes) initNodes(); else nodes.forEach(n => {
+      if(n.x > W) n.x = Math.random() * W;
+      if(n.y > H) n.y = Math.random() * H;
+    });
+  }
+
+  function initNodes() {
+    nodes = Array.from({length: NODE_COUNT}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+      r: 1.2 + Math.random() * 2.2,
+      phase: Math.random() * Math.PI * 2,
+      bright: 0.5 + Math.random() * 0.5
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    t += 0.014;
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+    });
+    // draw edges
+    for(let i = 0; i < nodes.length; i++) {
+      for(let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < LINK_DIST) {
+          const a = (1 - d / LINK_DIST) * 0.38;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(155,109,255,${a.toFixed(3)})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+    // draw nodes
+    nodes.forEach(n => {
+      const pulse = 0.55 + 0.45 * Math.sin(t * 1.8 + n.phase);
+      const alpha = n.bright * pulse;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r * (0.8 + 0.3 * pulse), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(190,160,255,${alpha.toFixed(3)})`;
+      ctx.fill();
+      // soft glow
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 6);
+      g.addColorStop(0, `rgba(155,109,255,${(alpha * 0.28).toFixed(3)})`);
+      g.addColorStop(1, 'rgba(155,109,255,0)');
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+    });
+    rafId = requestAnimationFrame(draw);
+  }
+
+  function start() { if(running) return; running = true; rafId = requestAnimationFrame(draw); }
+  function stop()  { running = false; cancelAnimationFrame(rafId); }
+
+  resize();
+  if('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      entries[0].isIntersecting ? start() : stop();
+    }, {threshold: 0.01}).observe(canvas.parentElement || canvas);
+  } else { start(); }
+  window.addEventListener('resize', resize);
+})();
 /* ═══ HEADER SCROLL ════════════════════════════════════════ */
 const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => {
@@ -2098,7 +2371,7 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   window.addEventListener('resize',build);
 })();
 
-/* ═══ DOT GRID CANVAS (AMBER) ══════════════════════════════ */
+/* ═══ DOT GRID CANVAS (PURPLE) ══════════════════════════════ */
 function createDotGrid(canvas) {
   if(!canvas)return;
   if(window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)').matches) return;
@@ -2149,7 +2422,7 @@ function createDotGrid(canvas) {
       if(alpha<0.03)return;
       const r=Math.min(2.2,0.72+perim*0.8+glow*0.34+ambient*0.22);
       ctx.beginPath();
-      ctx.fillStyle=`rgba(232,146,10,${alpha.toFixed(3)})`;
+      ctx.fillStyle=`rgba(155,109,255,${alpha.toFixed(3)})`;
       ctx.arc(pt.x,pt.y,r,0,Math.PI*2);
       ctx.fill();
     });
@@ -2234,7 +2507,8 @@ createDotGrid(document.getElementById('servicesDotGrid'));
   const track = document.getElementById('pfTrack');
   const prevBtn = document.getElementById('pfPrev');
   const nextBtn = document.getElementById('pfNext');
-  const dots = Array.from(document.querySelectorAll('.pf-dot'));
+  const dotsContainer = document.getElementById('pfDots');
+  const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.pf-dot')) : [];
   if (!track) return;
 
   const cards = Array.from(track.querySelectorAll('.pf-card'));
@@ -2267,7 +2541,65 @@ createDotGrid(document.getElementById('servicesDotGrid'));
   goTo(0);
 })();
 
+/* ═══ CTA FORM SUBMIT ═══════════════════════════════════════ */
+(function () {
+  const form = document.getElementById('ctaForm');
+  const submitBtn = document.getElementById('ctaSubmitBtn');
+  const status = document.getElementById('ctaStatus');
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) {
+      status.textContent = 'Проверьте обязательные поля.';
+      status.className = 'premium-cta-status is-error';
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем...';
+    status.textContent = '';
+    status.className = 'premium-cta-status';
+
+    try {
+      const data = new FormData(form);
+      const botTrap = String(data.get('website') || '').trim();
+      if (botTrap !== '') {
+        status.textContent = 'Запрос отправлен. Скоро свяжемся с вами.';
+        status.className = 'premium-cta-status is-success';
+        form.reset();
+        return;
+      }
+      const improve = data.getAll('improve');
+      const payload = {
+        name: String(data.get('name') || '').trim(),
+        improve: improve,
+        brief: String(data.get('brief') || '').trim(),
+        contact: String(data.get('contact') || '').trim(),
+        policyAccepted: data.get('policyAccepted') === 'yes',
+        consentAccepted: data.get('consentAccepted') === 'yes',
+      };
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (!res.ok || !result.ok) throw new Error(result.message || 'Ошибка отправки.');
+      form.reset();
+      status.textContent = 'Запрос отправлен. Скоро свяжемся с вами.';
+      status.className = 'premium-cta-status is-success';
+    } catch (err) {
+      status.textContent = err.message || 'Не удалось отправить запрос. Попробуйте снова.';
+      status.className = 'premium-cta-status is-error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'ОТПРАВИТЬ ЗАПРОС';
+    }
+  });
+})();
+
 </script>
 <script src="contact-form.js"></script>
+<script src="site-content.js"></script>
 </body>
 </html>
