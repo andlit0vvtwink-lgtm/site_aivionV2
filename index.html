@@ -1204,7 +1204,7 @@
       background:rgba(255,255,255,0.04);
       color:var(--text);
       padding:14px 18px;
-      font:500 15px/1.45 "Montserrat",sans-serif;
+      font:400 15px/1.45 "Montserrat",sans-serif;
       outline:none;
       transition:border-color .22s ease, background .22s ease;
     }
@@ -1221,7 +1221,7 @@
       font-size:11px; color:rgba(255,255,255,0.40);
       letter-spacing:0.08em; text-transform:uppercase;
       line-height:1.5; cursor:pointer;
-      font-family:"Montserrat",sans-serif; font-weight:600;
+      font-family:"Montserrat",sans-serif; font-weight:400;
     }
     .premium-cta-legal input {
       accent-color:var(--accent);
@@ -1239,7 +1239,7 @@
     .premium-cta-label {
       display:block;
       font-family:"Montserrat",sans-serif;
-      font-size:12px; font-weight:600;
+      font-size:12px; font-weight:400;
       letter-spacing:0.08em; text-transform:uppercase;
       color:rgba(235,235,235,0.55);
       margin-bottom:8px;
@@ -1256,7 +1256,7 @@
     .cta-chip input { display:none; }
     .cta-chip span {
       font-family:"Montserrat",sans-serif;
-      font-size:12px; font-weight:600;
+      font-size:12px; font-weight:400;
       letter-spacing:0.05em; text-transform:uppercase;
       padding:8px 16px; border-radius:999px;
       background:rgba(255,255,255,0.04);
@@ -1279,8 +1279,8 @@
       width:100%;
       padding:18px 28px;
       border:none; border-radius:999px;
-      background:#ffffff; color:#000;
-      font:700 13px/1 "Montserrat",sans-serif;
+      background:var(--accent); color:#fff;
+      font:400 13px/1 "Montserrat",sans-serif;
       letter-spacing:0.12em;
       text-transform:uppercase;
       cursor:pointer;
@@ -1297,6 +1297,7 @@
       .premium-cta-row { grid-template-columns:1fr; }
       .premium-cta-heading { font-size:clamp(36px,12vw,56px); }
     }
+    .premium-cta-contacts-mobile { display:none; }
 
 
     .contact-modal {
@@ -1368,7 +1369,7 @@
     }
     .choice-chip input { display:none; }
     .choice-chip span {
-      font-family:"Montserrat",sans-serif; font-size:12px; font-weight:600;
+      font-family:"Montserrat",sans-serif; font-size:12px; font-weight:400;
       letter-spacing:0.06em; text-transform:uppercase;
       padding:8px 16px; border-radius:999px;
       background:rgba(255,255,255,0.04); border:1px solid var(--stroke);
@@ -1456,16 +1457,16 @@
     .challenge-dot.is-active{background:var(--accent);transform:scale(1.15);}
     .process-section{padding:100px 0 140px;}
     .process-list{margin-top:120px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;position:relative;align-items:start;width:100%;}
-    .process-list::before{content:'';position:absolute;left:0;right:0;top:31px;height:1px;background:rgba(184,134,11,.72);}
+    .process-list::before{content:'';position:absolute;left:0;right:0;top:31px;height:1px;background:rgba(155,109,255,.72);}
     .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:0;border:none;background:none;box-shadow:none;opacity:1;transform:none;}
     .process-step::after,.process-number,.process-dot{display:none !important;}
     .process-step:hover{background:none;box-shadow:none;}
     .process-step:hover .process-copy h3,.process-step:hover .process-copy p{color:inherit;}
-    .process-icon{width:62px;height:62px;border-radius:50%;border:2px solid #B8860B;background:#050505;color:#B8860B;display:grid;place-items:center;font-family:"Space Mono","JetBrains Mono",monospace;font-size:24px;font-weight:700;letter-spacing:.02em;position:relative;z-index:2;box-shadow:none;transform:none;}
-    .process-step:hover .process-icon{transform:none;border-color:#B8860B;background:#050505;box-shadow:none;}
+    .process-icon{width:62px;height:62px;border-radius:50%;border:1px solid rgba(155,109,255,.7);background:#050505;color:var(--accent);display:grid;place-items:center;font-family:"Space Mono","JetBrains Mono",monospace;font-size:24px;font-weight:500;letter-spacing:.02em;position:relative;z-index:2;box-shadow:none;transform:none;}
+    .process-step:hover .process-icon{transform:none;border-color:rgba(155,109,255,.9);background:#050505;box-shadow:none;}
     .process-copy{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:0;}
     .process-copy h3{font-size:clamp(36px,2.45vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.02em;color:#fff;margin-top:0;}
-    .process-meta{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#B8860B;font-weight:600;}
+    .process-meta{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:400;}
     .process-copy p{font-size:clamp(18px,1.35vw,20px);line-height:1.6;color:rgba(255,255,255,.7);max-width:280px;}
     /* .portfolio-stack overridden by new slider */
     .portfolio-card{min-height:0;padding:28px 30px;}
@@ -1487,12 +1488,17 @@
     .footer-col{display:flex;flex-direction:column;gap:12px;}
     @media (max-width:980px){.opening-inner{grid-template-columns:1fr;gap:28px;}.transform-card{max-width:420px;}.portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr 1fr;}
     .process-list{grid-template-columns:1fr 1fr;gap:48px 28px;}.footer-top{grid-template-columns:1fr 1fr;}.faq-item{font-size:22px;}}
-    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:44px;line-height:1.05;} .portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
+    @media (max-width:700px){.section-inner{width:min(100% - 32px,1360px);} .opening-title{font-size:38px;line-height:1.05;} .opening-inner{min-height:calc(100svh - var(--header-h) - 120px);} .opening-lead{margin-top:18px;line-height:1.55;} .opening-actions{margin-top:24px;margin-bottom:24px;} .hero-stats-line{padding-top:14px;} .portfolio-stack,.services-grid,.why-grid{grid-template-columns:1fr;}
     .process-list{grid-template-columns:1fr;margin-top:88px;padding-left:22px;gap:44px;}
     .process-list::before{left:30px;right:auto;top:0;bottom:0;width:1px;height:auto;}
     .process-step{display:grid;grid-template-columns:62px minmax(0,1fr);column-gap:22px;row-gap:0;align-items:start;text-align:left;}
     .process-icon{grid-column:1;grid-row:1;justify-self:center;}
     .process-copy{grid-column:2;grid-row:1;align-items:flex-start;padding-top:4px;}
+    .premium-cta-shell{gap:24px;}
+    .premium-cta-left{gap:18px;}
+    .premium-cta-contacts{display:none;}
+    .premium-cta-contacts-mobile{display:flex;flex-direction:column;gap:6px;margin-top:12px;}
+    .premium-cta-contacts-mobile a{font-size:14px;color:rgba(235,235,235,0.72);text-decoration:none;font-family:"Montserrat",sans-serif;}
     .process-copy h3{font-size:clamp(30px,8vw,38px);}
     .process-meta{font-size:14px;}
     .process-copy p{max-width:360px;} .hero-stats-line{grid-template-columns:1fr;gap:24px;} .faq-item{font-size:16px;padding:18px 20px;} .challenge-heading h2{font-size:28px;} .challenge-card{padding:22px;}}
@@ -1964,6 +1970,10 @@
           <p class="premium-cta-status" id="ctaStatus" aria-live="polite"></p>
         </div>
       </form>
+        <div class="premium-cta-contacts premium-cta-contacts-mobile">
+          <a href="mailto:hello@aivion.agency">hello@aivion.agency</a>
+          <a href="https://t.me/aivion_agency_bot">@aivion_agency_bot</a>
+        </div>
       </div>
     </div>
   </div>
